@@ -8308,7 +8308,7 @@
   },
   {
     "dexId": 785,
-    "slug": "tapu koko",
+    "slug": "tapu-koko",
     "en": "Tapu Koko",
     "ko": "카푸꼬꼬꼭",
     "category": "base",
@@ -8317,7 +8317,7 @@
   },
   {
     "dexId": 786,
-    "slug": "tapu lele",
+    "slug": "tapu-lele",
     "en": "Tapu Lele",
     "ko": "카푸나비나",
     "category": "base",
@@ -8326,7 +8326,7 @@
   },
   {
     "dexId": 787,
-    "slug": "tapu bulu",
+    "slug": "tapu-bulu",
     "en": "Tapu Bulu",
     "ko": "카푸브루루",
     "category": "base",
@@ -8335,7 +8335,7 @@
   },
   {
     "dexId": 788,
-    "slug": "tapu fini",
+    "slug": "tapu-fini",
     "en": "Tapu Fini",
     "ko": "카푸느지느",
     "category": "base",
