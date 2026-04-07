@@ -123,6 +123,16 @@
     const dialogueText = document.getElementById('dialogue-text');
     const loadingText = document.getElementById('loading-text');
 
+    function isSpecialEncounterName(pokemon) {
+      if (!pokemon) return false;
+      const slug = String(pokemon.slug || '').toLowerCase();
+      return slug.startsWith('mega-') || slug.includes('-gigantamax');
+    }
+
+    function getEncounterPrefix(pokemon) {
+      return isSpecialEncounterName(pokemon) ? '앗! ' : '앗! 야생의 ';
+    }
+
     function buildImageCandidates(entry, isShiny) {
       const slug = entry.slug;
       const dex = String(entry.dexId).padStart(4, '0');
@@ -256,13 +266,15 @@
         }
       );
 
+      const encounterPrefix = getEncounterPrefix(pokemon);
+
       if (pokemon.isShiny) {
         shinySparkle.classList.remove('hidden');
         appContainer.classList.add('shiny-bg');
-        dialogueText.innerHTML = `앗! 야생의 <strong class="text-yellow-600">색이다른 ${pokemon.name}</strong>(이)가<br>나타났다! <span class="cursor-blink text-red-600">▼</span>`;
+        dialogueText.innerHTML = `${encounterPrefix}<strong class="text-yellow-600">색이다른 ${pokemon.name}</strong>(이)가<br>나타났다! <span class="cursor-blink text-red-600">▼</span>`;
       } else {
         shinySparkle.classList.add('hidden');
-        dialogueText.innerHTML = `앗! 야생의 <strong class="text-red-600">${pokemon.name}</strong>(이)가<br>나타났다! <span class="cursor-blink text-red-600">▼</span>`;
+        dialogueText.innerHTML = `${encounterPrefix}<strong class="text-red-600">${pokemon.name}</strong>(이)가<br>나타났다! <span class="cursor-blink text-red-600">▼</span>`;
       }
     }
 
