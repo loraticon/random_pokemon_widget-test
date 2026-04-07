@@ -35,6 +35,14 @@
     "is_form": true,
     "source": "pokemonData.json"
   },
+    "dexId": 3,
+    "slug": "venusaur-gigantamax",
+    "en": "Mega Venusaur",
+    "ko": "거다이맥스 이상해꽃",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
   {
     "dexId": 4,
     "slug": "charmander",
@@ -9298,10 +9306,34 @@
   },
   {
     "dexId": 892,
-    "slug": "urshifu",
+    "slug": "urshifu-single-strike",
     "en": "Urshifu",
-    "ko": "우라오스",
+    "ko": "우라오스 (일격)",
     "category": "base",
+    "is_form": false,
+    "source": "pokemon-ko-en.csv"
+  },
+    "dexId": 892,
+    "slug": "urshifu-rapid-strike",
+    "en": "Urshifu",
+    "ko": "우라오스 (연격)",
+    "category": "base",
+    "is_form": false,
+    "source": "pokemon-ko-en.csv"
+  },
+    "dexId": 892,
+    "slug": "urshifu-single-strike-gigantamax",
+    "en": "Urshifu",
+    "ko": "거다이맥스 우라오스",
+    "category": "gigantamax",
+    "is_form": false,
+    "source": "pokemon-ko-en.csv"
+  },
+      "dexId": 892,
+    "slug": "urshifu-rapid-strike-gigantamax",
+    "en": "Urshifu",
+    "ko": "거다이맥스 우라오스",
+    "category": "gigantamax",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
   },
