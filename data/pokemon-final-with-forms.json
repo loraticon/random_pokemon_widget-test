@@ -2919,7 +2919,7 @@
     "dexId": 256,
     "slug": "combusken",
     "en": "Combusken",
-    "ko": "영치기",
+    "ko": "영치코",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
@@ -3504,7 +3504,7 @@
     "dexId": 311,
     "slug": "plusle",
     "en": "Plusle",
-    "ko": "플러스파",
+    "ko": "플러시",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
@@ -4368,7 +4368,7 @@
     "dexId": 394,
     "slug": "prinplup",
     "en": "Prinplup",
-    "ko": "팽태초",
+    "ko": "팽태자",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
@@ -4539,7 +4539,7 @@
     "dexId": 412,
     "slug": "burmy",
     "en": "Burmy",
-    "ko": "도미미",
+    "ko": "도롱충이",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
@@ -5754,7 +5754,7 @@
     "dexId": 533,
     "slug": "gurdurr",
     "en": "Gurdurr",
-    "ko": "토골도스",
+    "ko": "토쇠골",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
@@ -6339,7 +6339,7 @@
     "dexId": 590,
     "slug": "foongus",
     "en": "Foongus",
-    "ko": "깜놀버섯",
+    "ko": "깜놀버슬",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
@@ -6384,7 +6384,7 @@
     "dexId": 595,
     "slug": "joltik",
     "en": "Joltik",
-    "ko": "파쪼꼬",
+    "ko": "파쪼옥",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
@@ -6447,7 +6447,7 @@
     "dexId": 602,
     "slug": "tynamo",
     "en": "Tynamo",
-    "ko": "저마두",
+    "ko": "저리어",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
@@ -6546,7 +6546,7 @@
     "dexId": 611,
     "slug": "fraxure",
     "en": "Fraxure",
-    "ko": "액스도",
+    "ko": "액슨도",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
@@ -6600,7 +6600,7 @@
     "dexId": 617,
     "slug": "accelgor",
     "en": "Accelgor",
-    "ko": "어셀고어",
+    "ko": "어지리더",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
@@ -6960,7 +6960,7 @@
     "dexId": 653,
     "slug": "fennekin",
     "en": "Fennekin",
-    "ko": "푸호코",
+    "ko": "푸호꼬",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
