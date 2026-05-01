@@ -35,14 +35,6 @@
     "is_form": true,
     "source": "pokemonData.json"
   },
-    "dexId": 3,
-    "slug": "venusaur-gigantamax",
-    "en": "Mega Venusaur",
-    "ko": "거다이맥스 이상해꽃",
-    "category": "gigantamax",
-    "is_form": true,
-    "source": "pokemonData.json"
-  },
   {
     "dexId": 4,
     "slug": "charmander",
@@ -2927,7 +2919,7 @@
     "dexId": 256,
     "slug": "combusken",
     "en": "Combusken",
-    "ko": "영치코",
+    "ko": "영치기",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
@@ -3512,7 +3504,7 @@
     "dexId": 311,
     "slug": "plusle",
     "en": "Plusle",
-    "ko": "플러시",
+    "ko": "플러스파",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
@@ -4376,7 +4368,7 @@
     "dexId": 394,
     "slug": "prinplup",
     "en": "Prinplup",
-    "ko": "팽태자",
+    "ko": "팽태초",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
@@ -4547,7 +4539,7 @@
     "dexId": 412,
     "slug": "burmy",
     "en": "Burmy",
-    "ko": "도롱충이",
+    "ko": "도미미",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
@@ -5762,7 +5754,7 @@
     "dexId": 533,
     "slug": "gurdurr",
     "en": "Gurdurr",
-    "ko": "토쇠골",
+    "ko": "토골도스",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
@@ -6347,7 +6339,7 @@
     "dexId": 590,
     "slug": "foongus",
     "en": "Foongus",
-    "ko": "깜놀버슬",
+    "ko": "깜놀버섯",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
@@ -6392,7 +6384,7 @@
     "dexId": 595,
     "slug": "joltik",
     "en": "Joltik",
-    "ko": "파쪼옥",
+    "ko": "파쪼꼬",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
@@ -6455,7 +6447,7 @@
     "dexId": 602,
     "slug": "tynamo",
     "en": "Tynamo",
-    "ko": "저리어",
+    "ko": "저마두",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
@@ -6554,7 +6546,7 @@
     "dexId": 611,
     "slug": "fraxure",
     "en": "Fraxure",
-    "ko": "액슨도",
+    "ko": "액스도",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
@@ -6608,7 +6600,7 @@
     "dexId": 617,
     "slug": "accelgor",
     "en": "Accelgor",
-    "ko": "어지리더",
+    "ko": "어셀고어",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
@@ -6968,7 +6960,7 @@
     "dexId": 653,
     "slug": "fennekin",
     "en": "Fennekin",
-    "ko": "푸호꼬",
+    "ko": "푸호코",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
@@ -9306,34 +9298,10 @@
   },
   {
     "dexId": 892,
-    "slug": "urshifu-single-strike",
+    "slug": "urshifu",
     "en": "Urshifu",
-    "ko": "우라오스 (일격)",
+    "ko": "우라오스",
     "category": "base",
-    "is_form": false,
-    "source": "pokemon-ko-en.csv"
-  },
-    "dexId": 892,
-    "slug": "urshifu-rapid-strike",
-    "en": "Urshifu",
-    "ko": "우라오스 (연격)",
-    "category": "base",
-    "is_form": false,
-    "source": "pokemon-ko-en.csv"
-  },
-    "dexId": 892,
-    "slug": "urshifu-single-strike-gigantamax",
-    "en": "Urshifu",
-    "ko": "거다이맥스 우라오스",
-    "category": "gigantamax",
-    "is_form": false,
-    "source": "pokemon-ko-en.csv"
-  },
-      "dexId": 892,
-    "slug": "urshifu-rapid-strike-gigantamax",
-    "en": "Urshifu",
-    "ko": "거다이맥스 우라오스",
-    "category": "gigantamax",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
   },
@@ -9989,7 +9957,7 @@
     "dexId": 964,
     "slug": "palafin",
     "en": "Palafin",
-    "ko": "돌핀맨",
+    "ko": "돌핀맨(나이브폼)",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
