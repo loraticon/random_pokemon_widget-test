@@ -36,6 +36,15 @@
     "source": "pokemonData.json"
   },
   {
+    "dexId": 3,
+    "slug": "venusaur-gigantamax",
+    "en": "Venusaur (G)",
+    "ko": "이상해꽃 (G)",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
     "dexId": 4,
     "slug": "charmander",
     "en": "Charmander",
@@ -61,6 +70,15 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 6,
+    "slug": "charizard-gigantamax",
+    "en": "Charizard (G)",
+    "ko": "리자몽 (G)",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 6,
@@ -109,6 +127,15 @@
   },
   {
     "dexId": 9,
+    "slug": "blastoise-gigantamax",
+    "en": "Blastoise (G)",
+    "ko": "거북왕 (G)",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 9,
     "slug": "mega-blastoise",
     "en": "Mega Blastoise",
     "ko": "메가거북왕",
@@ -142,6 +169,15 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 12,
+    "slug": "butterfree-gigantamax",
+    "en": "Butterfree (G)",
+    "ko": "버터플 (G)",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 13,
@@ -297,6 +333,15 @@
     "source": "pokemon-ko-en.csv"
   },
   {
+    "dexId": 25,
+    "slug": "pikachu-gigantamax",
+    "en": "Pikachu (G)",
+    "ko": "피카츄 (G)",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
     "dexId": 26,
     "slug": "raichu",
     "en": "Raichu",
@@ -304,15 +349,6 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
-  },
-  {
-    "dexId": 26,
-    "slug": "raichu-alolan",
-    "en": "Raichu (Alolan)",
-    "ko": "라이츄 (알로라)",
-    "category": "alola",
-    "is_form": true,
-    "source": "pokemonData.json"
   },
   {
     "dexId": 26,
@@ -329,6 +365,15 @@
     "en": "Mega Raichu Y",
     "ko": "메가라이츄Y",
     "category": "mega",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 26,
+    "slug": "raichu-alolan",
+    "en": "Raichu (Alolan)",
+    "ko": "라이츄 (알로라)",
+    "category": "alola",
     "is_form": true,
     "source": "pokemonData.json"
   },
@@ -378,6 +423,15 @@
     "source": "pokemon-ko-en.csv"
   },
   {
+    "dexId": 29,
+    "slug": "nidoran♀",
+    "en": "Nidoran♀",
+    "ko": "니드런♀",
+    "category": "base",
+    "is_form": false,
+    "source": "pokemonData.json"
+  },
+  {
     "dexId": 30,
     "slug": "nidorina",
     "en": "Nidorina",
@@ -403,6 +457,15 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 32,
+    "slug": "nidoran♂",
+    "en": "Nidoran♂",
+    "ko": "니드런♂",
+    "category": "base",
+    "is_form": false,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 33,
@@ -648,6 +711,15 @@
     "source": "pokemonData.json"
   },
   {
+    "dexId": 52,
+    "slug": "meowth-gigantamax",
+    "en": "Meowth (G)",
+    "ko": "나옹 (G)",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
     "dexId": 53,
     "slug": "persian",
     "en": "Persian",
@@ -828,6 +900,15 @@
     "source": "pokemon-ko-en.csv"
   },
   {
+    "dexId": 68,
+    "slug": "machamp-gigantamax",
+    "en": "Machamp (G)",
+    "ko": "괴력몬 (G)",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
     "dexId": 69,
     "slug": "bellsprout",
     "en": "Bellsprout",
@@ -1000,19 +1081,19 @@
   },
   {
     "dexId": 80,
-    "slug": "slowbro-galarian",
-    "en": "Slowbro (Galarian)",
-    "ko": "야도란 (가라르)",
-    "category": "galar",
+    "slug": "mega-slowbro",
+    "en": "Mega Slowbro",
+    "ko": "메가야도란",
+    "category": "mega",
     "is_form": true,
     "source": "pokemonData.json"
   },
   {
     "dexId": 80,
-    "slug": "mega-slowbro",
-    "en": "Mega Slowbro",
-    "ko": "메가야도란",
-    "category": "mega",
+    "slug": "slowbro-galarian",
+    "en": "Slowbro (Galarian)",
+    "ko": "야도란 (가라르)",
+    "category": "galar",
     "is_form": true,
     "source": "pokemonData.json"
   },
@@ -1036,12 +1117,30 @@
   },
   {
     "dexId": 83,
+    "slug": "farfetchd",
+    "en": "Farfetch'd",
+    "ko": "파오리",
+    "category": "base",
+    "is_form": false,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 83,
     "slug": "farfetch’d",
     "en": "Farfetch’d",
     "ko": "파오리",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 83,
+    "slug": "farfetchd-galarian",
+    "en": "Farfetch'd (Galarian)",
+    "ko": "파오리 (가라르)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 84,
@@ -1162,6 +1261,15 @@
   },
   {
     "dexId": 94,
+    "slug": "gengar-gigantamax",
+    "en": "Gengar (G)",
+    "ko": "팬텀 (G)",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 94,
     "slug": "mega-gengar",
     "en": "Mega Gengar",
     "ko": "메가팬텀",
@@ -1213,6 +1321,15 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 99,
+    "slug": "kingler-gigantamax",
+    "en": "Kingler (G)",
+    "ko": "킹크랩 (G)",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 100,
@@ -1486,6 +1603,15 @@
   },
   {
     "dexId": 122,
+    "slug": "mr-mime",
+    "en": "Mr. Mime",
+    "ko": "마임맨",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 122,
     "slug": "mr-mime-galarian",
     "en": "Mr. Mime (Galarian)",
     "ko": "마임맨 (가라르)",
@@ -1557,6 +1683,33 @@
     "source": "pokemon-ko-en.csv"
   },
   {
+    "dexId": 128,
+    "slug": "tauros-aqua-breed",
+    "en": "Tauros (Aqua)",
+    "ko": "켄타로스(아쿠아종)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 128,
+    "slug": "tauros-blaze-breed",
+    "en": "Tauros (Blaze)",
+    "ko": "켄타로스(블레이즈종)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 128,
+    "slug": "tauros-combat-breed",
+    "en": "Tauros (Combat)",
+    "ko": "켄타로스(컴뱃종)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
     "dexId": 129,
     "slug": "magikarp",
     "en": "Magikarp",
@@ -1593,6 +1746,15 @@
     "source": "pokemon-ko-en.csv"
   },
   {
+    "dexId": 131,
+    "slug": "lapras-gigantamax",
+    "en": "Lapras (G)",
+    "ko": "라프라스 (G)",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
     "dexId": 132,
     "slug": "ditto",
     "en": "Ditto",
@@ -1609,6 +1771,15 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 133,
+    "slug": "eevee-gigantamax",
+    "en": "Eevee (G)",
+    "ko": "이브이 (G)",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 134,
@@ -1708,6 +1879,15 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 143,
+    "slug": "snorlax-gigantamax",
+    "en": "Snorlax (G)",
+    "ko": "잠만보 (G)",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 144,
@@ -4257,6 +4437,15 @@
     "source": "pokemon-ko-en.csv"
   },
   {
+    "dexId": 382,
+    "slug": "primal-kyogre",
+    "en": "Primal Kyogre",
+    "ko": "원시가이오가",
+    "category": "primal",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
     "dexId": 383,
     "slug": "groudon",
     "en": "Groudon",
@@ -4264,6 +4453,15 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 383,
+    "slug": "primal-groudon",
+    "en": "Primal Groudon",
+    "ko": "원시그란돈",
+    "category": "primal",
+    "is_form": true,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 384,
@@ -4300,6 +4498,33 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 386,
+    "slug": "deoxys-attack-forme",
+    "en": "Deoxys (Attack Forme)",
+    "ko": "테오키스(어택폼)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 386,
+    "slug": "deoxys-defense-forme",
+    "en": "Deoxys (Defense Forme)",
+    "ko": "테오키스(디펜스폼)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 386,
+    "slug": "deoxys-speed-forme",
+    "en": "Deoxys (Speed Forme)",
+    "ko": "테오키스(스피드폼)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 387,
@@ -4554,6 +4779,24 @@
     "source": "pokemon-ko-en.csv"
   },
   {
+    "dexId": 413,
+    "slug": "wormadam-sandy-cloak",
+    "en": "Wormadam (Sandy Cloak)",
+    "ko": "도롱마담(모래땅도롱)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 413,
+    "slug": "wormadam-trash-cloak",
+    "en": "Wormadam (Trash Cloak)",
+    "ko": "도롱마담(슈레도롱)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
     "dexId": 414,
     "slug": "mothim",
     "en": "Mothim",
@@ -4786,6 +5029,15 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 439,
+    "slug": "mime-jr",
+    "en": "Mime Jr.",
+    "ko": "흉내내",
+    "category": "base",
+    "is_form": false,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 439,
@@ -5220,6 +5472,51 @@
     "source": "pokemon-ko-en.csv"
   },
   {
+    "dexId": 479,
+    "slug": "fan-rotom",
+    "en": "Fan Rotom",
+    "ko": "스핀로토무",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 479,
+    "slug": "frost-rotom",
+    "en": "Frost Rotom",
+    "ko": "프로스트로토무",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 479,
+    "slug": "heat-rotom",
+    "en": "Heat Rotom",
+    "ko": "히트로토무",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 479,
+    "slug": "mow-rotom",
+    "en": "Mow Rotom",
+    "ko": "커트로토무",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 479,
+    "slug": "wash-rotom",
+    "en": "Wash Rotom",
+    "ko": "워시로토무",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
     "dexId": 480,
     "slug": "uxie",
     "en": "Uxie",
@@ -5301,6 +5598,15 @@
     "source": "pokemon-ko-en.csv"
   },
   {
+    "dexId": 487,
+    "slug": "giratina-origin-forme",
+    "en": "Giratina (Origin Forme)",
+    "ko": "기라티나(오리진폼)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
     "dexId": 488,
     "slug": "cresselia",
     "en": "Cresselia",
@@ -5353,6 +5659,15 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 492,
+    "slug": "shaymin-sky-forme",
+    "en": "Shaymin (Sky Forme)",
+    "ko": "쉐이미(스카이폼)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 493,
@@ -6138,6 +6453,15 @@
     "source": "pokemon-ko-en.csv"
   },
   {
+    "dexId": 569,
+    "slug": "garbodor-gigantamax",
+    "en": "Garbodor (G)",
+    "ko": "더스트나 (G)",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
     "dexId": 570,
     "slug": "zorua",
     "en": "Zorua",
@@ -6849,6 +7173,24 @@
     "source": "pokemon-ko-en.csv"
   },
   {
+    "dexId": 641,
+    "slug": "tornadus-incarnate",
+    "en": "Tornadus (Incarnate)",
+    "ko": "토네로스(화신폼)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 641,
+    "slug": "tornadus-therian",
+    "en": "Tornadus (Therian)",
+    "ko": "토네로스(영물폼)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
     "dexId": 642,
     "slug": "thundurus",
     "en": "Thundurus",
@@ -6856,6 +7198,24 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 642,
+    "slug": "thundurus-incarnate",
+    "en": "Thundurus (Incarnate)",
+    "ko": "볼트로스(화신폼)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 642,
+    "slug": "thundurus-therian",
+    "en": "Thundurus (Therian)",
+    "ko": "볼트로스(영물폼)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 643,
@@ -6885,6 +7245,33 @@
     "source": "pokemon-ko-en.csv"
   },
   {
+    "dexId": 645,
+    "slug": "landorus-incarnate",
+    "en": "Landorus (Incarnate)",
+    "ko": "랜드로스(화신폼)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 645,
+    "slug": "landorus-therian",
+    "en": "Landorus (Therian)",
+    "ko": "랜드로스(영물폼)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 646,
+    "slug": "black-kyurem",
+    "en": "Black Kyurem",
+    "ko": "블랙큐레무",
+    "category": "base",
+    "is_form": false,
+    "source": "pokemonData.json"
+  },
+  {
     "dexId": 646,
     "slug": "kyurem",
     "en": "Kyurem",
@@ -6892,6 +7279,15 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 646,
+    "slug": "white-kyurem",
+    "en": "White Kyurem",
+    "ko": "화이트큐레무",
+    "category": "base",
+    "is_form": false,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 647,
@@ -6910,6 +7306,24 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 648,
+    "slug": "meloetta-aria",
+    "en": "Meloetta (Aria)",
+    "ko": "메로엣타(보이스폼)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 648,
+    "slug": "meloetta-pirouette",
+    "en": "Meloetta (Pirouette)",
+    "ko": "메로엣타(스텝폼)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 649,
@@ -7009,6 +7423,15 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 658,
+    "slug": "ash-greninja",
+    "en": "Ash-Greninja",
+    "ko": "지우개굴닌자",
+    "category": "base",
+    "is_form": false,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 658,
@@ -7137,6 +7560,15 @@
     "source": "pokemon-ko-en.csv"
   },
   {
+    "dexId": 669,
+    "slug": "flabebe",
+    "en": "Flabébé",
+    "ko": "플라베베",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
     "dexId": 670,
     "slug": "floette",
     "en": "Floette",
@@ -7144,6 +7576,15 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 670,
+    "slug": "floette-eternal-flower",
+    "en": "Floette Eternal Flower",
+    "ko": "영원의 꽃 플라엣테",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 670,
@@ -7232,6 +7673,24 @@
     "en": "Mega Meowstic",
     "ko": "메가냐오닉스",
     "category": "mega",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 678,
+    "slug": "meowstic-f",
+    "en": "Meowstic (female)",
+    "ko": "냐오닉스 (암컷)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 678,
+    "slug": "meowstic-m",
+    "en": "Meowstic (male)",
+    "ko": "냐오닉스 (수컷)",
+    "category": "form",
     "is_form": true,
     "source": "pokemonData.json"
   },
@@ -7668,6 +8127,33 @@
     "source": "pokemonData.json"
   },
   {
+    "dexId": 718,
+    "slug": "zygarde-10-forme",
+    "en": "Zygarde (10% Forme)",
+    "ko": "지가르데 (10%폼)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 718,
+    "slug": "zygarde-50-forme",
+    "en": "Zygarde (50% Forme)",
+    "ko": "지가르데 (50%폼)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 718,
+    "slug": "zygarde-complete-forme",
+    "en": "Zygarde (Complete Forme)",
+    "ko": "지가르데 (퍼펙트폼)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
     "dexId": 719,
     "slug": "diancie",
     "en": "Diancie",
@@ -7693,6 +8179,24 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 720,
+    "slug": "hoopa-confined",
+    "en": "Hoopa (Confined)",
+    "ko": "후파 (굴레에빠진)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 720,
+    "slug": "hoopa-unbound",
+    "en": "Hoopa (Unbound)",
+    "ko": "후파 (굴레를벗어난)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 721,
@@ -7902,6 +8406,42 @@
     "source": "pokemon-ko-en.csv"
   },
   {
+    "dexId": 741,
+    "slug": "oricorio-baile",
+    "en": "Oricorio (Baile)",
+    "ko": "춤추새(이글이글스타일)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 741,
+    "slug": "oricorio-pau",
+    "en": "Oricorio (Pa'u)",
+    "ko": "춤추새(훌라훌라스타일)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 741,
+    "slug": "oricorio-pom-pom",
+    "en": "Oricorio (Pom-Pom)",
+    "ko": "춤추새(파칙파칙스타일)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 741,
+    "slug": "oricorio-sensu",
+    "en": "Oricorio (Sensu)",
+    "ko": "춤추새(하늘하늘스타일)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
     "dexId": 742,
     "slug": "cutiefly",
     "en": "Cutiefly",
@@ -7938,6 +8478,33 @@
     "source": "pokemon-ko-en.csv"
   },
   {
+    "dexId": 745,
+    "slug": "lycanroc-dusk",
+    "en": "Lycanroc (Dusk)",
+    "ko": "루가루암 (황혼)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 745,
+    "slug": "lycanroc-midday",
+    "en": "Lycanroc (Midday)",
+    "ko": "루가루암 (한낮)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 745,
+    "slug": "lycanroc-midnight",
+    "en": "Lycanroc (Midnight)",
+    "ko": "루가루암 (한밤)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
     "dexId": 746,
     "slug": "wishiwashi",
     "en": "Wishiwashi",
@@ -7945,6 +8512,15 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 746,
+    "slug": "wishiwashi-school",
+    "en": "Wishiwashi (School)",
+    "ko": "약어리 (군의모습)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 747,
@@ -8182,6 +8758,15 @@
   },
   {
     "dexId": 772,
+    "slug": "type-null",
+    "en": "Type: Null",
+    "ko": "타입:널",
+    "category": "base",
+    "is_form": false,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 772,
     "slug": "type:-null",
     "en": "Type: Null",
     "ko": "타입:널",
@@ -8206,6 +8791,15 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 774,
+    "slug": "minior-core",
+    "en": "Minior (Core)",
+    "ko": "메테노(코어)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 775,
@@ -8451,6 +9045,33 @@
     "source": "pokemon-ko-en.csv"
   },
   {
+    "dexId": 800,
+    "slug": "necrozma-dawn-wings",
+    "en": "Necrozma (Dawn Wings)",
+    "ko": "네크로즈마(새벽의날개)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 800,
+    "slug": "necrozma-dusk-mane",
+    "en": "Necrozma (Dusk Mane)",
+    "ko": "네크로즈마(황혼의갈기)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 800,
+    "slug": "ultra-necrozma",
+    "en": "Ultra Necrozma",
+    "ko": "울트라네크로즈마",
+    "category": "ultra",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
     "dexId": 801,
     "slug": "magearna",
     "en": "Magearna",
@@ -8550,6 +9171,15 @@
     "source": "pokemon-ko-en.csv"
   },
   {
+    "dexId": 809,
+    "slug": "melmetal-gigantamax",
+    "en": "Melmetal (G)",
+    "ko": "멜메탈 (G)",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
     "dexId": 810,
     "slug": "grookey",
     "en": "Grookey",
@@ -8575,6 +9205,15 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 812,
+    "slug": "rillaboom-gigantamax",
+    "en": "Rillaboom (G)",
+    "ko": "고릴타 (G)",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 813,
@@ -8604,6 +9243,15 @@
     "source": "pokemon-ko-en.csv"
   },
   {
+    "dexId": 815,
+    "slug": "cinderace-gigantamax",
+    "en": "Cinderace (G)",
+    "ko": "에이스번 (G)",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
     "dexId": 816,
     "slug": "sobble",
     "en": "Sobble",
@@ -8629,6 +9277,15 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 818,
+    "slug": "inteleon-gigantamax",
+    "en": "Inteleon (G)",
+    "ko": "인텔리레온 (G)",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 819,
@@ -8676,6 +9333,15 @@
     "source": "pokemon-ko-en.csv"
   },
   {
+    "dexId": 823,
+    "slug": "corviknight-gigantamax",
+    "en": "Corviknight (G)",
+    "ko": "아머까오 (G)",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
     "dexId": 824,
     "slug": "blipbug",
     "en": "Blipbug",
@@ -8701,6 +9367,15 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 826,
+    "slug": "orbeetle-gigantamax",
+    "en": "Orbeetle (G)",
+    "ko": "이올브 (G)",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 827,
@@ -8775,6 +9450,15 @@
     "source": "pokemon-ko-en.csv"
   },
   {
+    "dexId": 834,
+    "slug": "drednaw-gigantamax",
+    "en": "Drednaw (G)",
+    "ko": "갈가부기 (G)",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
     "dexId": 835,
     "slug": "yamper",
     "en": "Yamper",
@@ -8820,6 +9504,15 @@
     "source": "pokemon-ko-en.csv"
   },
   {
+    "dexId": 839,
+    "slug": "coalossal-gigantamax",
+    "en": "Coalossal (G)",
+    "ko": "석탄산 (G)",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
     "dexId": 840,
     "slug": "applin",
     "en": "Applin",
@@ -8838,6 +9531,15 @@
     "source": "pokemon-ko-en.csv"
   },
   {
+    "dexId": 841,
+    "slug": "flapple-gigantamax",
+    "en": "Flapple (G)",
+    "ko": "애프룡 (G)",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
     "dexId": 842,
     "slug": "appletun",
     "en": "Appletun",
@@ -8845,6 +9547,15 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 842,
+    "slug": "appletun-gigantamax",
+    "en": "Appletun (G)",
+    "ko": "단지래플 (G)",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 843,
@@ -8863,6 +9574,15 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 844,
+    "slug": "sandaconda-gigantamax",
+    "en": "Sandaconda (G)",
+    "ko": "사다이사 (G)",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 845,
@@ -8910,6 +9630,33 @@
     "source": "pokemon-ko-en.csv"
   },
   {
+    "dexId": 849,
+    "slug": "toxtricity-gigantamax",
+    "en": "Toxtricity (G)",
+    "ko": "스트린더 (G)",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 849,
+    "slug": "toxtricity-high",
+    "en": "Toxtricity High",
+    "ko": "스트린더 하이",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 849,
+    "slug": "toxtricity-low",
+    "en": "Toxtricity Low",
+    "ko": "스트린더 로우",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
     "dexId": 850,
     "slug": "sizzlipede",
     "en": "Sizzlipede",
@@ -8926,6 +9673,15 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 851,
+    "slug": "centiskorch-gigantamax",
+    "en": "Centiskorch (G)",
+    "ko": "다태우지네 (G)",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 852,
@@ -8991,6 +9747,15 @@
     "source": "pokemon-ko-en.csv"
   },
   {
+    "dexId": 858,
+    "slug": "hatterene-gigantamax",
+    "en": "Hatterene (G)",
+    "ko": "브리무음 (G)",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
     "dexId": 859,
     "slug": "impidimp",
     "en": "Impidimp",
@@ -9016,6 +9781,15 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 861,
+    "slug": "grimmsnarl-gigantamax",
+    "en": "Grimmsnarl (G)",
+    "ko": "오롱털 (G)",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 862,
@@ -9046,12 +9820,30 @@
   },
   {
     "dexId": 865,
+    "slug": "sirfetchd",
+    "en": "Sirfetch'd",
+    "ko": "창파나이트",
+    "category": "base",
+    "is_form": false,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 865,
     "slug": "sirfetch’d",
     "en": "Sirfetch’d",
     "ko": "창파나이트",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 866,
+    "slug": "mr-rime",
+    "en": "Mr. Rime",
+    "ko": "마임꽁꽁",
+    "category": "base",
+    "is_form": false,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 866,
@@ -9088,6 +9880,15 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 869,
+    "slug": "alcremie-gigantamax",
+    "en": "Alcremie (G)",
+    "ko": "마휘핑 (G)",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 870,
@@ -9153,6 +9954,15 @@
     "source": "pokemon-ko-en.csv"
   },
   {
+    "dexId": 875,
+    "slug": "eiscue-ice-face",
+    "en": "Eiscue (Ice Face)",
+    "ko": "빙큐보(아이스페이스)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
     "dexId": 876,
     "slug": "indeedee",
     "en": "Indeedee",
@@ -9160,6 +9970,24 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 876,
+    "slug": "indeedee-female",
+    "en": "Indeedee (Female)",
+    "ko": "에써르(암컷)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 876,
+    "slug": "indeedee-male",
+    "en": "Indeedee (Male)",
+    "ko": "에써르(수컷)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 877,
@@ -9187,6 +10015,15 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 879,
+    "slug": "copperajah-gigantamax",
+    "en": "Copperajah (G)",
+    "ko": "대왕끼리동 (G)",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 880,
@@ -9234,6 +10071,15 @@
     "source": "pokemon-ko-en.csv"
   },
   {
+    "dexId": 884,
+    "slug": "duraludon-gigantamax",
+    "en": "Duraludon (G)",
+    "ko": "두랄루돈 (G)",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
     "dexId": 885,
     "slug": "dreepy",
     "en": "Dreepy",
@@ -9270,6 +10116,24 @@
     "source": "pokemon-ko-en.csv"
   },
   {
+    "dexId": 888,
+    "slug": "zacian-crowned-sword",
+    "en": "Zacian (Crowned Sword)",
+    "ko": "자시안 (검왕)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 888,
+    "slug": "zacian-hero-of-many-battles",
+    "en": "Zacian (Hero of Many Battles)",
+    "ko": "자시안(역전의용사)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
     "dexId": 889,
     "slug": "zamazenta",
     "en": "Zamazenta",
@@ -9277,6 +10141,24 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 889,
+    "slug": "zamazenta-crowned-shield",
+    "en": "Zamazenta (Crowned Shield)",
+    "ko": "자마젠타(방패왕)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 889,
+    "slug": "zamazenta-hero-of-many-battles",
+    "en": "Zamazenta (Hero of Many Battles)",
+    "ko": "자마젠타 (역전의용사)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 890,
@@ -9304,6 +10186,42 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 892,
+    "slug": "urshifu-rapid-strike",
+    "en": "Urshifu (Rapid Strike)",
+    "ko": "우라오스 (연격의태세)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 892,
+    "slug": "urshifu-rapid-strike-gigantamax",
+    "en": "Urshifu (Rapid Strike G)",
+    "ko": "우라오스 (연격의태세 G)",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 892,
+    "slug": "urshifu-single-strike",
+    "en": "Urshifu (Single Strike)",
+    "ko": "우라오스 (일격의태세)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 892,
+    "slug": "urshifu-single-strike-gigantamax",
+    "en": "Urshifu (Single Strike G)",
+    "ko": "우라오스 (일격의태세 G)",
+    "category": "gigantamax",
+    "is_form": true,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 893,
@@ -9360,6 +10278,24 @@
     "source": "pokemon-ko-en.csv"
   },
   {
+    "dexId": 898,
+    "slug": "calyrex-ice-rider",
+    "en": "Calyrex (Ice Rider)",
+    "ko": "버드렉스(백마탄모습)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 898,
+    "slug": "calyrex-shadow-rider",
+    "en": "Calyrex (Shadow Rider)",
+    "ko": "버드렉스(흑마탄모습)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
     "dexId": 899,
     "slug": "wyrdeer",
     "en": "Wyrdeer",
@@ -9396,6 +10332,24 @@
     "source": "pokemon-ko-en.csv"
   },
   {
+    "dexId": 902,
+    "slug": "basculegion-female",
+    "en": "Basculegion (Female)",
+    "ko": "대쓰여너(암컷)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 902,
+    "slug": "basculegion-male",
+    "en": "Basculegion (Male)",
+    "ko": "대쓰여너(수컷)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
     "dexId": 903,
     "slug": "sneasler",
     "en": "Sneasler",
@@ -9421,6 +10375,24 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 905,
+    "slug": "enamorus-incarnate",
+    "en": "Enamorus (Incarnate)",
+    "ko": "러브로스(화신폼)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 905,
+    "slug": "enamorus-therian",
+    "en": "Enamorus (Therian)",
+    "ko": "러브로스(영물폼)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 906,
@@ -9520,6 +10492,24 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 916,
+    "slug": "oinkologne-female",
+    "en": "Oinkologne (Female)",
+    "ko": "퍼퓨돈 (암컷)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 916,
+    "slug": "oinkologne-male",
+    "en": "Oinkologne (Male)",
+    "ko": "퍼퓨돈 (수컷)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 917,
@@ -10467,6 +11457,42 @@
     "source": "pokemon-ko-en.csv"
   },
   {
+    "dexId": 1017,
+    "slug": "ogerpon-cornerstone-mask",
+    "en": "Ogerpon (Cornerstone Mask)",
+    "ko": "오거폰 (주춧돌가면)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 1017,
+    "slug": "ogerpon-hearthflame-mask",
+    "en": "Ogerpon (Hearthflame Mask)",
+    "ko": "오거폰 (화덕의가면)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 1017,
+    "slug": "ogerpon-teal-mask",
+    "en": "Ogerpon (Teal Mask)",
+    "ko": "오거폰 (벽록의가면)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 1017,
+    "slug": "ogerpon-wellspring-mask",
+    "en": "Ogerpon (Wellspring Mask)",
+    "ko": "오거폰 (우물가면)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
     "dexId": 1018,
     "slug": "archaludon",
     "en": "Archaludon",
@@ -10528,6 +11554,24 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 1024,
+    "slug": "terapagos-normal-form",
+    "en": "Terapagos (Normal Form)",
+    "ko": "테라파고스",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
+  },
+  {
+    "dexId": 1024,
+    "slug": "terapagos-terastal-form",
+    "en": "Terapagos (Terastal Form)",
+    "ko": "테라파고스 (테라스탈폼)",
+    "category": "form",
+    "is_form": true,
+    "source": "pokemonData.json"
   },
   {
     "dexId": 1025,
