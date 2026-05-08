@@ -8398,15 +8398,6 @@
   },
   {
     "dexId": 741,
-    "slug": "oricorio",
-    "en": "Oricorio",
-    "ko": "춤추새",
-    "category": "base",
-    "is_form": false,
-    "source": "pokemon-ko-en.csv"
-  },
-  {
-    "dexId": 741,
     "slug": "oricorio-baile",
     "en": "Oricorio (Baile)",
     "ko": "춤추새(이글이글스타일)",
