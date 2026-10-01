@@ -134,7 +134,11 @@
     }
 
     function buildImageCandidates(entry, isShiny) {
-      const slug = entry.slug;
+      // 기존 데이터의 표기 차이를 실제 이미지 파일명에 맞춘다.
+      const slug = String(entry.slug || '')
+        .replace(/farfetch['’]d/gi, 'farfetchd')
+        .replace(/^nidoran♀$/i, 'nidoran-f')
+        .replace(/^nidoran♂$/i, 'nidoran-m');
       const dex = String(entry.dexId).padStart(4, '0');
       const folder = isShiny ? 'shiny' : 'normal';
       return [
@@ -321,3 +325,4 @@
   </script>
 </body>
 </html>
+
