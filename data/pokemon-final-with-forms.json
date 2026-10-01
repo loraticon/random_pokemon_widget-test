@@ -8380,15 +8380,6 @@
   },
   {
     "dexId": 745,
-    "slug": "lycanroc",
-    "en": "Lycanroc",
-    "ko": "루가루암",
-    "category": "base",
-    "is_form": false,
-    "source": "pokemon-ko-en.csv"
-  },
-  {
-    "dexId": 745,
     "slug": "lycanroc-dusk",
     "en": "Lycanroc (Dusk)",
     "ko": "루가루암 (황혼)",
@@ -8413,15 +8404,6 @@
     "category": "form",
     "is_form": true,
     "source": "pokemonData.json"
-  },
-  {
-    "dexId": 746,
-    "slug": "wishiwashi",
-    "en": "Wishiwashi",
-    "ko": "약어리",
-    "category": "base",
-    "is_form": false,
-    "source": "pokemon-ko-en.csv"
   },
   {
     "dexId": 746,
@@ -8676,28 +8658,10 @@
     "source": "pokemonData.json"
   },
   {
-    "dexId": 772,
-    "slug": "type:-null",
-    "en": "Type: Null",
-    "ko": "타입:널",
-    "category": "base",
-    "is_form": false,
-    "source": "pokemon-ko-en.csv"
-  },
-  {
     "dexId": 773,
     "slug": "silvally",
     "en": "Silvally",
     "ko": "실버디",
-    "category": "base",
-    "is_form": false,
-    "source": "pokemon-ko-en.csv"
-  },
-  {
-    "dexId": 774,
-    "slug": "minior",
-    "en": "Minior",
-    "ko": "메테노",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
