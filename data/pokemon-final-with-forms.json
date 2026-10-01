@@ -10126,7 +10126,7 @@
   },
   {
     "dexId": 902,
-    "slug": "basculegion-female",
+    "slug": "basculegion-f",
     "en": "Basculegion (Female)",
     "ko": "대쓰여너(암컷)",
     "category": "form",
@@ -10135,7 +10135,7 @@
   },
   {
     "dexId": 902,
-    "slug": "basculegion-male",
+    "slug": "basculegion-m",
     "en": "Basculegion (Male)",
     "ko": "대쓰여너(수컷)",
     "category": "form",
@@ -10270,16 +10270,7 @@
   },
   {
     "dexId": 916,
-    "slug": "oinkologne",
-    "en": "Oinkologne",
-    "ko": "퍼퓨돈",
-    "category": "base",
-    "is_form": false,
-    "source": "pokemon-ko-en.csv"
-  },
-  {
-    "dexId": 916,
-    "slug": "oinkologne-female",
+    "slug": "oinkologne-f",
     "en": "Oinkologne (Female)",
     "ko": "퍼퓨돈 (암컷)",
     "category": "form",
@@ -10288,7 +10279,7 @@
   },
   {
     "dexId": 916,
-    "slug": "oinkologne-male",
+    "slug": "oinkologne-m",
     "en": "Oinkologne (Male)",
     "ko": "퍼퓨돈 (수컷)",
     "category": "form",
@@ -11233,15 +11224,6 @@
   },
   {
     "dexId": 1017,
-    "slug": "ogerpon",
-    "en": "Ogerpon",
-    "ko": "오거폰",
-    "category": "base",
-    "is_form": false,
-    "source": "pokemon-ko-en.csv"
-  },
-  {
-    "dexId": 1017,
     "slug": "ogerpon-cornerstone-mask",
     "en": "Ogerpon (Cornerstone Mask)",
     "ko": "오거폰 (주춧돌가면)",
@@ -11341,16 +11323,7 @@
   },
   {
     "dexId": 1024,
-    "slug": "terapagos-normal-form",
-    "en": "Terapagos (Normal Form)",
-    "ko": "테라파고스",
-    "category": "form",
-    "is_form": true,
-    "source": "pokemonData.json"
-  },
-  {
-    "dexId": 1024,
-    "slug": "terapagos-terastal-form",
+    "slug": "terapagos-terastal",
     "en": "Terapagos (Terastal Form)",
     "ko": "테라파고스 (테라스탈폼)",
     "category": "form",
