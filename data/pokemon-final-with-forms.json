@@ -6229,7 +6229,7 @@
   },
   {
     "dexId": 550,
-    "slug": "basculin",
+    "slug": "basculin-red-striped",
     "en": "Basculin",
     "ko": "배쓰나이",
     "category": "base",
@@ -7039,7 +7039,7 @@
   },
   {
     "dexId": 628,
-    "slug": "braviary-hisuian",
+    "slug": "braviaryhisuian",
     "en": "Braviary (Hisuian)",
     "ko": "워글 (히스이)",
     "category": "hisui",
@@ -7156,21 +7156,12 @@
   },
   {
     "dexId": 641,
-    "slug": "tornadus",
+    "slug": "tornadus-incarnate",
     "en": "Tornadus",
     "ko": "토네로스",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
-  },
-  {
-    "dexId": 641,
-    "slug": "tornadus-incarnate",
-    "en": "Tornadus (Incarnate)",
-    "ko": "토네로스(화신폼)",
-    "category": "form",
-    "is_form": true,
-    "source": "pokemonData.json"
   },
   {
     "dexId": 641,
@@ -7183,21 +7174,12 @@
   },
   {
     "dexId": 642,
-    "slug": "thundurus",
+    "slug": "thundurus-incarnate",
     "en": "Thundurus",
     "ko": "볼트로스",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
-  },
-  {
-    "dexId": 642,
-    "slug": "thundurus-incarnate",
-    "en": "Thundurus (Incarnate)",
-    "ko": "볼트로스(화신폼)",
-    "category": "form",
-    "is_form": true,
-    "source": "pokemonData.json"
   },
   {
     "dexId": 642,
@@ -7228,21 +7210,12 @@
   },
   {
     "dexId": 645,
-    "slug": "landorus",
+    "slug": "landorus-incarnate",
     "en": "Landorus",
     "ko": "랜드로스",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
-  },
-  {
-    "dexId": 645,
-    "slug": "landorus-incarnate",
-    "en": "Landorus (Incarnate)",
-    "ko": "랜드로스(화신폼)",
-    "category": "form",
-    "is_form": true,
-    "source": "pokemonData.json"
   },
   {
     "dexId": 645,
@@ -7291,21 +7264,12 @@
   },
   {
     "dexId": 648,
-    "slug": "meloetta",
+    "slug": "meloetta-aria",
     "en": "Meloetta",
     "ko": "메로엣타",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
-  },
-  {
-    "dexId": 648,
-    "slug": "meloetta-aria",
-    "en": "Meloetta (Aria)",
-    "ko": "메로엣타(보이스폼)",
-    "category": "form",
-    "is_form": true,
-    "source": "pokemonData.json"
   },
   {
     "dexId": 648,
@@ -11565,4 +11529,3 @@
     "source": "pokemon-ko-en.csv"
   }
 ]
-
