@@ -9496,15 +9496,6 @@
   },
   {
     "dexId": 849,
-    "slug": "toxtricity",
-    "en": "Toxtricity",
-    "ko": "스트린더",
-    "category": "base",
-    "is_form": false,
-    "source": "pokemon-ko-en.csv"
-  },
-  {
-    "dexId": 849,
     "slug": "toxtricity-gigantamax",
     "en": "Toxtricity (G)",
     "ko": "스트린더 (G)",
@@ -9702,15 +9693,6 @@
     "source": "pokemonData.json"
   },
   {
-    "dexId": 865,
-    "slug": "sirfetch’d",
-    "en": "Sirfetch’d",
-    "ko": "창파나이트",
-    "category": "base",
-    "is_form": false,
-    "source": "pokemon-ko-en.csv"
-  },
-  {
     "dexId": 866,
     "slug": "mr-rime",
     "en": "Mr. Rime",
@@ -9718,15 +9700,6 @@
     "category": "base",
     "is_form": false,
     "source": "pokemonData.json"
-  },
-  {
-    "dexId": 866,
-    "slug": "mr.-rime",
-    "en": "Mr. Rime",
-    "ko": "마임꽁꽁",
-    "category": "base",
-    "is_form": false,
-    "source": "pokemon-ko-en.csv"
   },
   {
     "dexId": 867,
@@ -9828,26 +9801,8 @@
     "source": "pokemon-ko-en.csv"
   },
   {
-    "dexId": 875,
-    "slug": "eiscue-ice-face",
-    "en": "Eiscue (Ice Face)",
-    "ko": "빙큐보(아이스페이스)",
-    "category": "form",
-    "is_form": true,
-    "source": "pokemonData.json"
-  },
-  {
     "dexId": 876,
-    "slug": "indeedee",
-    "en": "Indeedee",
-    "ko": "에써르",
-    "category": "base",
-    "is_form": false,
-    "source": "pokemon-ko-en.csv"
-  },
-  {
-    "dexId": 876,
-    "slug": "indeedee-female",
+    "slug": "indeedee-f",
     "en": "Indeedee (Female)",
     "ko": "에써르(암컷)",
     "category": "form",
@@ -9856,7 +9811,7 @@
   },
   {
     "dexId": 876,
-    "slug": "indeedee-male",
+    "slug": "indeedee-m",
     "en": "Indeedee (Male)",
     "ko": "에써르(수컷)",
     "category": "form",
@@ -9982,15 +9937,6 @@
   },
   {
     "dexId": 888,
-    "slug": "zacian",
-    "en": "Zacian",
-    "ko": "자시안",
-    "category": "base",
-    "is_form": false,
-    "source": "pokemon-ko-en.csv"
-  },
-  {
-    "dexId": 888,
     "slug": "zacian-crowned-sword",
     "en": "Zacian (Crowned Sword)",
     "ko": "자시안 (검왕)",
@@ -10006,15 +9952,6 @@
     "category": "form",
     "is_form": true,
     "source": "pokemonData.json"
-  },
-  {
-    "dexId": 889,
-    "slug": "zamazenta",
-    "en": "Zamazenta",
-    "ko": "자마젠타",
-    "category": "base",
-    "is_form": false,
-    "source": "pokemon-ko-en.csv"
   },
   {
     "dexId": 889,
@@ -10048,15 +9985,6 @@
     "slug": "kubfu",
     "en": "Kubfu",
     "ko": "치고마",
-    "category": "base",
-    "is_form": false,
-    "source": "pokemon-ko-en.csv"
-  },
-  {
-    "dexId": 892,
-    "slug": "urshifu",
-    "en": "Urshifu",
-    "ko": "우라오스",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
@@ -10198,15 +10126,6 @@
   },
   {
     "dexId": 902,
-    "slug": "basculegion",
-    "en": "Basculegion",
-    "ko": "대쓰여너",
-    "category": "base",
-    "is_form": false,
-    "source": "pokemon-ko-en.csv"
-  },
-  {
-    "dexId": 902,
     "slug": "basculegion-female",
     "en": "Basculegion (Female)",
     "ko": "대쓰여너(암컷)",
@@ -10237,15 +10156,6 @@
     "slug": "overqwil",
     "en": "Overqwil",
     "ko": "장침바루",
-    "category": "base",
-    "is_form": false,
-    "source": "pokemon-ko-en.csv"
-  },
-  {
-    "dexId": 905,
-    "slug": "enamorus",
-    "en": "Enamorus",
-    "ko": "러브로스",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
@@ -11455,5 +11365,14 @@
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
+  },
+  {
+    "dexId": 901,
+    "slug": "ursaluna-blood-moon",
+    "en": "Ursaluna (Bloodmoon)",
+    "ko": "다투곰(붉은 달)",
+    "category": "form",
+    "is_form": true,
+    "source": "images/normal/ursaluna-blood-moon.webp"
   }
 ]
