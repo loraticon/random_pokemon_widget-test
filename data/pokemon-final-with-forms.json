@@ -7507,21 +7507,12 @@
   },
   {
     "dexId": 669,
-    "slug": "flabébé",
+    "slug": "flabebe",
     "en": "Flabébé",
     "ko": "플라베베",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
-  },
-  {
-    "dexId": 669,
-    "slug": "flabebe",
-    "en": "Flabébé",
-    "ko": "플라베베",
-    "category": "form",
-    "is_form": true,
-    "source": "pokemonData.json"
   },
   {
     "dexId": 670,
@@ -7609,15 +7600,6 @@
     "slug": "espurr",
     "en": "Espurr",
     "ko": "냐스퍼",
-    "category": "base",
-    "is_form": false,
-    "source": "pokemon-ko-en.csv"
-  },
-  {
-    "dexId": 678,
-    "slug": "meowstic",
-    "en": "Meowstic",
-    "ko": "냐오닉스",
     "category": "base",
     "is_form": false,
     "source": "pokemon-ko-en.csv"
@@ -8065,15 +8047,6 @@
   },
   {
     "dexId": 718,
-    "slug": "zygarde",
-    "en": "Zygarde",
-    "ko": "지가르데",
-    "category": "base",
-    "is_form": false,
-    "source": "pokemon-ko-en.csv"
-  },
-  {
-    "dexId": 718,
     "slug": "mega-zygarde",
     "en": "Mega Zygarde",
     "ko": "메가지가르데",
@@ -8125,15 +8098,6 @@
     "category": "mega",
     "is_form": true,
     "source": "pokemonData.json"
-  },
-  {
-    "dexId": 720,
-    "slug": "hoopa",
-    "en": "Hoopa",
-    "ko": "후파",
-    "category": "base",
-    "is_form": false,
-    "source": "pokemon-ko-en.csv"
   },
   {
     "dexId": 720,
