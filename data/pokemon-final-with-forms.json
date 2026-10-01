@@ -4762,7 +4762,7 @@
   },
   {
     "dexId": 412,
-    "slug": "burmy",
+    "slug": "burmy-plant-cloak",
     "en": "Burmy",
     "ko": "도롱충이",
     "category": "base",
@@ -4771,7 +4771,7 @@
   },
   {
     "dexId": 413,
-    "slug": "wormadam",
+    "slug": "wormadam-plant-cloak",
     "en": "Wormadam",
     "ko": "도롱마담",
     "category": "base",
@@ -5038,15 +5038,6 @@
     "category": "base",
     "is_form": false,
     "source": "pokemonData.json"
-  },
-  {
-    "dexId": 439,
-    "slug": "mime-jr.",
-    "en": "Mime Jr.",
-    "ko": "흉내내",
-    "category": "base",
-    "is_form": false,
-    "source": "pokemon-ko-en.csv"
   },
   {
     "dexId": 440,
@@ -5590,7 +5581,7 @@
   },
   {
     "dexId": 487,
-    "slug": "giratina",
+    "slug": "giratina-another-forme",
     "en": "Giratina",
     "ko": "기라티나",
     "category": "base",
@@ -5653,7 +5644,7 @@
   },
   {
     "dexId": 492,
-    "slug": "shaymin",
+    "slug": "shaymin-land-forme",
     "en": "Shaymin",
     "ko": "쉐이미",
     "category": "base",
@@ -11574,3 +11565,4 @@
     "source": "pokemon-ko-en.csv"
   }
 ]
+
