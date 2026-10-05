@@ -97,10 +97,11 @@
     }
   }
   class RemoteStore {
-    constructor(key, workerUrl) {
-      this.key = key;
+    constructor(workerUrl, legacyWorkerUrl) {
+      // 이전 두 인자 호출도 주소만 사용합니다. 별도의 위젯 토큰은 사용하지 않습니다.
+      workerUrl = legacyWorkerUrl || workerUrl;
       try { this.workerUrl = normalizeWorkerUrl(workerUrl); } catch (error) { this.configurationError = error; }
-      this.pendingKey = crypto.subtle.digest('SHA-256', new TextEncoder().encode((this.workerUrl || '') + '\n' + key)).then(bytes =>
+      this.pendingKey = crypto.subtle.digest('SHA-256', new TextEncoder().encode(this.workerUrl || '')).then(bytes =>
         'pokemon-pending-' + [...new Uint8Array(bytes)].map(b => b.toString(16).padStart(2, '0')).join(''));
     }
     async pending() {
@@ -108,12 +109,11 @@
     }
     async request(path, body) {
       if (this.configurationError) throw this.configurationError;
-      if (!this.key) throw new Error('먼저 노션 연결 설정을 완료해주세요.');
       let response;
       try {
         response = await fetch(this.workerUrl + path, {
           method: body ? 'POST' : 'GET', credentials: 'omit', cache: 'no-store',
-          headers: { Authorization: 'Bearer ' + this.key, ...(body ? { 'Content-Type': 'application/json' } : {}) },
+          headers: body ? { 'Content-Type': 'application/json' } : {},
           body: body ? JSON.stringify(body) : undefined, signal: AbortSignal.timeout(25000)
         });
       } catch { throw new Error('개인 Worker에 연결하지 못했어요. 주소와 Worker의 WIDGET_ORIGIN 설정을 확인해주세요.'); }
