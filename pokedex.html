@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#dc0a2d">
+  <meta name="color-scheme" content="light dark">
   <title>포켓몬 랜덤뽑기 · 도감 스킨</title>
   <style>
     @font-face {
@@ -11,6 +12,9 @@
       src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
       font-display: swap;
     }
+    /* Match the embedding page so browsers do not paint an opaque iframe canvas. */
+    :root { color-scheme: light dark; background: transparent; }
+    .device { color-scheme: light; }
     * { box-sizing: border-box; }
     body { margin: 0; min-height: 100svh; background: transparent; color: #353c42; font-family: DungGeunMo, monospace; }
     button, input { font: inherit; }
