@@ -21,23 +21,22 @@
   <p>나만의 노션 수집 도감을 만들고, 하루 3마리씩 포켓몬을 잡아보세요.</p>
   <h2>1. 포켓몬 전용 노션 공간 준비</h2>
   <p>다른 기록과 분리할 수 있도록 <strong>본인만 사용하는 포켓몬 전용 워크스페이스</strong>를 권장합니다. 노션 왼쪽 위 워크스페이스 메뉴에서 새 워크스페이스를 만든 뒤, 제공받은 수집 도감 템플릿을 그곳에 복제하세요.</p>
-  <p>해당 워크스페이스에서 <a href="https://www.notion.so/profile/integrations" target="_blank" rel="noopener noreferrer">내부 연결</a>을 생성하고 콘텐츠 읽기·삽입·업데이트를 허용하세요. 복제한 DB의 <strong>··· → 연결 추가</strong>에서 이 연결을 추가합니다. 상위 페이지를 연결해도 됩니다.</p>
+  <p>해당 워크스페이스에서 <a href="https://www.notion.so/profile/integrations" target="_blank" rel="noopener noreferrer">내부 연결</a>을 생성하고 콘텐츠 읽기·삽입·업데이트를 허용하세요. 복제한 원본 DB의 <strong>··· → 연결 추가</strong>에서 이 연결을 추가합니다.</p>
   <p class="note">DB에는 이름·폼 식별자·배경 식별자·즐겨찾기 네 속성을 사용합니다. 기존 워크스페이스의 비공개 페이지에서도 연결할 수 있습니다.</p>
   <h2>2. 개인 Worker 준비</h2>
-  <p><a href="./downloads/개인-Worker-설치.zip" download>개인 Worker 설치 ZIP 받기</a> → 압축 해제 → <strong>설치.cmd</strong> 실행 순서로 진행하세요. GitHub 연결은 필요 없습니다.</p>
-  <p class="note">처음에는 <a href="https://nodejs.org/" target="_blank" rel="noopener noreferrer">Node.js LTS</a> 설치가 필요합니다. 노션 페이지 주소와 내부 연결 토큰을 설치 파일에 입력하고 본인의 Cloudflare 계정으로 로그인하세요. 설치가 끝나면 <strong>나의-위젯-연결.txt</strong>의 주소를 여세요.</p>
-  <details><summary>다른 설치 방법·기존 Worker 업데이트</summary>
-    <p>macOS/Linux에서는 압축 해제한 폴더에서 <code>npm ci</code> → <code>npm run setup</code>을 실행하세요.</p>
-    <p>기존 Worker와 같은 이름으로 설치하면 도감과 설정을 유지합니다. 별도의 위젯용·설정용 토큰을 만들지 않습니다.</p>
-    <p><a href="./downloads/먼저-읽어주세요.md" download>자세한 설치 안내 받기</a> · <a href="./downloads/worker.js" download>붙여넣기용 worker.js 받기</a></p>
-    <p class="note">코드 붙여넣기는 저장소가 이미 연결된 Worker의 업데이트에 사용할 수 있습니다. 새 설치에는 ZIP의 설치 파일을 권장합니다.</p>
-  </details>
+  <p><a href="https://dash.cloudflare.com/" target="_blank" rel="noopener noreferrer">Cloudflare</a>에 가입하고 <strong>Workers &amp; Pages → Create application → Create Worker</strong>에서 개인 Worker를 만드세요. 이름은 <code>pokemon-collection-widget</code>을 권장합니다.</p>
+  <p><a href="./downloads/worker.js" download>worker.js 받기</a> → 텍스트 편집기로 열고 전체 복사 → Worker의 <strong>Edit code</strong>에 전체 붙여넣기 → <strong>Deploy</strong> 순서로 진행하세요.</p>
+  <p><strong>Settings → Variables and Secrets</strong>에서 이름 <code>NOTION_TOKEN</code>, 종류 <strong>Secret</strong>, 값은 노션 내부 연결 토큰으로 등록하고 배포합니다.</p>
+  <p class="note">Node.js 설치·GitHub 연결·Bindings 추가는 필요 없습니다. <a href="./downloads/먼저-읽어주세요.md" download>설치 안내</a> · <a href="./downloads/개인-Worker-설치.zip" download>worker.js와 안내 ZIP 받기</a></p>
   <h2>3. 도감 연결하고 노션에 삽입</h2>
   <form id="connect-form">
     <label for="worker">본인의 Cloudflare Worker 주소</label>
     <input id="worker" type="url" autocomplete="url" required placeholder="https://나의주소.workers.dev">
-    <p class="note">Worker 주소만 입력하면 됩니다. 별도의 위젯용·설정용 토큰은 없습니다. 노션 API 토큰은 이 화면에 입력하지 않고 개인 Worker에만 등록합니다.</p>
-    <button id="connect" type="submit">도감 연결하고 위젯 주소 만들기</button>
+    <label for="database">복제한 원본 노션 수집 DB 주소</label>
+    <input id="database" type="url" required placeholder="https://www.notion.so/…" autocomplete="off">
+    <p class="note">DB의 링크를 복사해서 입력하세요. 연결하면 DB 안에 ‘위젯 설정’ 페이지가 자동 추가됩니다. 이 페이지는 도감·포획 횟수에서 제외하며 배경 즐겨찾기와 슬립 설정을 여러 기기에서 공유합니다.</p>
+    <p class="note">별도의 위젯용·설정용 토큰은 없습니다. 노션 API 토큰은 이 화면에 입력하지 않고 개인 Worker에만 등록합니다.</p>
+    <button id="connect" type="submit">연결 확인하고 위젯 주소 만들기</button>
   </form>
   <p id="status" role="status"></p>
   <section id="result" hidden>
@@ -55,6 +54,7 @@
   try {
     const params = new URLSearchParams(location.hash.slice(1));
     if (params.has('worker')) $('worker').value = PokemonCollection.normalizeWorkerUrl(params.get('worker'));
+    if (params.has('db')) $('database').value = 'https://www.notion.so/' + PokemonCollection.normalizeDatabaseId(params.get('db'));
   } catch { $('status').textContent = '설치 링크를 확인하고 Worker 주소를 직접 입력해주세요.'; }
   finally { if (location.hash && typeof history !== 'undefined') history.replaceState(null, '', location.pathname + location.search); }
   $('connect-form').addEventListener('submit', async event => {
@@ -63,11 +63,14 @@
     try {
       if (location.protocol !== 'https:') throw new Error('제작자가 제공한 HTTPS 연결 페이지에서 연결해주세요.');
       const worker = PokemonCollection.normalizeWorkerUrl($('worker').value);
-      const store = new PokemonCollection.RemoteStore(worker);
+      const databaseId = PokemonCollection.normalizeDatabaseId($('database').value);
+      const store = new PokemonCollection.RemoteStore(worker, databaseId);
       const data = await store.request('/api/setup', {});
-      const address = new URL('./pokedex.html', location.href).href.split('#')[0] + '#' + new URLSearchParams({ worker });
+      const address = new URL('./pokedex.html', location.href).href.split('#')[0] + '#' + new URLSearchParams({ worker, db: data.databaseId || databaseId });
       $('widget-url').value = address; $('open-widget').href = address; $('open-db').href = data.databaseUrl;
-      $('result').hidden = false; $('status').textContent = '연결 완료! 수집 기록은 노션에 자동으로 저장됩니다.';
+      $('result').hidden = false; $('status').textContent = '연결 완료! 위젯 주소가 생성되었습니다.';
+      try { await navigator.clipboard.writeText(address); $('status').textContent = '연결 완료! 위젯 주소를 자동으로 복사했습니다. 노션에 임베드해주세요.'; }
+      catch { $('status').textContent = '연결 완료! 아래 복사 버튼으로 위젯 주소를 복사해주세요.'; }
     } catch (error) { $('status').textContent = error.name === 'TimeoutError' ? '응답이 지연되고 있어요. 잠시 후 다시 연결해주세요.' : error.message; }
     finally { $('connect').disabled = false; }
   });

@@ -1,5 +1,9 @@
 node_modules/
 dist/
+release/
+cloudflare-Pages-공용화면.zip
+.widget-install.json
+나의-위젯-연결.txt
 .wrangler/
 .dev.vars
 .dev.vars.*

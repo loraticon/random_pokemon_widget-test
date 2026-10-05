@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "node cloudflare/sync-backgrounds.cjs && node cloudflare/build.cjs",
+    "build": "node cloudflare/sync-backgrounds.cjs && node cloudflare/build.cjs && node cloudflare/build-installer.cjs && node cloudflare/package-release.cjs",
     "sync:backgrounds": "node cloudflare/sync-backgrounds.cjs",
     "deploy": "wrangler deploy --config cloudflare/worker.wrangler.jsonc",
     "dev": "wrangler dev --config cloudflare/worker.wrangler.jsonc",

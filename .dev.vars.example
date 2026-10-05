@@ -1,4 +1,2 @@
 # 개인 Worker의 배포 시 secret으로 등록합니다. 로컬 개발은 cloudflare/.dev.vars로 복사합니다.
 NOTION_TOKEN=노션_내부_연결_토큰
-NOTION_PARENT_PAGE_ID=수집_DB를_만들_노션_페이지_주소
-WIDGET_KEY=32자_이상의_무작위_개인_위젯_연결키

@@ -1,0 +1,37 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import zlib from 'node:zlib';
+const read = path => fs.readFileSync(new URL('../../' + path, import.meta.url));
+function unzip(bytes) {
+  const files = new Map(); let offset = 0;
+  while (bytes.readUInt32LE(offset) === 0x04034b50) {
+    const size = bytes.readUInt32LE(offset + 18), length = bytes.readUInt16LE(offset + 26), extra = bytes.readUInt16LE(offset + 28);
+    const name = bytes.subarray(offset + 30, offset + 30 + length).toString('utf8'), start = offset + 30 + length + extra;
+    files.set(name, zlib.inflateRawSync(bytes.subarray(start, start + size))); offset = start + size;
+  }
+  return files;
+}
+test('개인 설치 ZIP은 바로 붙여넣는 Worker와 안내 두 파일만 포함, 배포 다운로드와 일치', () => {
+  const files = unzip(read('cloudflare-개인설치.zip'));
+  assert.deepEqual([...files.keys()].sort(), ['worker.js', '먼저-읽어주세요.md'].sort());
+  for (const [name, bytes] of files) assert.deepEqual(bytes, read('release/personal-worker/' + name));
+  assert.deepEqual(read('cloudflare-개인설치.zip'), read('dist/downloads/개인-Worker-설치.zip'));
+});
+test('단일 Worker 모듈은 외부 import와 저장소 바인딩 없이 로드·기본 응답 가능', async () => {
+  const source = read('release/personal-worker/worker.js').toString('utf8');
+  assert.doesNotMatch(source, /^import\s/m); assert.doesNotMatch(source, /env\.COLLECTION|ctx\.storage|DurableObject/);
+  const module = await import('data:text/javascript;base64,' + Buffer.from(source).toString('base64'));
+  assert.equal(typeof module.default.fetch, 'function'); assert.equal(typeof module.NotionCollection, 'function');
+  assert.equal(module.backgroundFor({ slug: 'arcanine-hisui', dexId: 59 }).id, 'fire');
+  const response = await module.default.fetch(new Request('https://example.workers.dev/api/setup', { method: 'POST', body: '{}' }), {});
+  assert.equal(response.status, 503); assert.match((await response.json()).error, /NOTION_TOKEN/);
+});
+test('공용 Pages ZIP은 새 연결 화면·Worker 다운로드 포함, Secret·개인 연결 정보는 제외', () => {
+  const files = unzip(read('cloudflare-Pages-공용화면.zip'));
+  for (const name of ['index.html', 'setup.html', 'pokedex.html', 'assets/collection.js', 'downloads/worker.js']) assert.deepEqual(files.get(name), read('dist/' + name));
+  assert.match(files.get('setup.html').toString(), /id="database"/);
+  assert.equal([...files.keys()].some(name => /(?:^|\/)(?:\.dev\.vars|\.widget-install\.json|install\.cjs|설치\.cmd|wrangler\.jsonc)$/.test(name)), false);
+  const config = JSON.parse(read('cloudflare/worker.wrangler.jsonc').toString());
+  assert.equal(config.durable_objects, undefined); assert.equal(config.migrations, undefined); assert.equal(config.vars.NOTION_TOKEN, undefined);
+});

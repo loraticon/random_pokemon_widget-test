@@ -53,6 +53,18 @@ async function fixture(htmlSource = html, protocol = 'file:', hash = '', savedVa
   return { elements, run, waitState, values, documentState, documentEvents, motionEvents };
 }
 
+test('개인 Worker의 포획 한도를 볼과 안내에 반영, 삭제 후 줄어든 사용 횟수 표시', async () => {
+  const f = await fixture();
+  f.run('collectionSnapshot = { used: 4, limit: 5, remaining: 1, pending: [] }; updateCount()');
+  const balls = f.elements.get('daily-catches');
+  assert.equal(balls.children.length, 5);
+  assert.match(balls.attributes['aria-label'], /4마리.*5마리/);
+  f.run('collectionSnapshot = { used: 3, limit: 5, remaining: 2, pending: [] }; updateCount()');
+  assert.match(balls.attributes['aria-label'], /3마리.*5마리/);
+  f.run('collectionSnapshot = { used: 7, limit: 10, remaining: 3, pending: [] }; updateCount()');
+  assert.equal(balls.children.length, 6); assert.match(balls.attributes['aria-label'], /7마리.*10마리/);
+});
+
 test('포획 시 배경 등록→설정에서 독립 선택→슬립 표시→재접속 유지→뽑기모드 복귀', async () => {
   const f = await fixture();
   const records = ['pikachu', 'raichu', 'eevee'].map((slug, index) => ({ id: crypto.randomUUID(), slug, dexId: [25, 26, 133][index], name: ['피카츄', '라이츄', '이브이'][index], isShiny: false, capturedAt: '2026-09-01T00:00:00Z', imageSrc: './images/normal/mr-mime.webp' }));
@@ -625,6 +637,36 @@ test('전용 배경 83개로 현재 201개 항목 표시, 폼별 배경 구분�
   assert.equal(f.run("POKEMON_DATA.some(entry => entry.slug === 'keldeo-resolute')"), false);
   f.run("updateBackground({slug: 'keldeo-resolute', dexId: 647})");
   assert.equal(f.elements.get('screen-background').src, './assets/backgrounds/special/cobalion-terrakion-virizion-keldeo-keldeo-resolute.webp');
+});
+
+test('히스이폼 16종은 뽑기 화면과 수집 기록에서 해당 폼의 타입 배경 사용', async () => {
+  const f = await fixture();
+  const expected = {
+    'growlithe-hisuian': 'fire', 'arcanine-hisuian': 'fire',
+    'voltorb-hisuian': 'electric', 'electrode-hisuian': 'electric',
+    'typhlosion-hisuian': 'fire', 'qwilfish-hisuian': 'dark',
+    'sneasel-hisuian': 'fight', 'samurott-hisuian': 'water',
+    'lilligant-hisuian': 'leaf-bug', 'zorua-hisuian': 'normal',
+    'zoroark-hisuian': 'normal', braviaryhisuian: 'psychic',
+    'sliggoo-hisuian': 'steel', 'goodra-hisuian': 'steel',
+    'avalugg-hisuian': 'ice', 'decidueye-hisuian': 'leaf-bug'
+  };
+  assert.equal(f.run("POKEMON_DATA.filter(entry => entry.category === 'hisui').length"), Object.keys(expected).length);
+  for (const [slug, id] of Object.entries(expected)) {
+    const selector = `POKEMON_DATA.find(entry => entry.slug === ${JSON.stringify(slug)})`;
+    f.run(`updateBackground(${selector})`);
+    const path = `./assets/backgrounds/${id}.webp`;
+    assert.equal(f.elements.get('screen-background').src, path, slug);
+    assert.equal(f.elements.get('screen').dataset.backgroundPokemon, '', slug);
+    assert.equal(f.run(`PokemonCollection.backgroundFor(${selector}).id`), id, slug);
+    assert.ok(fs.statSync(new URL('../../' + path, import.meta.url)).size > 0, slug);
+  }
+  // 실제 뽑기부터 등장까지 히스이 윈디의 배경을 확인합니다.
+  f.run("POKEMON_DATA = [POKEMON_DATA.find(entry => entry.slug === 'arcanine-hisuian')]");
+  await f.run('handleStart()');
+  assert.equal(f.run('state'), 'result');
+  assert.equal(f.run('pokemon.slug'), 'arcanine-hisuian');
+  assert.equal(f.elements.get('screen-background').src, './assets/backgrounds/fire.webp');
 });
 
 test('메인 스크립트 문법 및 원본 포켓몬 데이터 유지', () => {

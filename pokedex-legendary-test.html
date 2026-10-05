@@ -1673,7 +1673,7 @@
     const SCREEN_BACKGROUND_PATH = '';
     const IMAGE_BASE_PATH = './images';
     // 로컬에 없는 포켓몬 이미지는 기존 프로젝트 저장소를 보조 경로로 사용합니다.
-    const REMOTE_IMAGE_BASE = 'https://raw.githubusercontent.com/loraticon/random_pokemon_widget-test/main/images';
+    const REMOTE_IMAGE_BASE = 'https://raw.githubusercontent.com/loraticon/random_pokemon_widget-ver1/main/images';
     const BACKGROUND_STORAGE_KEY = 'pokemon-pokedex-screen-background-v1';
     const TYPE_DATA = JSON.parse(document.getElementById('pokemon-types').textContent);
     const BACKGROUND_CATALOG = JSON.parse(document.getElementById("background-catalog").textContent);
@@ -1700,8 +1700,8 @@
     let reducedMotion = motionPreference.matches;
     const previewMode = true;
     const widgetConnection = new URLSearchParams(location.hash.slice(1));
-    const widgetKey = widgetConnection.get('key') || '';
     const workerUrl = widgetConnection.get('worker') || '';
+    const databaseId = widgetConnection.get('db') || '';
     const collectionStore = new PokemonCollection.LocalStore({
       getItem: key => localStorage.getItem('legendary-test:' + key),
       setItem: (key, value) => localStorage.setItem('legendary-test:' + key, value)
@@ -1746,10 +1746,18 @@
 
     function updateCount() {
       $('daily-catches').hidden = state === 'sleep';
-      const used = Math.min(3, collectionSnapshot?.used || 0);
+      const used = collectionSnapshot?.used || 0;
+      const limit = collectionSnapshot?.limit || 3;
+      const ballCount = Math.min(limit, 6);
+      if ($('daily-catches').children.length !== ballCount) {
+        $('daily-catches').replaceChildren(...Array.from({ length: ballCount }, () => {
+          const ball = document.createElement('img'); ball.src = './assets/pokeball.svg'; ball.alt = ''; return ball;
+        }));
+      }
+      [...$('daily-catches').children].forEach(ball => { ball.style.width = Math.min(7, 32 / ballCount) + 'cqw'; ball.style.height = ball.style.width; });
       [...$('daily-catches').children].forEach((ball, index) => ball.classList.toggle('caught', index < used));
-      $('daily-catches').setAttribute('aria-label', `오늘 수집 ${used}마리, 최대 3마리`);
-      $('daily-catches').title = `오늘 수집 ${used} / 3 · 한국 시간 자정 초기화`;
+      $('daily-catches').setAttribute('aria-label', `오늘 수집 ${used}마리, 최대 ${limit}마리`);
+      $('daily-catches').title = `오늘 수집 ${used} / ${limit} · 한국 시간 자정 초기화`;
       $('pending-check').hidden = !collectionSnapshot?.pending?.length;
     }
 
@@ -1764,7 +1772,7 @@
         updateCount();
         $('collection-status').textContent = previewMode
           ? '전설·환상 전용 테스트 · 별도 브라우저 기록 · 오늘 수집 ' + collectionSnapshot.used + ' / 3'
-          : '노션 연결됨 · 오늘 수집 ' + collectionSnapshot.used + ' / 3';
+          : '노션 연결됨 · 오늘 수집 ' + collectionSnapshot.used + ' / ' + (collectionSnapshot.limit || 3);
         return true;
       } catch (error) {
         if (version !== collectionSyncVersion) return false;
@@ -1853,9 +1861,9 @@
         $('capture-scene').className = 'capture-scene success';
         await pause(520);
         state = 'captured';
-        announceDayComplete = collectionSnapshot.used === 3;
+        announceDayComplete = collectionSnapshot.remaining === 0;
         setDialogue(`${pokemon.name}${subjectParticle(pokemon.name)}\n수집 도감에 추가됐어요!`);
-        $('collection-status').textContent = previewMode ? '전설·환상 전용 테스트 · 별도 브라우저 기록에 저장되었습니다.' : '노션에 저장됨 · 오늘 수집 ' + collectionSnapshot.used + ' / 3';
+        $('collection-status').textContent = previewMode ? '전설·환상 전용 테스트 · 별도 브라우저 기록에 저장되었습니다.' : '노션에 저장됨 · 오늘 수집 ' + collectionSnapshot.used + ' / ' + (collectionSnapshot.limit || 3);
       } catch (error) {
         if (['ALREADY_COLLECTED', 'DAILY_LIMIT'].includes(error.code)) {
           pendingRecord = null;
@@ -2205,7 +2213,7 @@
         if (announceDayComplete) {
           announceDayComplete = false;
           state = 'today-complete';
-          setDialogue('오늘은 3마리를 모두 잡았어요!\n내일 또 잡으러 와주세요.');
+          setDialogue(`오늘은 ${collectionSnapshot.limit || 3}마리를 모두 잡았어요!\n내일 또 잡으러 와주세요.`);
         } else askAgain();
         return;
       }
@@ -2562,7 +2570,7 @@
         if (!requireFavorites || next.favoriteChange) { delete payload.favoritePokemon; delete payload.favoriteBackgrounds; }
         else delete payload.favoritePokemon;
         const result = await collectionStore.savePreferences(payload);
-        if (requireFavorites && result.schemaVersion !== 3) throw new Error('노션 즐겨찾기를 사용하려면 개인 Worker를 최신 버전으로 업데이트해주세요.');
+        if (requireFavorites && ![3, 4].includes(result.schemaVersion)) throw new Error('노션 즐겨찾기를 사용하려면 개인 Worker를 최신 버전으로 업데이트해주세요.');
         if ((requireFavorites || next.favoritePokemon?.length || next.favoriteBackgrounds?.length) &&
           (!Array.isArray(result.preferences?.favoritePokemon) || !Array.isArray(result.preferences?.favoriteBackgrounds))) throw new Error('즐겨찾기를 사용하려면 개인 Worker를 최신 버전으로 업데이트해주세요.');
         widgetPreferences = { ...PokemonCollection.DEFAULT_PREFERENCES, ...result.preferences };

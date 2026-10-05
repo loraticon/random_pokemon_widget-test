@@ -29,6 +29,17 @@
     }
     return url.origin;
   }
+  function normalizeDatabaseId(value) {
+    let input = String(value || '').trim();
+    if (!/^[0-9a-f-]+$/i.test(input)) {
+      let url;
+      try { url = new URL(input); } catch {}
+      if (!url || url.protocol !== 'https:' || url.username || url.password || !/(^|\.)(notion\.so|notion\.site)$/.test(url.hostname)) throw new Error('복제한 노션 수집 DB의 HTTPS 주소를 입력해주세요.');
+      input = decodeURIComponent(url.pathname).match(/([0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}|[0-9a-f]{32})\/?$/i)?.[1] || '';
+    }
+    if (!/^(?:[0-9a-f]{32}|[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12})$/i.test(input)) throw new Error('연결 설정에서 복제한 원본 노션 DB 주소를 입력해주세요.');
+    return input.replaceAll('-', '').toLowerCase();
+  }
   function snapshot(records, day = koreaDay()) {
     const used = records.filter(record => koreaDay(record.capturedAt) === day).length;
     return { schemaVersion: 3, records, day, used, remaining: Math.max(0, LIMIT - used), pending: [], owned: [...new Set(records.map(captureKey))] };
@@ -97,11 +108,9 @@
     }
   }
   class RemoteStore {
-    constructor(workerUrl, legacyWorkerUrl) {
-      // 이전 두 인자 호출도 주소만 사용합니다. 별도의 위젯 토큰은 사용하지 않습니다.
-      workerUrl = legacyWorkerUrl || workerUrl;
-      try { this.workerUrl = normalizeWorkerUrl(workerUrl); } catch (error) { this.configurationError = error; }
-      this.pendingKey = crypto.subtle.digest('SHA-256', new TextEncoder().encode(this.workerUrl || '')).then(bytes =>
+    constructor(workerUrl, databaseId) {
+      try { this.workerUrl = normalizeWorkerUrl(workerUrl); this.databaseId = normalizeDatabaseId(databaseId); } catch (error) { this.configurationError = error; }
+      this.pendingKey = crypto.subtle.digest('SHA-256', new TextEncoder().encode((this.workerUrl || '') + '/' + (this.databaseId || ''))).then(bytes =>
         'pokemon-pending-' + [...new Uint8Array(bytes)].map(b => b.toString(16).padStart(2, '0')).join(''));
     }
     async pending() {
@@ -109,12 +118,14 @@
     }
     async request(path, body) {
       if (this.configurationError) throw this.configurationError;
+      const address = new URL(path, this.workerUrl);
+      if (!body) address.searchParams.set('db', this.databaseId);
       let response;
       try {
-        response = await fetch(this.workerUrl + path, {
+        response = await fetch(address.href, {
           method: body ? 'POST' : 'GET', credentials: 'omit', cache: 'no-store',
           headers: body ? { 'Content-Type': 'application/json' } : {},
-          body: body ? JSON.stringify(body) : undefined, signal: AbortSignal.timeout(25000)
+          body: body ? JSON.stringify({ ...body, databaseId: this.databaseId }) : undefined, signal: AbortSignal.timeout(25000)
         });
       } catch { throw new Error('개인 Worker에 연결하지 못했어요. 주소와 Worker의 WIDGET_ORIGIN 설정을 확인해주세요.'); }
       const data = await response.json().catch(() => ({}));
@@ -125,9 +136,8 @@
       const pending = await this.pending();
       const params = new URLSearchParams();
       if (all) params.set('records', '1');
-      if (pending) params.set('requestId', pending.id);
       let data = await this.request('/api/collection?' + params);
-      if (pending && data.requestStatus === 'saved') {
+      if (pending && data.owned.includes(captureKey(pending))) {
         try { localStorage.removeItem(await this.pendingKey); } catch {}
       } else if (pending && !data.pending.some(r => r.id === pending.id)) {
         data.pending.push(pending);
@@ -172,6 +182,6 @@
       if (values.some(value => !owned.has(value) && !(current[field] || []).includes(value))) throw new Error('수집한 ' + label + '만 즐겨찾기에 추가할 수 있어요.');
     }
   }
-  root.PokemonCollection = { LIMIT, DEFAULT_PREFERENCES, configureBackgrounds, backgroundFor, validatePreferences, koreaDay, normalizeSlug, captureKey, normalizeWorkerUrl, LocalStore, RemoteStore };
+  root.PokemonCollection = { LIMIT, DEFAULT_PREFERENCES, configureBackgrounds, backgroundFor, validatePreferences, koreaDay, normalizeSlug, captureKey, normalizeWorkerUrl, normalizeDatabaseId, LocalStore, RemoteStore };
   if (typeof module !== 'undefined') module.exports = root.PokemonCollection;
 })(globalThis);
