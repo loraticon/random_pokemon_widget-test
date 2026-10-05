@@ -1,0 +1,15 @@
+/*
+  Referrer-Policy: no-referrer
+  X-Content-Type-Options: nosniff
+
+/pokedex.html
+  Cache-Control: no-cache
+
+/setup.html
+  Cache-Control: no-cache
+
+/index.html
+  Cache-Control: no-cache
+
+/assets/collection.js
+  Cache-Control: no-cache

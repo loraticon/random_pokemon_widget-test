@@ -1,0 +1,12 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "pokemon-collection-widget",
+  "main": "./worker.mjs",
+  "compatibility_date": "2026-10-02",
+  "vars": { "WIDGET_ORIGIN": "" },
+  "durable_objects": {
+    "bindings": [{ "name": "COLLECTION", "class_name": "Collection" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["Collection"] }],
+  "observability": { "enabled": false }
+}

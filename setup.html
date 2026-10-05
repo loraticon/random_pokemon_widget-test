@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer"><title>포켓몬 수집 위젯 연결</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 32px 18px; background: #edf0f2; color: #263238; font: 16px/1.7 system-ui, sans-serif; }
+    main { max-width: 580px; margin: auto; background: #fff; border-radius: 20px; padding: 28px; }
+    h1 { font-size: 25px; margin: 0 0 8px; } h2 { font-size: 19px; margin: 24px 0 8px; }
+    p { margin: 8px 0; } label { display: block; margin-bottom: 8px; }
+    input, button { font: inherit; width: 100%; border-radius: 8px; padding: 11px; }
+    input { border: 1px solid #abb8bd; } button { margin-top: 12px; border: 0; background: #dc0a2d; color: #fff; cursor: pointer; }
+    button:disabled { opacity: .6; cursor: wait; } a { color: #235879; } code { overflow-wrap: anywhere; }
+    #result { border-top: 1px solid #e0e5e7; margin-top: 24px; padding-top: 16px; }
+    #status { font-size: 14px; } .note { color: #52636a; font-size: 14px; } [hidden] { display: none; }
+  </style>
+</head>
+<body><main>
+  <h1>포켓몬 수집 위젯 연결</h1>
+  <p>나만의 노션 수집 도감을 만들고, 하루 3마리씩 포켓몬을 잡아보세요.</p>
+  <h2>1. 노션 페이지 연결</h2>
+  <p>Cloudflare에 입력한 노션 연결을 해당 페이지의 <strong>··· → 연결 추가</strong>에서 추가해주세요. DB는 아래 버튼을 누르면 자동으로 만들어집니다.</p>
+  <h2>2. 위젯 연결</h2>
+  <form id="connect-form">
+    <label for="worker">본인의 Cloudflare Worker 주소</label>
+    <input id="worker" type="url" autocomplete="url" required placeholder="https://나의주소.workers.dev">
+    <label for="key">Cloudflare에 설정한 개인 위젯 연결 키</label>
+    <input id="key" type="password" autocomplete="off" minlength="32" required placeholder="WIDGET_KEY와 같은 값을 입력해주세요">
+    <p class="note">노션 토큰은 여기에 입력하지 않습니다. Worker 주소와 WIDGET_KEY로 본인의 서버에 직접 연결합니다.</p>
+    <button id="connect" type="submit">수집 도감 만들고 연결하기</button>
+  </form>
+  <p id="status" role="status"></p>
+  <section id="result" hidden>
+    <h2>3. 노션에 위젯 삽입</h2>
+    <p>아래 주소를 복사해 노션 페이지에 붙여넣고 <strong>임베드</strong>를 선택하세요.</p>
+    <input id="widget-url" readonly aria-label="노션에 삽입할 개인 위젯 주소">
+    <button id="copy" type="button">위젯 주소 복사</button>
+    <p><a id="open-widget" target="_blank" rel="noopener">위젯 열기</a> · <a id="open-db" target="_blank" rel="noopener">노션 수집 도감 열기</a></p>
+    <p class="note">이 주소로 개인 도감에 접근할 수 있어요. 공개 페이지에 넣거나 다른 사람에게 공유하지 마세요.</p>
+  </section>
+</main><script src="./assets/collection.js"></script><script>
+  const $ = id => document.getElementById(id);
+  $('connect-form').addEventListener('submit', async event => {
+    event.preventDefault(); $('connect').disabled = true; $('result').hidden = true;
+    $('status').textContent = '노션 연결을 확인하고 수집 도감을 준비하는 중…';
+    try {
+      if (location.protocol !== 'https:') throw new Error('제작자가 제공한 HTTPS 연결 페이지에서 연결해주세요.');
+      const key = $('key').value.trim();
+      const worker = PokemonCollection.normalizeWorkerUrl($('worker').value);
+      const store = new PokemonCollection.RemoteStore(key, worker);
+      const data = await store.request('/api/setup', {});
+      const address = new URL('./pokedex.html', location.href).href + '#' + new URLSearchParams({ worker, key });
+      $('widget-url').value = address; $('open-widget').href = address; $('open-db').href = data.databaseUrl;
+      $('result').hidden = false; $('status').textContent = '연결 완료! 수집 기록은 노션에 자동으로 저장됩니다.';
+    } catch (error) { $('status').textContent = error.name === 'TimeoutError' ? '응답이 지연되고 있어요. 잠시 후 다시 연결해주세요.' : error.message; }
+    finally { $('connect').disabled = false; }
+  });
+  $('copy').addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText($('widget-url').value); $('status').textContent = '위젯 주소를 복사했어요!'; }
+    catch { $('widget-url').select(); $('status').textContent = '주소를 선택했어요. 복사해서 사용해주세요.'; }
+  });
+</script></body></html>
