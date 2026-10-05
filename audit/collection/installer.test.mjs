@@ -12,6 +12,19 @@ function unzip(bytes) {
   }
   return files;
 }
+test('배포 HTML은 내용별 파일명으로 연결 코드를 요청해 이전 파일 캐시를 재사용하지 않음', () => {
+  const files = unzip(read('cloudflare-Pages-공용화면.zip'));
+  let expectedPath;
+  for (const name of ['index.html', 'setup.html', 'pokedex.html']) {
+    const html = files.get(name).toString('utf8');
+    const scriptPath = html.match(/src="\.\/(assets\/collection\.[0-9a-f]{12}\.js)"/)?.[1];
+    assert.ok(scriptPath, name + '에서 버전별 연결 코드가 필요합니다.');
+    assert.doesNotMatch(html, /src="\.\/assets\/collection\.js"/);
+    assert.deepEqual(files.get(scriptPath), read('assets/collection.js'));
+    if (expectedPath) assert.equal(scriptPath, expectedPath);
+    expectedPath = scriptPath;
+  }
+});
 test('개인 설치 ZIP은 바로 붙여넣는 Worker와 안내 두 파일만 포함, 배포 다운로드와 일치', () => {
   const files = unzip(read('cloudflare-개인설치.zip'));
   assert.deepEqual([...files.keys()].sort(), ['worker.js', '먼저-읽어주세요.md'].sort());
