@@ -34,7 +34,7 @@
     if (!/^[0-9a-f-]+$/i.test(input)) {
       let url;
       try { url = new URL(input); } catch {}
-      if (!url || url.protocol !== 'https:' || url.username || url.password || !/(^|\.)(notion\.so|notion\.site)$/.test(url.hostname)) throw new Error('복제한 노션 수집 DB의 HTTPS 주소를 입력해주세요.');
+      if (!url || url.protocol !== 'https:' || url.username || url.password || !(url.hostname === 'app.notion.com' || /(^|\.)(notion\.so|notion\.site)$/.test(url.hostname))) throw new Error('복제한 노션 수집 DB의 HTTPS 주소를 입력해주세요.');
       input = decodeURIComponent(url.pathname).match(/([0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}|[0-9a-f]{32})\/?$/i)?.[1] || '';
     }
     if (!/^(?:[0-9a-f]{32}|[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12})$/i.test(input)) throw new Error('연결 설정에서 복제한 원본 노션 DB 주소를 입력해주세요.');

@@ -32,7 +32,7 @@ export function pageId(value) {
   if (/^[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}$/i.test(input)) return input.replaceAll('-', '').toLowerCase();
   let url;
   try { url = new URL(input); } catch {}
-  if (!url || url.protocol !== 'https:' || url.username || url.password || !/(^|\.)(notion\.so|notion\.site)$/.test(url.hostname)) {
+  if (!url || url.protocol !== 'https:' || url.username || url.password || !(url.hostname === 'app.notion.com' || /(^|\.)(notion\.so|notion\.site)$/.test(url.hostname))) {
     throw new ServiceError('복제한 노션 수집 DB의 HTTPS 주소를 입력해주세요.', 400);
   }
   const id = decodeURIComponent(url.pathname).match(/([0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}|[0-9a-f]{32})\/?$/i)?.[1];

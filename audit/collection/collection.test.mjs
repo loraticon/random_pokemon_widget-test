@@ -178,6 +178,9 @@ test('Notion 401·404·429는 원인을 표시하며 DB를 새로 만들지 않�
 });
 test('DB 주소 검증과 한국 시간 자정, 히스이·전용 배경 구분', () => {
   assert.equal(pageId('https://www.notion.so/Collection-' + db + '?v=ignored'), db);
+  assert.equal(pageId('https://app.notion.com/p/pokemon/Collection-' + db + '?v=ignored'), db);
+  assert.equal(pageId('https://app.notion.com/p/pokemon/01234567-89ab-cdef-0123-456789abcdef/'), db);
+  assert.throws(() => pageId('https://app.notion.com.evil.example/p/pokemon/' + db));
   assert.equal(pageId('01234567-89ab-cdef-0123-456789abcdef'), db);
   assert.throws(() => pageId('https://evil.example/' + db));
   assert.equal(koreaDay('2026-10-04T14:59:59Z'), '2026-10-04'); assert.equal(koreaDay('2026-10-04T15:00:00Z'), '2026-10-05');

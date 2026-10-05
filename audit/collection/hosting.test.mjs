@@ -92,6 +92,14 @@ test('HTTPS 연결 화면은 두 주소로 DB 준비→링크 생성→자동 �
   assert.equal(f.elements.get('result').hidden, false); assert.equal(f.copied.length, 1);
   await f.elements.get('copy').events.click(); assert.equal(f.copied.length, 2); assert.equal(f.elements.get('connect').disabled, false);
 });
+test('app.notion.com의 워크스페이스·DB 링크로 연결하고 위장 도메인은 거절', async () => {
+  const f = setupFixture();
+  f.elements.get('database').value = 'https://app.notion.com/p/pokemon/Collection-' + db + '?v=view';
+  await f.submit();
+  assert.equal(f.calls.length, 1); assert.equal(JSON.parse(f.calls[0][1].body).databaseId, db);
+  assert.equal(f.elements.get('result').hidden, false); assert.equal(f.copied.length, 1);
+  assert.throws(() => f.api.normalizeDatabaseId('https://app.notion.com.evil.example/p/pokemon/' + db));
+});
 test('클립보드 차단 시 수동 복사·선택 안내, API 실패 시 링크를 표시하지 않음', async () => {
   const f = setupFixture({ clipboardFails: true }); await f.submit();
   assert.match(f.elements.get('status').textContent, /복사 버튼/); await f.elements.get('copy').events.click(); assert.equal(f.elements.get('widget-url').selected, true);
