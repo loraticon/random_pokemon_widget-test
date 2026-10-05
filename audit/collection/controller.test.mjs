@@ -675,3 +675,20 @@ test('메인 스크립트 문법 및 원본 포켓몬 데이터 유지', () => {
   const embedded = JSON.parse(html.match(/id="pokemon-data">([\s\S]*?)<\/script>/)[1]);
   assert.deepEqual(embedded, original);
 });
+
+test('파트너 안내는 받침에 따라 과·와를 선택하고 모드 전환 후에도 유지', async () => {
+  const f = await fixture();
+  for (const [name, expected] of [['파오젠', '과'], ['이브이', '와'], ['피카츄', '와'], ['잠만보', '와'], ['윈디 (히스이)', '와']]) {
+    assert.equal(f.run(`companionParticle(${JSON.stringify(name)})`), expected);
+  }
+  const record = { id: crypto.randomUUID(), slug: 'chien-pao', dexId: 1002, name: '파오젠', isShiny: false, capturedAt: '2026-09-01T00:00:00Z', imageSrc: './images/normal/mr-mime.webp' };
+  f.run(`localStorage.setItem('pokemon-collection-preview-v1', ${JSON.stringify(JSON.stringify([record]))})`);
+  await f.run('openDisplaySettings()');
+  f.elements.get('display-pokemon').value = 'chien-pao:false';
+  await f.elements.get('display-save').events.click();
+  await f.elements.get('mode-toggle').events.click();
+  assert.equal(f.elements.get('dialogue-text').textContent, '파오젠과\n쉬는 중…');
+  assert.equal(f.elements.get('sleep-touch').attributes['aria-label'], '파오젠과 놀기');
+  await f.elements.get('mode-toggle').events.click();
+  assert.equal(f.elements.get('mode-toggle').attributes['aria-label'], '파트너 모드로 전환');
+});

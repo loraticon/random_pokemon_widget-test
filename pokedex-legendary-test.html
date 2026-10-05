@@ -33,15 +33,15 @@
     .widget-tools button { display: grid; place-items: center; width: max(32px, 6cqw); height: max(32px, 6cqw); padding: 1cqw; border: .3cqw solid #593840; border-radius: 1.2cqw; background: #fff8ed; color: #593840; box-shadow: 0 2px 0 #59384050; }
     .widget-tools svg { width: 100%; height: 100%; }
     .widget-tools button:disabled { opacity: .5; cursor: wait; }
-    .display-settings { position: absolute; inset: 17% 7% 15%; z-index: 14; overflow-y: auto; overflow-x: hidden; padding: 3cqw; background: #fff8ed; border: .6cqw solid #593840; border-radius: 2cqw; box-shadow: 0 1cqw 3cqw #0005; font-size: 2.8cqw; color: #593840; }
+    .display-settings { position: absolute; inset: 17% 7% 15%; z-index: 14; overflow-y: auto; overflow-x: hidden; padding: 3cqw; background: #fff8ed; border: .6cqw solid #593840; border-radius: 2cqw; box-shadow: 0 1cqw 3cqw #0005; font-size: max(13px, 3.1cqw); color: #593840; }
     .display-settings header { display: flex; align-items: center; justify-content: space-between; gap: 1cqw; }
-    .display-settings h2 { margin: 0; font-size: 3.5cqw; }
+    .display-settings h2 { margin: 0; font-size: max(16px, 4cqw); }
     .display-settings button { border: .3cqw solid #593840; border-radius: .8cqw; padding: 1.2cqw 2cqw; background: #fff; color: #593840; }
-    .display-intro { margin: 1.5cqw 0 3cqw; font-size: 2.1cqw; line-height: 1.6; color: #786356; }
+    .display-intro { margin: 1.5cqw 0 3cqw; font-size: max(12px, 2.7cqw); line-height: 1.6; color: #786356; }
     .display-settings select { width: 100%; min-width: 0; padding: 1cqw; font: inherit; border: .3cqw solid #b4a398; border-radius: .8cqw; background: white; color: #593840; }
-    .display-picker { margin: 3cqw 0; min-width: 0; font-size: 2.1cqw; }
+    .display-picker { margin: 3cqw 0; min-width: 0; font-size: max(12px, 2.7cqw); }
     .picker-heading { display: flex; align-items: center; justify-content: space-between; gap: 1cqw; margin-bottom: 1cqw; }
-    .display-picker h3 { margin: 0; font-size: 2.4cqw; }
+    .display-picker h3 { margin: 0; font-size: max(13px, 3cqw); }
     .picker-heading button { padding: .7cqw 1.2cqw; border-color: transparent; border-radius: 2cqw; background: #f2e9de; white-space: nowrap; font-size: inherit; }
     .picker-heading button[aria-pressed="true"] { border-color: #805307; background: #ffe5a1; color: #805307; }
     .picker-search { display: block; width: 100%; min-width: 0; margin-bottom: 1cqw; border: 0; border-radius: .8cqw; padding: 1.3cqw; background: #f2e9de; color: #593840; font: inherit; }
@@ -57,8 +57,8 @@
     .display-preview img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
     .display-preview .preview-pokemon { inset: 8%; width: 84%; height: 84%; object-fit: contain; image-rendering: pixelated; }
     #display-save { display: block; width: 100%; background: #d1edce; }
-    #display-status { margin: 1.5cqw 0; font-size: 2.1cqw; line-height: 1.6; }
-    .display-help { min-width: 0; margin-top: 3cqw; padding-top: 2cqw; border-top: .25cqw solid #b4a398; font-size: 2.1cqw; }
+    #display-status { margin: 1.5cqw 0; font-size: max(12px, 2.7cqw); line-height: 1.6; }
+    .display-help { min-width: 0; margin-top: 3cqw; padding-top: 2cqw; border-top: .25cqw solid #b4a398; font-size: max(12px, 2.7cqw); }
     .display-help summary { cursor: pointer; font-size: inherit; }
     .controls-map-frame { position: relative; margin: 1.5cqw 0; overflow: hidden; border-radius: 1cqw; background: #f2e5d7; }
     .controls-map { display: block; width: 100%; height: auto; }
@@ -157,7 +157,7 @@
     .book-details span { font-size: 2cqw; }
     .book-details strong { font-size: 2.4cqw; font-weight: normal; text-shadow: .15cqw .15cqw #454e53; }
     .book-summary { margin: .35cqw 0 0; font-size: 1.7cqw; line-height: 1.15; color: #e4e6d7; }
-    #collection-status { margin: 0 0 2.5cqw; padding: 2cqw 2.4cqw; border-radius: 1.4cqw; background: #ede9dc; color: #4c6054; font-size: 2.5cqw; line-height: 1.6; overflow-wrap: anywhere; }
+    #collection-status { margin: 0 0 2.5cqw; padding: 2cqw 2.4cqw; border-radius: 1.4cqw; background: #ede9dc; color: #4c6054; font-size: max(12px, 2.8cqw); line-height: 1.6; overflow-wrap: anywhere; }
     #collection-status a { color: #35565a; }
     .choices { position: absolute; right: 4%; bottom: 5%; display: grid; gap: .6cqw; min-width: 30%; padding: 1.5cqw; border: 2px solid #215c62; border-radius: 6px; background: #f6ffeef5; box-shadow: 0 3px 0 #215c6250; z-index: 3; }
     .choice { text-align: left; border: none; padding: .7cqw 1.2cqw; color: #25464a; background: transparent; font-size: 3.3cqw; white-space: nowrap; }
@@ -273,13 +273,13 @@
       <img class="shell" src="./assets/pokedex-shell.svg" alt="" draggable="false">
       <div class="lens-glow" aria-hidden="true"></div>
       <nav class="widget-tools" aria-label="위젯 모드와 화면 설정">
-        <button id="mode-toggle" type="button" title="슬립모드로 전환" aria-label="슬립모드로 전환" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path id="mode-icon" d="M20 15.4A8.5 8.5 0 0 1 8.6 4a8.5 8.5 0 1 0 11.4 11.4Z"/></svg></button>
+        <button id="mode-toggle" type="button" title="파트너 모드로 전환" aria-label="파트너 모드로 전환" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path id="mode-icon" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM3 12h6m6 0h6M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg></button>
         <button id="display-open" type="button" title="메인화면 설정" aria-label="메인화면 설정"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 3h6l1 3 3 1 2 5-2 5-3 1-1 3H9l-1-3-3-1-2-5 2-5 3-1Z"/><circle cx="12" cy="12" r="3"/></svg></button>
       </nav>
       <section class="display-settings" id="display-settings" role="dialog" aria-modal="true" aria-labelledby="display-title" hidden>
         <header><h2 id="display-title">메인화면 설정</h2><button id="display-close" type="button" aria-label="메인화면 설정 닫기">닫기</button></header>
         <p id="collection-status" role="status">수집 기록을 확인하는 중…</p>
-        <p class="display-intro">슬립모드에서 함께 쉴 포켓몬과 배경을 골라주세요.</p>
+        <p class="display-intro">함께할 포켓몬과 배경을 골라주세요.</p>
         <section class="display-picker" aria-labelledby="pokemon-picker-title">
           <div class="picker-heading"><h3 id="pokemon-picker-title">포켓몬</h3><button id="display-pokemon-only-favorites" type="button" aria-pressed="false">즐겨찾기만</button></div>
           <input class="picker-search" id="display-pokemon-search" type="search" placeholder="이름이나 도감 번호로 찾기" aria-label="수집한 포켓몬 검색" autocomplete="off">
@@ -292,7 +292,7 @@
           <div class="picker-choice"><select id="display-background" aria-label="수집한 배경 선택"></select><button class="favorite-toggle" id="display-background-favorite" type="button" aria-label="선택한 배경 즐겨찾기" aria-pressed="false" disabled>☆</button></div>
           <p class="picker-status" id="display-background-count" role="status"></p>
         </section>
-        <div class="display-preview" aria-label="슬립모드 미리보기"><img id="display-preview-background" alt="" hidden><img class="preview-pokemon" id="display-preview-pokemon" alt="" hidden></div>
+        <div class="display-preview" aria-label="파트너 모드 미리보기"><img id="display-preview-background" alt="" hidden><img class="preview-pokemon" id="display-preview-pokemon" alt="" hidden></div>
         <p id="display-status" role="status">수집한 포켓몬과 배경을 각각 선택해주세요.</p>
         <button id="display-save" type="button">이 화면으로 저장</button>
         <details class="display-help">
@@ -2016,6 +2016,10 @@
       }
     }
 
+    function companionParticle(name) {
+      return subjectParticle(name) === '이' ? '과' : '와';
+    }
+
     function subjectParticle(name) {
       const last = [...name].reverse().find(letter => /[가-힣]/.test(letter));
       return last && (last.charCodeAt(0) - 0xac00) % 28 ? '이' : '가';
@@ -2332,7 +2336,7 @@
         lastSleepAction = '';
       } else if (state === 'sleep') {
         const record = selectedDisplayRecord();
-        if (record) setDialogue(`${record.name}와\n쉬는 중…`, false);
+        if (record) setDialogue(`${record.name}${companionParticle(record.name)}\n쉬는 중…`, false);
       }
       if (!leavingSleep && resumeAutonomy) scheduleSleepAutonomy();
     }
@@ -2371,10 +2375,10 @@
       reset();
       const sleeping = widgetPreferences.mode === 'sleep';
       $('mode-toggle').setAttribute('aria-pressed', String(sleeping));
-      const label = sleeping ? '뽑기모드로 전환' : '슬립모드로 전환';
+      const label = sleeping ? '뽑기모드로 전환' : '파트너 모드로 전환';
       $('mode-toggle').setAttribute('aria-label', label);
       $('mode-toggle').title = label;
-      $('mode-icon').setAttribute('d', sleeping ? 'M8 4l13 8-13 8Z' : 'M20 15.4A8.5 8.5 0 0 1 8.6 4a8.5 8.5 0 1 0 11.4 11.4Z');
+      $('mode-icon').setAttribute('d', sleeping ? 'M8 4l13 8-13 8Z' : 'M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM3 12h6m6 0h6M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z');
       if (!sleeping) return;
       state = 'sleep';
       $('device').classList.add('sleeping');
@@ -2388,7 +2392,7 @@
       const record = selectedDisplayRecord();
       $('sleep-empty').hidden = Boolean(record);
       $('sleep-empty').textContent = '수집한 포켓몬을\n설정에서 선택해주세요.';
-      setDialogue(record ? `${record.name}와\n쉬는 중…` : '슬립모드 · 상단 설정에서\n포켓몬과 배경을 선택하세요.', false);
+      setDialogue(record ? `${record.name}${companionParticle(record.name)}\n쉬는 중…` : '파트너 모드 · 상단 설정에서\n포켓몬과 배경을 선택하세요.', false);
       if (!record) return;
       $('pokemon-display').hidden = false;
       $('pokemon-display').classList.remove('reveal');
@@ -2403,7 +2407,7 @@
         $('pokemon-img').src = src; $('pokemon-img').alt = (record.isShiny ? '색이 다른 ' : '') + record.name;
         $('pokemon-display').classList.add('sleep-companion');
         $('sleep-touch').hidden = false;
-        $('sleep-touch').setAttribute('aria-label', record.name + '와 놀기');
+        $('sleep-touch').setAttribute('aria-label', record.name + companionParticle(record.name) + ' 놀기');
         $('sleep-touch').title = '클릭해서 함께 놀기';
         scheduleSleepAutonomy();
       }
