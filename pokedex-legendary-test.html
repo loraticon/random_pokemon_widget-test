@@ -12,7 +12,7 @@
       font-display: swap;
     }
     * { box-sizing: border-box; }
-    body { margin: 0; min-height: 100svh; background: #edf0f2; color: #353c42; font-family: DungGeunMo, monospace; }
+    body { margin: 0; min-height: 100svh; background: transparent; color: #353c42; font-family: DungGeunMo, monospace; }
     button, input { font: inherit; }
     button { -webkit-tap-highlight-color: transparent; cursor: pointer; }
     button:focus-visible, summary:focus-visible { outline: 3px solid #ffe275; outline-offset: 3px; }
@@ -153,7 +153,7 @@
     .book-details span { font-size: 2cqw; }
     .book-details strong { font-size: 2.4cqw; font-weight: normal; text-shadow: .15cqw .15cqw #454e53; }
     .book-summary { margin: .35cqw 0 0; font-size: 1.7cqw; line-height: 1.15; color: #e4e6d7; }
-    #collection-status { margin: 4px 0 6px; }
+    #collection-status { margin: 0 0 2.5cqw; padding: 2cqw 2.4cqw; border-radius: 1.4cqw; background: #ede9dc; color: #4c6054; font-size: 2.5cqw; line-height: 1.6; overflow-wrap: anywhere; }
     #collection-status a { color: #35565a; }
     .choices { position: absolute; right: 4%; bottom: 5%; display: grid; gap: .6cqw; min-width: 30%; padding: 1.5cqw; border: 2px solid #215c62; border-radius: 6px; background: #f6ffeef5; box-shadow: 0 3px 0 #215c6250; z-index: 3; }
     .choice { text-align: left; border: none; padding: .7cqw 1.2cqw; color: #25464a; background: transparent; font-size: 3.3cqw; white-space: nowrap; }
@@ -183,11 +183,6 @@
     .instructions { margin: 0 0 6px; }
     details { margin: 0 auto; width: fit-content; max-width: 100%; }
     summary { cursor: pointer; color: #3e6268; }
-    .settings { margin-top: 10px; padding: 12px; background: white; border: 1px solid #d9e0e2; border-radius: 10px; text-align: left; }
-    .settings label { display: block; margin-bottom: 8px; }
-    .settings input { width: 100%; max-width: 310px; font-size: 12px; }
-    .settings button { padding: 5px 9px; margin-top: 8px; border: 1px solid #beced0; border-radius: 5px; background: #f4f8f7; color: #35565a; }
-    #background-status { max-width: 310px; margin: 8px 0 0; }
     footer { margin-top: 8px; font-family: sans-serif; font-size: 9px; color: #879097; }
     @keyframes reveal { from { opacity: 0; transform: scale(.94); } to { opacity: 1; transform: scale(1); } }
     @keyframes pokemon-bounce {
@@ -279,6 +274,7 @@
       </nav>
       <section class="display-settings" id="display-settings" role="dialog" aria-modal="true" aria-labelledby="display-title" hidden>
         <header><h2 id="display-title">메인화면 설정</h2><button id="display-close" type="button" aria-label="메인화면 설정 닫기">닫기</button></header>
+        <p id="collection-status" role="status">수집 기록을 확인하는 중…</p>
         <p class="display-intro">슬립모드에서 함께 쉴 포켓몬과 배경을 골라주세요.</p>
         <section class="display-picker" aria-labelledby="pokemon-picker-title">
           <div class="picker-heading"><h3 id="pokemon-picker-title">포켓몬</h3><button id="display-pokemon-only-favorites" type="button" aria-pressed="false">즐겨찾기만</button></div>
@@ -387,17 +383,7 @@
     </section>
     <div class="below">
       <p class="instructions">전설·환상 전용 테스트 · 94종 / 폼 포함 140개<br>전설 71종 + 환상 23종 · 포획은 하루 3마리<br>테스트 기록은 이 브라우저에 별도로 저장됩니다.</p>
-      <p id="collection-status" role="status">수집 기록을 확인하는 중…</p>
-      <details>
-        <summary>화면 배경 설정</summary>
-        <div class="settings">
-          <label for="background-file">타입 배경이 없는 포켓몬의 기본 이미지 선택</label>
-          <input type="file" id="background-file" accept="image/png,image/jpeg,image/webp,image/svg+xml">
-          <br><button id="reset-background" type="button">기본 이미지 해제</button>
-          <p id="background-status" role="status">권장 비율 383 : 302 · 이미지는 화면을 꽉 채웁니다.</p>
-        </div>
-      </details>
-      <footer>비상업적 팬 프로젝트 · Custom pixel art<br>© Nintendo / Creatures / GAME FREAK / Pokémon</footer>
+      <footer>비상업적 팬 프로젝트<br>© Nintendo / Creatures / GAME FREAK / Pokémon</footer>
     </div>
   </main>
   <!-- 파일을 더블클릭해도 작동하도록 현재 데이터의 사본을 포함합니다. -->
@@ -1674,14 +1660,11 @@
     const IMAGE_BASE_PATH = './images';
     // 로컬에 없는 포켓몬 이미지는 기존 프로젝트 저장소를 보조 경로로 사용합니다.
     const REMOTE_IMAGE_BASE = 'https://raw.githubusercontent.com/loraticon/random_pokemon_widget-ver1/main/images';
-    const BACKGROUND_STORAGE_KEY = 'pokemon-pokedex-screen-background-v1';
     const TYPE_DATA = JSON.parse(document.getElementById('pokemon-types').textContent);
     const BACKGROUND_CATALOG = JSON.parse(document.getElementById("background-catalog").textContent);
     PokemonCollection.configureBackgrounds(BACKGROUND_CATALOG, TYPE_DATA);
     const TYPE_BACKGROUNDS = Object.fromEntries(Object.entries(BACKGROUND_CATALOG.byType).map(([type, id]) => [type, BACKGROUND_CATALOG.items[id].path]));
     const POKEMON_BACKGROUNDS = Object.fromEntries(Object.entries(BACKGROUND_CATALOG.bySlug).map(([slug, id]) => [slug, BACKGROUND_CATALOG.items[id].path]));
-    let customBackground = null;
-    try { customBackground = localStorage.getItem(BACKGROUND_STORAGE_KEY); } catch {}
     // 타입별 이미지를 미리 읽어 포켓몬 등장 시 바로 표시합니다.
     for (const src of new Set(Object.values(TYPE_BACKGROUNDS))) {
       const image = new Image();
@@ -2395,7 +2378,7 @@
       $('daily-catches').hidden = true;
       const background = BACKGROUND_CATALOG.items[widgetPreferences.backgroundId];
       const unlocked = Boolean(background) && collectedRecords.some(record => PokemonCollection.backgroundFor(record)?.id === background.id);
-      applyBackground(unlocked ? background.path : customBackground || SCREEN_BACKGROUND_PATH);
+      applyBackground(unlocked ? background.path : SCREEN_BACKGROUND_PATH);
       $('screen').dataset.backgroundType = background?.id || 'default';
       $('screen').dataset.backgroundPokemon = '';
       const record = selectedDisplayRecord();
@@ -2613,7 +2596,7 @@
       if (state === 'sleep') {
         const background = BACKGROUND_CATALOG.items[widgetPreferences.backgroundId];
         const unlocked = Boolean(background) && collectedRecords.some(record => PokemonCollection.backgroundFor(record)?.id === background.id);
-        applyBackground(unlocked ? background.path : customBackground || SCREEN_BACKGROUND_PATH);
+        applyBackground(unlocked ? background.path : SCREEN_BACKGROUND_PATH);
         return;
       }
       // 복합 타입은 첫 번째 타입 우선, 배경이 없으면 두 번째 타입을 확인합니다.
@@ -2621,7 +2604,7 @@
       const specialBackground = entry && POKEMON_BACKGROUNDS[entry.slug];
       $('screen').dataset.backgroundType = type || 'default';
       $('screen').dataset.backgroundPokemon = specialBackground ? entry.slug : '';
-      applyBackground(specialBackground || TYPE_BACKGROUNDS[type] || customBackground || SCREEN_BACKGROUND_PATH);
+      applyBackground(specialBackground || TYPE_BACKGROUNDS[type] || SCREEN_BACKGROUND_PATH);
     }
 
     function applyBackground(src) {
@@ -2629,46 +2612,10 @@
       img.hidden = true;
       if (!src) { img.removeAttribute('src'); return; }
       img.onload = () => { img.hidden = false; };
-      img.onerror = () => { img.hidden = true; $('background-status').textContent = '이미지를 불러오지 못했습니다. 다른 파일을 선택해주세요.'; };
+      img.onerror = () => { img.hidden = true; };
       img.src = src;
     }
 
-    $('background-file').addEventListener('change', async event => {
-      const file = event.target.files[0];
-      if (!file) return;
-      if (!['image/png', 'image/jpeg', 'image/webp', 'image/svg+xml'].includes(file.type)) {
-        $('background-status').textContent = 'PNG · JPG · WebP · SVG 이미지를 선택해주세요.';
-        return;
-      }
-      if (file.size > 5 * 1024 * 1024) { $('background-status').textContent = '5MB 이하의 이미지를 선택해주세요.'; return; }
-      const src = await new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = () => resolve(reader.result);
-        reader.onerror = reject;
-        reader.readAsDataURL(file);
-      }).catch(() => null);
-      if (!src) { $('background-status').textContent = '이미지를 읽지 못했습니다. 다시 선택해주세요.'; return; }
-      const preview = new Image();
-      preview.onload = () => {
-        customBackground = src;
-        updateBackground(state !== 'idle' ? pokemon : null);
-        try {
-          localStorage.setItem(BACKGROUND_STORAGE_KEY, src);
-          $('background-status').textContent = `${file.name} · 기본 배경으로 저장되었습니다. 타입별 배경이 우선 적용됩니다.`;
-        } catch {
-          $('background-status').textContent = `${file.name} · 적용되었습니다. 저장 공간이 부족해 새로 열면 다시 선택해야 합니다.`;
-        }
-      };
-      preview.onerror = () => { $('background-status').textContent = '이미지를 읽지 못했습니다. 다른 파일을 선택해주세요.'; };
-      preview.src = src;
-    });
-    $('reset-background').addEventListener('click', () => {
-      try { localStorage.removeItem(BACKGROUND_STORAGE_KEY); } catch {}
-      $('background-file').value = '';
-      customBackground = null;
-      updateBackground(state !== 'idle' ? pokemon : null);
-      $('background-status').textContent = '기본 이미지를 해제했습니다. 타입별 배경은 자동 적용됩니다.';
-    });
     reset();
     syncCollection(true).then(ready => { if (ready && state === 'idle' && $('display-settings').hidden) applyWidgetMode(); });
     document.addEventListener('visibilitychange', () => {

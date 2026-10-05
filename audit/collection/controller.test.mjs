@@ -537,7 +537,7 @@ test('출력 화면 클릭으로 대사 진행, 선택 중 빈 화면 및 버튼
 test('관동 썬더 전용 배경 우선, 색이 다른 개체 공유, 지역폼 및 다음 화면 분리', async () => {
   const f = await fixture();
   const background = f.elements.get('screen-background');
-  f.run("customBackground = 'custom.webp'; updateBackground(POKEMON_DATA.find(entry => entry.slug === 'zapdos'))");
+  f.run("updateBackground(POKEMON_DATA.find(entry => entry.slug === 'zapdos'))");
   assert.equal(background.src, './assets/backgrounds/special/zapdos.webp');
   f.run("updateBackground({...POKEMON_DATA.find(entry => entry.slug === 'zapdos'), isShiny: true})");
   assert.equal(background.src, './assets/backgrounds/special/zapdos.webp');
@@ -547,7 +547,7 @@ test('관동 썬더 전용 배경 우선, 색이 다른 개체 공유, 지역폼
   f.run("updateBackground(POKEMON_DATA.find(entry => entry.slug === 'squirtle'))");
   assert.equal(background.src, './assets/backgrounds/water.webp');
   f.run('updateBackground()');
-  assert.equal(background.src, 'custom.webp');
+  assert.equal(background.hidden, true);
   assert.ok(fs.statSync(new URL('../../assets/backgrounds/special/zapdos.webp', import.meta.url)).size > 0);
 });
 
