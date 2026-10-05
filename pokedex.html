@@ -34,7 +34,7 @@
     .widget-tools svg { width: 100%; height: 100%; }
     .widget-tools button:disabled { opacity: .5; cursor: wait; }
     .display-settings { position: absolute; inset: 17% 7% 15%; z-index: 14; overflow-y: auto; overflow-x: hidden; padding: 3cqw; background: #fff8ed; border: .6cqw solid #593840; border-radius: 2cqw; box-shadow: 0 1cqw 3cqw #0005; font-size: max(13px, 3.1cqw); color: #593840; }
-    .display-settings header { display: flex; align-items: center; justify-content: space-between; gap: 1cqw; }
+    .display-settings header { position: sticky; top: -3cqw; z-index: 2; margin: -3cqw -3cqw 2cqw; padding: 2cqw 3cqw; background: #fff8ed; border-bottom: 1px solid #d8c7b7; display: flex; align-items: center; justify-content: space-between; gap: 1cqw; }
     .display-settings h2 { margin: 0; font-size: max(16px, 4cqw); }
     .display-settings button { border: .3cqw solid #593840; border-radius: .8cqw; padding: 1.2cqw 2cqw; background: #fff; color: #593840; }
     .display-intro { margin: 1.5cqw 0 3cqw; font-size: max(12px, 2.7cqw); line-height: 1.6; color: #786356; }
@@ -56,7 +56,8 @@
     .display-preview { position: relative; width: 37cqw; max-width: 100%; aspect-ratio: 383 / 302; margin: 1.5cqw auto; overflow: hidden; border: .4cqw solid #593840; border-radius: 1cqw; background: #71dce4; }
     .display-preview img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
     .display-preview .preview-pokemon { inset: 8%; width: 84%; height: 84%; object-fit: contain; image-rendering: pixelated; }
-    #display-save { display: block; width: 100%; background: #d1edce; }
+    .settings-actions { display: flex; gap: 1cqw; flex-shrink: 0; }
+    #display-save { background: #d1edce; }
     #display-status { margin: 1.5cqw 0; font-size: max(12px, 2.7cqw); line-height: 1.6; }
     .display-help { min-width: 0; margin-top: 3cqw; padding-top: 2cqw; border-top: .25cqw solid #b4a398; font-size: max(12px, 2.7cqw); }
     .display-help summary { cursor: pointer; font-size: inherit; }
@@ -64,11 +65,11 @@
     .controls-map { display: block; width: 100%; height: auto; }
     .controls-map .guide-line { stroke: #fff8ed; stroke-width: 4; }
     .controls-map .guide-badge { fill: #fff8ed; stroke: #593840; stroke-width: 2; }
-    .map-number { position: absolute; transform: translate(-50%, -50%); font-size: inherit; font-weight: bold; line-height: 1; pointer-events: none; }
+    .map-number { position: absolute; transform: translate(-50%, -50%); display: grid; place-items: center; width: 1.65em; height: 1.65em; border: 2px solid #593840; border-radius: 50%; background: #fff; color: #38242a; font-family: Arial, sans-serif; font-size: max(12px, 2.8cqw); font-weight: 700; line-height: 1; pointer-events: none; }
     .controls-list { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1cqw; margin: 0; padding: 0; list-style: none; }
-    .controls-list li { display: grid; grid-template-columns: 3.4cqw minmax(0, 1fr); align-items: start; gap: 1cqw; min-width: 0; padding: 1.5cqw; border: .25cqw solid #d8c7b7; border-radius: 1cqw; background: #fffdf7; }
+    .controls-list li { display: grid; grid-template-columns: 1.9em minmax(0, 1fr); align-items: start; gap: .6em; min-width: 0; padding: 1.5cqw; border: .25cqw solid #d8c7b7; border-radius: 1cqw; background: #fffdf7; }
     .controls-list li > div { display: grid; grid-template-columns: 20cqw minmax(0, 1fr); align-items: start; gap: .5cqw 1.5cqw; min-width: 0; }
-    .control-help-number { display: grid; place-items: center; width: 1.6em; height: 1.6em; border: 1px solid #593840; border-radius: 50%; font-size: inherit; }
+    .control-help-number { display: grid; place-items: center; width: 1.9em; height: 1.9em; border: 2px solid #593840; border-radius: 50%; background: #fff; color: #38242a; font-family: Arial, sans-serif; font-weight: 700; font-size: inherit; line-height: 1; }
     .controls-list strong { grid-column: 1; grid-row: 1 / span 2; min-width: 0; font-size: inherit; line-height: 1.6; word-break: keep-all; overflow-wrap: anywhere; }
     .controls-list p, .controls-tip { min-width: 0; margin: 0; font-size: inherit; line-height: 1.6; word-break: keep-all; overflow-wrap: anywhere; }
     .controls-list p { grid-column: 2; }
@@ -274,10 +275,10 @@
       <div class="lens-glow" aria-hidden="true"></div>
       <nav class="widget-tools" aria-label="위젯 모드와 화면 설정">
         <button id="mode-toggle" type="button" title="파트너 모드로 전환" aria-label="파트너 모드로 전환" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path id="mode-icon" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM3 12h6m6 0h6M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg></button>
-        <button id="display-open" type="button" title="메인화면 설정" aria-label="메인화면 설정"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 3h6l1 3 3 1 2 5-2 5-3 1-1 3H9l-1-3-3-1-2-5 2-5 3-1Z"/><circle cx="12" cy="12" r="3"/></svg></button>
+        <button id="display-open" type="button" title="메인화면 설정" aria-label="메인화면 설정"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linejoin="round" stroke-width="1.6" d="M19.02,9.09L19.43,10.42L21.85,10.26L21.85,13.74L19.43,13.58L19.02,14.91L18.37,16.14L20.19,17.74L17.74,20.19L16.14,18.37L14.91,19.02L13.58,19.43L13.74,21.85L10.26,21.85L10.42,19.43L9.09,19.02L7.86,18.37L6.26,20.19L3.81,17.74L5.63,16.14L4.98,14.91L4.57,13.58L2.15,13.74L2.15,10.26L4.57,10.42L4.98,9.09L5.63,7.86L3.81,6.26L6.26,3.81L7.86,5.63L9.09,4.98L10.42,4.57L10.26,2.15L13.74,2.15L13.58,4.57L14.91,4.98L16.14,5.63L17.74,3.81L20.19,6.26L18.37,7.86Z"/><circle cx="12" cy="12" r="3"/></svg></button>
       </nav>
       <section class="display-settings" id="display-settings" role="dialog" aria-modal="true" aria-labelledby="display-title" hidden>
-        <header><h2 id="display-title">메인화면 설정</h2><button id="display-close" type="button" aria-label="메인화면 설정 닫기">닫기</button></header>
+        <header><h2 id="display-title">메인화면 설정</h2><div class="settings-actions"><button id="display-save" type="button">저장</button><button id="display-close" type="button" aria-label="메인화면 설정 닫기">닫기</button></div></header>
         <p id="collection-status" role="status">수집 기록을 확인하는 중…</p>
         <p class="display-intro">함께할 포켓몬과 배경을 골라주세요.</p>
         <section class="display-picker" aria-labelledby="pokemon-picker-title">
@@ -294,7 +295,6 @@
         </section>
         <div class="display-preview" aria-label="파트너 모드 미리보기"><img id="display-preview-background" alt="" hidden><img class="preview-pokemon" id="display-preview-pokemon" alt="" hidden></div>
         <p id="display-status" role="status">수집한 포켓몬과 배경을 각각 선택해주세요.</p>
-        <button id="display-save" type="button">이 화면으로 저장</button>
         <details class="display-help">
           <summary id="controls-help-title">조작 안내</summary>
           <div class="controls-map-frame">
@@ -386,7 +386,7 @@
       <button class="control pad-confirm" id="pad-confirm" title="선택 확인 (Enter)" aria-label="선택 확인" type="button"></button>
     </section>
     <div class="below">
-      <footer>비상업적 팬 프로젝트<br>© Nintendo / Creatures / GAME FREAK / Pokémon</footer>
+      <footer>비상업적 팬 프로젝트 · made by 로라티콘<br>© Nintendo / Creatures / GAME FREAK / Pokémon</footer>
     </div>
   </main>
   <!-- 파일을 더블클릭해도 작동하도록 현재 데이터의 사본을 포함합니다. -->
@@ -12329,7 +12329,7 @@
       if (!$('display-settings').hidden) {
         if (event.key === 'Escape') { event.preventDefault(); closeDisplaySettings(); }
         if (event.key === 'Tab') {
-          const first = $('display-close'), last = $('controls-help-title');
+          const first = $('display-save').disabled ? $('display-close') : $('display-save'), last = $('controls-help-title');
           if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
           else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
         }
