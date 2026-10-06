@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer"><title>나의 포켓몬 도감 · 위젯 연결</title>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" crossorigin>
+  <link rel="preload" href="./assets/fonts/PretendardVariable.woff2" as="font" type="font/woff2" crossorigin>
   <style>
+    @font-face { font-family:"Pretendard Variable"; src:url("./assets/fonts/PretendardVariable.woff2") format("woff2"); font-weight:45 920; font-style:normal; font-display:swap; }
     :root { --ink:#292723; --muted:#746f68; --paper:#fffefa; --line:#e6e0d7; --red:#be2943; --cream:#f2eee5; }
     * { box-sizing:border-box; }
     html { scroll-behavior:smooth; }
-    body { margin:0; background:#fbfaf7; color:var(--ink); font:16px/1.75 Pretendard,"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif; word-break:keep-all; -webkit-font-smoothing:antialiased; }
+    body { margin:0; background:#fbfaf7; color:var(--ink); font:16px/1.75 "Pretendard Variable",Pretendard,"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif; word-break:keep-all; -webkit-font-smoothing:antialiased; }
     a { color:inherit; text-underline-offset:4px; }
     button,input { font:inherit; }
     button,a,input,summary { -webkit-tap-highlight-color:transparent; }
