@@ -31,10 +31,11 @@
     .section-heading p { margin:0; color:var(--muted); font-size:13px; }
     .guides { display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:start; }
     .guide { background:var(--cream); border-radius:18px; overflow:hidden; }
-    .guide summary { display:flex; align-items:center; gap:13px; padding:24px; cursor:pointer; list-style:none; font-size:17px; font-weight:700; }
+    .guide-link { display:flex; align-items:center; gap:13px; padding:24px; cursor:pointer; list-style:none; font-size:17px; font-weight:700; }
+    .guide-link { text-decoration:none; transition:background .15s; }
+    .guide-link:hover { background:#eae4d8; }
+    .guide-link::after { content:'↗'; margin-left:auto; color:var(--muted); font-size:22px; font-weight:400; }
     summary::-webkit-details-marker { display:none; }
-    .guide summary::after { content:'+'; margin-left:auto; color:var(--muted); font-size:22px; font-weight:400; }
-    .guide[open] summary::after { content:'−'; }
     .step-number { color:var(--red); font-size:12px; letter-spacing:1px; }
     .guide-content { padding:0 24px 26px; font-size:14px; color:#57524b; }
     ol { padding-left:20px; margin:0; }
@@ -82,7 +83,7 @@
       .section-heading { margin-top:32px; display:block; }
       .section-heading p { margin-top:4px; }
       .guides { grid-template-columns:1fr; gap:12px; }
-      .guide summary { padding:20px; }
+      .guide summary,.guide-link { padding:20px; }
       .guide-content { padding:0 20px 22px; }
       .connect-card { padding:27px 20px; margin-top:26px; border-radius:18px; }
       .connect-card h2 { font-size:25px; }
@@ -101,17 +102,10 @@
       <div class="hero-art" aria-hidden="true"><img src="./assets/pokeball-pixel.png" alt=""></div>
     </section>
     <nav class="journey" aria-label="설치 순서"><strong>01 노션 도감 준비</strong><b>→</b><strong>02 개인 Worker 설치</strong><b>→</b><strong>03 연결 &amp; 임베드</strong></nav>
-    <div class="section-heading"><h2>처음 한 번만 준비해주세요</h2><p>각 항목을 눌러 설치 순서를 확인하세요.</p></div>
+    <div class="section-heading"><h2>처음 한 번만 준비해주세요</h2><p>각 버튼을 누르면 노션 설치 안내가 새 탭으로 열려요.</p></div>
     <div class="guides">
-      <details class="guide"><summary><span class="step-number">01</span>노션에 수집 공간 만들기</summary><div class="guide-content">
-        <ol><li>본인만 사용하는 <strong>포켓몬 전용 워크스페이스</strong>를 만들고, 제공받은 수집 도감 템플릿을 복제하세요.</li><li>같은 워크스페이스에 <a href="https://www.notion.so/profile/integrations" target="_blank" rel="noopener noreferrer">노션 내부 연결</a>을 만들고 <strong>콘텐츠 읽기·삽입·업데이트</strong>를 허용하세요.</li><li>복제한 원본 DB에서 <strong>··· → 연결 추가</strong>를 열어 방금 만든 연결을 추가하세요.</li></ol>
-        <p class="hint">DB 속성은 이름 · 폼 식별자 · 배경 식별자 · 즐겨찾기, 네 가지예요. 기존 워크스페이스의 비공개 페이지도 사용할 수 있어요.</p>
-      </div></details>
-      <details class="guide"><summary><span class="step-number">02</span>나만의 Worker 연결하기</summary><div class="guide-content">
-        <ol><li><a href="https://dash.cloudflare.com/" target="_blank" rel="noopener noreferrer">Cloudflare</a>에서 <strong>Workers &amp; Pages → Create application → Create Worker</strong>로 Worker를 만드세요. 이름은 <code>pokemon-collection-widget</code>을 추천해요.</li><li>아래 <strong>worker.js</strong>를 텍스트 편집기로 열어 전체 복사한 뒤, Worker의 <strong>Edit code</strong>에 전체 붙여넣고 <strong>Deploy</strong>하세요.</li><li><strong>Settings → Variables and Secrets</strong>에 <code>NOTION_TOKEN</code>을 <strong>Secret</strong>으로 추가하세요. 값에 노션 내부 연결 토큰을 넣고 배포하세요.</li></ol>
-        <a class="download" href="./downloads/worker.js" download>↓ worker.js 받기</a>
-        <p class="hint">Node.js 설치·GitHub 연결·Bindings 추가는 필요 없어요.<br><a href="./downloads/먼저-읽어주세요.md" download>자세한 설치 안내</a> · <a href="./downloads/개인-Worker-설치.zip" download>설치 파일 ZIP</a></p>
-      </div></details>
+      <a class="guide guide-link" href="https://pokemon-list.notion.site/3f0d03673aaf8089babef9f630533a5c?source=copy_link" target="_blank" rel="noopener noreferrer"><span class="step-number">01</span>노션에 수집 공간 만들기</a>
+      <a class="guide guide-link" href="https://pokemon-list.notion.site/Worker-3f0d03673aaf80e091cbdf7acb35b13e?source=copy_link" target="_blank" rel="noopener noreferrer"><span class="step-number">02</span>나만의 Worker 연결하기</a>
     </div>
     <section class="connect-card" aria-labelledby="connect-title">
       <span class="step-number">03 · CONNECT</span><h2 id="connect-title">이제, 도감을 연결해볼까요?</h2><p class="intro">준비한 두 주소를 입력하면 노션에 넣을 위젯 링크가 만들어져요.</p>
