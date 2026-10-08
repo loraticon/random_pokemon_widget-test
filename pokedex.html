@@ -49,6 +49,7 @@
     .picker-search:focus-visible { outline: .3cqw solid #805307; outline-offset: 0; }
     .picker-choice { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; border: .3cqw solid #b4a398; border-radius: 1cqw; background: white; }
     .picker-choice select { border: 0; background: transparent; padding: 1.3cqw; }
+    #display-pokemon option.favorite-option { background-color: #fff0b3; color: #593840; }
     .picker-choice .favorite-toggle { display: grid; place-items: center; width: max(32px, 6cqw); height: max(32px, 6cqw); padding: .4cqw; border: 0; border-radius: .7cqw; font-family: "Segoe UI Symbol", sans-serif; font-size: max(20px, 4.5cqw); line-height: 1; }
     .favorite-toggle[aria-pressed="true"] { background: #ffe5a1; color: #805307; }
     .favorite-toggle:disabled { opacity: .45; cursor: default; }
@@ -12528,6 +12529,7 @@
       const groups = new Map();
       for (const [value, label, group] of [['', emptyLabel], ...options]) {
         const option = document.createElement('option'); option.value = value; option.textContent = label;
+        if (id === 'display-pokemon' && widgetPreferences.favoritePokemon?.includes(value)) option.classList.add('favorite-option');
         if (!group) { select.append(option); continue; }
         if (!groups.has(group)) {
           const section = document.createElement('optgroup'); section.label = group; groups.set(group, section);
@@ -12587,7 +12589,7 @@
       const choices = filtered.flatMap(option => (option.groups || ['']).map(group => [option.id, (favorites.has(option.id) ? '★ ' : '') + option.label, group,
         (option.generation || 0) * 10000 + (option.order ?? 9999)]));
       if (kind === 'background') choices.sort((a, b) => a[3] - b[3] || a[0].localeCompare(b[0]));
-      if (outsideResults) choices.unshift([current.id, '현재 선택 · ' + current.label]);
+      if (outsideResults) choices.unshift([current.id, '현재 선택 · ' + (favorites.has(current.id) ? '★ ' : '') + current.label]);
       fillDisplayOptions('display-' + kind, choices, displayDraft[kind], kind === 'pokemon' ? '선택 안 함' : '기본 화면');
       const toggle = $('display-' + kind + '-only-favorites');
       toggle.setAttribute('aria-pressed', String(displayOnlyFavorites[kind]));
