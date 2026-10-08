@@ -46,12 +46,11 @@
     code { overflow-wrap:anywhere; font-size:.9em; background:#ffffff80; padding:2px 4px; border-radius:4px; }
     .hint { font-size:12px; color:var(--muted); margin:18px 0 0; }
     .download { display:inline-flex; align-items:center; justify-content:center; padding:9px 16px; margin-top:19px; border-radius:8px; background:var(--paper); text-decoration:none; font-weight:700; color:var(--red); }
-    .connect-card { margin-top:38px; padding:38px 42px; border:1px solid var(--line); border-radius:24px; background:var(--paper); box-shadow:0 12px 35px #4c392706; }
+    .connect-card, .usage-guide { margin-top:38px; padding:38px 42px; border:1px solid var(--line); border-radius:24px; background:var(--paper); box-shadow:0 12px 35px #4c392706; }
     .connect-card h2 { margin:6px 0 8px; font-size:28px; letter-spacing:-1px; line-height:1.4; }
     .intro { margin:0 0 30px; color:var(--muted); font-size:14px; }
-    .usage-guide { margin:0 0 32px; }
-    .usage-guide h3 { margin:0 0 5px; font-size:19px; letter-spacing:-.5px; }
-    .usage-intro { margin:0 0 16px; color:var(--muted); font-size:13px; }
+    .usage-guide h2 { margin:0 0 8px; font-size:28px; letter-spacing:-1px; line-height:1.4; }
+    .usage-intro { margin:0 0 20px; color:var(--muted); font-size:14px; }
     .usage-cards { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; padding:0; list-style:none; }
     .usage-card { min-width:0; margin:0; padding:0; border:1px solid var(--line); border-radius:14px; overflow:hidden; }
     .usage-art { display:flex; align-items:center; justify-content:center; gap:18px; min-height:158px; padding:14px; background:var(--cream); }
@@ -84,7 +83,7 @@
     .usage-partner-scene img.usage-sprite { object-fit:contain; image-rendering:pixelated; }
     .usage-partner-caption { display:block; margin-top:6px; text-align:center; font-size:11px; }
     .usage-copy { padding:16px 18px 18px; }
-    .usage-copy h4 { margin:0 0 7px; font-size:16px; letter-spacing:-.3px; line-height:1.5; }
+    .usage-copy h3 { margin:0 0 7px; font-size:16px; letter-spacing:-.3px; line-height:1.5; }
     .usage-number { margin-right:7px; color:var(--red); font-size:12px; }
     .usage-copy p { margin:0; color:var(--muted); font-size:14px; line-height:1.7; }
     .field + .field { margin-top:24px; }
@@ -127,8 +126,8 @@
       .guides { grid-template-columns:1fr; gap:12px; }
       .guide summary,.guide-link { padding:20px; }
       .guide-content { padding:0 20px 22px; }
-      .connect-card { padding:27px 20px; margin-top:26px; border-radius:18px; }
-      .connect-card h2 { font-size:25px; }
+      .connect-card, .usage-guide { padding:27px 20px; margin-top:26px; border-radius:18px; }
+      .connect-card h2, .usage-guide h2 { font-size:25px; }
       .usage-cards { grid-template-columns:1fr; gap:12px; }
       .usage-art { gap:14px; padding:12px; }
       .usage-detail { max-width:calc(100% - 108px); }
@@ -155,40 +154,6 @@
     </div>
     <section class="connect-card" aria-labelledby="connect-title">
       <span class="step-number">03 · CONNECT</span><h2 id="connect-title">이제, 도감을 연결해볼까요?</h2><p class="intro">준비한 두 주소를 입력하면 노션에 넣을 위젯 링크가 만들어져요.</p>
-      <section class="usage-guide" aria-labelledby="usage-title">
-        <h3 id="usage-title">위젯은 이렇게 사용해요</h3>
-        <p class="usage-intro">연결한 뒤, 노션에서 이렇게 즐겨보세요. 그림의 빨간 표시가 누를 곳이에요.</p>
-        <ol class="usage-cards">
-          <li class="usage-card">
-            <div class="usage-art" aria-hidden="true">
-              <div class="usage-device"><img class="usage-shell" src="./assets/pokedex-shell.svg" alt=""><div class="usage-screen"><img src="./assets/backgrounds/normal.webp" alt=""><img class="usage-sprite" src="./images/normal/mr-mime.webp" alt=""></div><span class="usage-focus usage-draw-focus"></span></div>
-              <div class="usage-detail"><span class="usage-detail-title">빨간 버튼으로 시작</span><div class="usage-demo"><div class="usage-message">포켓몬을 잡을까요?<span>▶ 예　　아니오</span></div></div></div>
-            </div>
-            <div class="usage-copy"><h4><span class="usage-number">01</span>포켓몬 만나기</h4><p>빨간 버튼을 눌러 포켓몬을 뽑고, 화면의 안내에 따라 잡아보세요.</p></div>
-          </li>
-          <li class="usage-card">
-            <div class="usage-art" aria-hidden="true">
-              <div class="usage-device"><img class="usage-shell" src="./assets/pokedex-shell.svg" alt=""><div class="usage-screen"><div class="usage-home"><span>뽑기 시작</span><span class="usage-book-focus">수집 도감</span></div></div></div>
-              <div class="usage-detail"><span class="usage-detail-title">수집 도감에서 확인</span><div class="usage-demo usage-collection"><img src="./images/normal/mr-mime.webp" alt=""><span>마임맨<br>나의 수집 기록</span></div></div>
-            </div>
-            <div class="usage-copy"><h4><span class="usage-number">02</span>나만의 도감 채우기</h4><p>잡은 포켓몬은 노션에 자동으로 기록돼요. 위젯의 ‘수집 도감’에서 모은 포켓몬을 확인하세요.</p></div>
-          </li>
-          <li class="usage-card">
-            <div class="usage-art" aria-hidden="true">
-              <div class="usage-device"><img class="usage-shell" src="./assets/pokedex-shell.svg" alt=""><div class="usage-tools"><span class="usage-tool-focus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linejoin="round" d="m9 3-1 3-3 1-2 3 2 2-1 3 2 3 3-1 2 2 3-1 1-3 3-1 2-3-2-2 1-3-2-3-3 1-2-2Z"/><circle cx="12" cy="12" r="3"/></svg></span></div></div>
-              <div class="usage-detail"><span class="usage-detail-title">설정에서 별 누르기</span><div class="usage-demo"><div class="usage-favorite-row"><span>★ 마임맨</span><span class="usage-star-focus">★</span></div><div class="usage-plain-row">선택 안 함</div></div></div>
-            </div>
-            <div class="usage-copy"><h4><span class="usage-number">03</span>좋아하는 포켓몬에 별 달기</h4><p>설정에서 이름 옆의 별을 눌러보세요. 즐겨찾기 포켓몬은 노란색으로 표시돼요.</p></div>
-          </li>
-          <li class="usage-card">
-            <div class="usage-art" aria-hidden="true">
-              <div class="usage-device"><img class="usage-shell" src="./assets/pokedex-shell.svg" alt=""><div class="usage-screen"><img src="./assets/backgrounds/normal.webp" alt=""><img class="usage-sprite" src="./images/normal/mr-mime.webp" alt=""></div><div class="usage-tools"><span class="usage-tool-focus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h6m6 0h6"/><circle cx="12" cy="12" r="3"/></svg></span></div></div>
-              <div class="usage-detail"><span class="usage-detail-title">몬스터볼로 모드 전환</span><div class="usage-demo"><div class="usage-partner-scene"><img src="./assets/backgrounds/normal.webp" alt=""><img class="usage-sprite" src="./images/normal/mr-mime.webp" alt=""></div><span class="usage-partner-caption">마임맨과 쉬는 중…</span></div></div>
-            </div>
-            <div class="usage-copy"><h4><span class="usage-number">04</span>파트너와 함께 쉬기</h4><p>설정에서 함께할 포켓몬과 배경을 고르고 저장한 뒤, 몬스터볼 아이콘을 눌러 파트너 모드로 전환하세요.</p></div>
-          </li>
-        </ol>
-      </section>
       <form id="connect-form">
         <div class="field"><label for="worker">내 Cloudflare Worker 주소</label><input id="worker" type="url" autocomplete="url" required placeholder="https://나의주소.workers.dev" aria-describedby="worker-help"><p id="worker-help">배포한 개인 Worker의 HTTPS 주소를 붙여넣으세요.</p></div>
         <div class="field"><label for="database">내 노션 수집 DB 주소</label><input id="database" type="url" required placeholder="https://app.notion.com/…" autocomplete="off" aria-describedby="database-help"><p id="database-help">복제한 원본 데이터베이스에서 ‘링크 복사’로 가져오세요.</p></div>
@@ -200,6 +165,40 @@
         <h2 id="result-title">나만의 도감이 준비됐어요</h2><p>아래 주소를 노션 페이지에 붙여넣고 <strong>임베드</strong>를 선택하세요.<br>자동 복사가 되지 않았다면 복사 버튼을 눌러주세요.</p>
         <div class="copy-row"><input id="widget-url" readonly aria-label="노션에 삽입할 개인 위젯 주소"><button id="copy" type="button">위젯 주소 복사</button></div>
       </section>
+    </section>
+    <section class="usage-guide" aria-labelledby="usage-title">
+      <h2 id="usage-title">위젯은 이렇게 사용해요</h2>
+      <p class="usage-intro">연결한 뒤, 노션에서 이렇게 즐겨보세요. 그림의 빨간 표시가 누를 곳이에요.</p>
+      <ol class="usage-cards">
+        <li class="usage-card">
+          <div class="usage-art" aria-hidden="true">
+            <div class="usage-device"><img class="usage-shell" src="./assets/pokedex-shell.svg" alt=""><div class="usage-screen"><img src="./assets/backgrounds/normal.webp" alt=""><img class="usage-sprite" src="./images/normal/mr-mime.webp" alt=""></div><span class="usage-focus usage-draw-focus"></span></div>
+            <div class="usage-detail"><span class="usage-detail-title">빨간 버튼으로 시작</span><div class="usage-demo"><div class="usage-message">포켓몬을 잡을까요?<span>▶ 예　　아니오</span></div></div></div>
+          </div>
+          <div class="usage-copy"><h3><span class="usage-number">01</span>포켓몬 만나기</h3><p>빨간 버튼을 눌러 포켓몬을 뽑고, 화면의 안내에 따라 잡아보세요.</p></div>
+        </li>
+        <li class="usage-card">
+          <div class="usage-art" aria-hidden="true">
+            <div class="usage-device"><img class="usage-shell" src="./assets/pokedex-shell.svg" alt=""><div class="usage-screen"><div class="usage-home"><span>뽑기 시작</span><span class="usage-book-focus">수집 도감</span></div></div></div>
+            <div class="usage-detail"><span class="usage-detail-title">수집 도감에서 확인</span><div class="usage-demo usage-collection"><img src="./images/normal/mr-mime.webp" alt=""><span>마임맨<br>나의 수집 기록</span></div></div>
+          </div>
+          <div class="usage-copy"><h3><span class="usage-number">02</span>나만의 도감 채우기</h3><p>잡은 포켓몬은 노션에 자동으로 기록돼요. 위젯의 ‘수집 도감’에서 모은 포켓몬을 확인하세요.</p></div>
+        </li>
+        <li class="usage-card">
+          <div class="usage-art" aria-hidden="true">
+            <div class="usage-device"><img class="usage-shell" src="./assets/pokedex-shell.svg" alt=""><div class="usage-tools"><span class="usage-tool-focus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linejoin="round" d="m9 3-1 3-3 1-2 3 2 2-1 3 2 3 3-1 2 2 3-1 1-3 3-1 2-3-2-2 1-3-2-3-3 1-2-2Z"/><circle cx="12" cy="12" r="3"/></svg></span></div></div>
+            <div class="usage-detail"><span class="usage-detail-title">설정에서 별 누르기</span><div class="usage-demo"><div class="usage-favorite-row"><span>★ 마임맨</span><span class="usage-star-focus">★</span></div><div class="usage-plain-row">선택 안 함</div></div></div>
+          </div>
+          <div class="usage-copy"><h3><span class="usage-number">03</span>좋아하는 포켓몬에 별 달기</h3><p>설정에서 이름 옆의 별을 눌러보세요. 즐겨찾기 포켓몬은 노란색으로 표시돼요.</p></div>
+        </li>
+        <li class="usage-card">
+          <div class="usage-art" aria-hidden="true">
+            <div class="usage-device"><img class="usage-shell" src="./assets/pokedex-shell.svg" alt=""><div class="usage-screen"><img src="./assets/backgrounds/normal.webp" alt=""><img class="usage-sprite" src="./images/normal/mr-mime.webp" alt=""></div><div class="usage-tools"><span class="usage-tool-focus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h6m6 0h6"/><circle cx="12" cy="12" r="3"/></svg></span></div></div>
+            <div class="usage-detail"><span class="usage-detail-title">몬스터볼로 모드 전환</span><div class="usage-demo"><div class="usage-partner-scene"><img src="./assets/backgrounds/normal.webp" alt=""><img class="usage-sprite" src="./images/normal/mr-mime.webp" alt=""></div><span class="usage-partner-caption">마임맨과 쉬는 중…</span></div></div>
+          </div>
+          <div class="usage-copy"><h3><span class="usage-number">04</span>파트너와 함께 쉬기</h3><p>설정에서 함께할 포켓몬과 배경을 고르고 저장한 뒤, 몬스터볼 아이콘을 눌러 파트너 모드로 전환하세요.</p></div>
+        </li>
+      </ol>
     </section>
     <div class="notices">
       <aside class="callout" aria-labelledby="privacy-title"><span class="callout-icon" aria-hidden="true">!</span><div><h2 id="privacy-title">나만의 공간에서 안전하게 사용해주세요</h2><p><strong>개인 기기와 비공개 노션 페이지에서만 사용</strong>하고, 주소를 커뮤니티·SNS·공개 문서에 공유하지 마세요.</p></div></aside>
