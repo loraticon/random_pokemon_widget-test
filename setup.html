@@ -49,6 +49,44 @@
     .connect-card { margin-top:38px; padding:38px 42px; border:1px solid var(--line); border-radius:24px; background:var(--paper); box-shadow:0 12px 35px #4c392706; }
     .connect-card h2 { margin:6px 0 8px; font-size:28px; letter-spacing:-1px; line-height:1.4; }
     .intro { margin:0 0 30px; color:var(--muted); font-size:14px; }
+    .usage-guide { margin:0 0 32px; }
+    .usage-guide h3 { margin:0 0 5px; font-size:19px; letter-spacing:-.5px; }
+    .usage-intro { margin:0 0 16px; color:var(--muted); font-size:13px; }
+    .usage-cards { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; padding:0; list-style:none; }
+    .usage-card { min-width:0; margin:0; padding:0; border:1px solid var(--line); border-radius:14px; overflow:hidden; }
+    .usage-art { display:flex; align-items:center; justify-content:center; gap:18px; min-height:158px; padding:14px; background:var(--cream); }
+    .usage-device { position:relative; width:94px; aspect-ratio:640/866.2; flex:none; }
+    .usage-shell { position:absolute; inset:0; width:100%; height:100%; }
+    .usage-screen { position:absolute; left:16.5%; top:29.32%; width:59.83%; height:34.85%; overflow:hidden; border-radius:1px; background:#71dce4; }
+    .usage-screen img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .usage-screen img.usage-sprite { inset:7%; width:86%; height:86%; object-fit:contain; image-rendering:pixelated; }
+    .usage-focus { position:absolute; width:20px; height:20px; border:2px solid var(--red); border-radius:50%; box-shadow:0 0 0 2px var(--paper); }
+    .usage-draw-focus { left:calc(29.3% - 10px); top:calc(78.4% - 10px); }
+    .usage-tools { position:absolute; top:1%; right:2%; display:flex; gap:2px; }
+    .usage-tools span { display:grid; place-items:center; width:15px; height:15px; border:1px solid #593840; border-radius:3px; background:#fff8ed; color:#593840; }
+    .usage-tools svg { width:11px; height:11px; }
+    .usage-tools .usage-tool-focus { outline:2px solid var(--red); outline-offset:2px; border-radius:50%; }
+    .usage-home { display:grid; gap:4px; padding:7px 3px; font-size:7px; line-height:1.5; color:#174e55; }
+    .usage-home span { padding:2px 0; text-align:center; border:1px solid currentColor; background:white; border-radius:2px; }
+    .usage-home .usage-book-focus { border:2px solid var(--red); }
+    .usage-detail { width:190px; max-width:calc(100% - 112px); color:#593840; font-size:12px; line-height:1.55; }
+    .usage-detail-title { display:block; margin-bottom:8px; font-size:12px; font-weight:700; }
+    .usage-demo { padding:12px; border:1px solid #d8c7b7; border-radius:10px; background:var(--paper); }
+    .usage-message { padding:10px; background:#45933a; border-radius:5px; color:white; }
+    .usage-message span { display:block; margin-top:4px; font-size:11px; }
+    .usage-collection { display:flex; align-items:center; gap:12px; }
+    .usage-collection img { width:58px; height:58px; object-fit:contain; image-rendering:pixelated; background:#f2eee5; border-radius:6px; }
+    .usage-favorite-row { display:flex; align-items:center; justify-content:space-between; gap:8px; padding:7px 8px; border-radius:4px; background:#fff0b3; }
+    .usage-star-focus { display:grid; place-items:center; width:22px; height:22px; border:2px solid var(--red); border-radius:50%; background:var(--paper); font:17px/1 "Segoe UI Symbol",sans-serif; }
+    .usage-plain-row { margin-top:5px; padding:6px 8px; color:var(--muted); }
+    .usage-partner-scene { position:relative; height:75px; overflow:hidden; border-radius:6px; background:#d7e7c5; }
+    .usage-partner-scene img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .usage-partner-scene img.usage-sprite { object-fit:contain; image-rendering:pixelated; }
+    .usage-partner-caption { display:block; margin-top:6px; text-align:center; font-size:11px; }
+    .usage-copy { padding:16px 18px 18px; }
+    .usage-copy h4 { margin:0 0 7px; font-size:16px; letter-spacing:-.3px; line-height:1.5; }
+    .usage-number { margin-right:7px; color:var(--red); font-size:12px; }
+    .usage-copy p { margin:0; color:var(--muted); font-size:14px; line-height:1.7; }
     .field + .field { margin-top:24px; }
     label { display:block; margin-bottom:9px; font-size:14px; font-weight:700; }
     input { display:block; width:100%; min-width:0; padding:15px 16px; color:var(--ink); border:1px solid #d9d4cb; background:#fff; border-radius:10px; font-size:15px; }
@@ -91,6 +129,10 @@
       .guide-content { padding:0 20px 22px; }
       .connect-card { padding:27px 20px; margin-top:26px; border-radius:18px; }
       .connect-card h2 { font-size:25px; }
+      .usage-cards { grid-template-columns:1fr; gap:12px; }
+      .usage-art { gap:14px; padding:12px; }
+      .usage-detail { max-width:calc(100% - 108px); }
+      .usage-copy { padding:14px 16px 16px; }
       .copy-row { flex-direction:column; }
       .callout { padding:18px 16px; gap:10px; }
     }
@@ -113,6 +155,40 @@
     </div>
     <section class="connect-card" aria-labelledby="connect-title">
       <span class="step-number">03 · CONNECT</span><h2 id="connect-title">이제, 도감을 연결해볼까요?</h2><p class="intro">준비한 두 주소를 입력하면 노션에 넣을 위젯 링크가 만들어져요.</p>
+      <section class="usage-guide" aria-labelledby="usage-title">
+        <h3 id="usage-title">위젯은 이렇게 사용해요</h3>
+        <p class="usage-intro">연결한 뒤, 노션에서 이렇게 즐겨보세요. 그림의 빨간 표시가 누를 곳이에요.</p>
+        <ol class="usage-cards">
+          <li class="usage-card">
+            <div class="usage-art" aria-hidden="true">
+              <div class="usage-device"><img class="usage-shell" src="./assets/pokedex-shell.svg" alt=""><div class="usage-screen"><img src="./assets/backgrounds/normal.webp" alt=""><img class="usage-sprite" src="./images/normal/mr-mime.webp" alt=""></div><span class="usage-focus usage-draw-focus"></span></div>
+              <div class="usage-detail"><span class="usage-detail-title">빨간 버튼으로 시작</span><div class="usage-demo"><div class="usage-message">포켓몬을 잡을까요?<span>▶ 예　　아니오</span></div></div></div>
+            </div>
+            <div class="usage-copy"><h4><span class="usage-number">01</span>포켓몬 만나기</h4><p>빨간 버튼을 눌러 포켓몬을 뽑고, 화면의 안내에 따라 잡아보세요.</p></div>
+          </li>
+          <li class="usage-card">
+            <div class="usage-art" aria-hidden="true">
+              <div class="usage-device"><img class="usage-shell" src="./assets/pokedex-shell.svg" alt=""><div class="usage-screen"><div class="usage-home"><span>뽑기 시작</span><span class="usage-book-focus">수집 도감</span></div></div></div>
+              <div class="usage-detail"><span class="usage-detail-title">수집 도감에서 확인</span><div class="usage-demo usage-collection"><img src="./images/normal/mr-mime.webp" alt=""><span>마임맨<br>나의 수집 기록</span></div></div>
+            </div>
+            <div class="usage-copy"><h4><span class="usage-number">02</span>나만의 도감 채우기</h4><p>잡은 포켓몬은 노션에 자동으로 기록돼요. 위젯의 ‘수집 도감’에서 모은 포켓몬을 확인하세요.</p></div>
+          </li>
+          <li class="usage-card">
+            <div class="usage-art" aria-hidden="true">
+              <div class="usage-device"><img class="usage-shell" src="./assets/pokedex-shell.svg" alt=""><div class="usage-tools"><span class="usage-tool-focus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linejoin="round" d="m9 3-1 3-3 1-2 3 2 2-1 3 2 3 3-1 2 2 3-1 1-3 3-1 2-3-2-2 1-3-2-3-3 1-2-2Z"/><circle cx="12" cy="12" r="3"/></svg></span></div></div>
+              <div class="usage-detail"><span class="usage-detail-title">설정에서 별 누르기</span><div class="usage-demo"><div class="usage-favorite-row"><span>★ 마임맨</span><span class="usage-star-focus">★</span></div><div class="usage-plain-row">선택 안 함</div></div></div>
+            </div>
+            <div class="usage-copy"><h4><span class="usage-number">03</span>좋아하는 포켓몬에 별 달기</h4><p>설정에서 이름 옆의 별을 눌러보세요. 즐겨찾기 포켓몬은 노란색으로 표시돼요.</p></div>
+          </li>
+          <li class="usage-card">
+            <div class="usage-art" aria-hidden="true">
+              <div class="usage-device"><img class="usage-shell" src="./assets/pokedex-shell.svg" alt=""><div class="usage-screen"><img src="./assets/backgrounds/normal.webp" alt=""><img class="usage-sprite" src="./images/normal/mr-mime.webp" alt=""></div><div class="usage-tools"><span class="usage-tool-focus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h6m6 0h6"/><circle cx="12" cy="12" r="3"/></svg></span></div></div>
+              <div class="usage-detail"><span class="usage-detail-title">몬스터볼로 모드 전환</span><div class="usage-demo"><div class="usage-partner-scene"><img src="./assets/backgrounds/normal.webp" alt=""><img class="usage-sprite" src="./images/normal/mr-mime.webp" alt=""></div><span class="usage-partner-caption">마임맨과 쉬는 중…</span></div></div>
+            </div>
+            <div class="usage-copy"><h4><span class="usage-number">04</span>파트너와 함께 쉬기</h4><p>설정에서 함께할 포켓몬과 배경을 고르고 저장한 뒤, 몬스터볼 아이콘을 눌러 파트너 모드로 전환하세요.</p></div>
+          </li>
+        </ol>
+      </section>
       <form id="connect-form">
         <div class="field"><label for="worker">내 Cloudflare Worker 주소</label><input id="worker" type="url" autocomplete="url" required placeholder="https://나의주소.workers.dev" aria-describedby="worker-help"><p id="worker-help">배포한 개인 Worker의 HTTPS 주소를 붙여넣으세요.</p></div>
         <div class="field"><label for="database">내 노션 수집 DB 주소</label><input id="database" type="url" required placeholder="https://app.notion.com/…" autocomplete="off" aria-describedby="database-help"><p id="database-help">복제한 원본 데이터베이스에서 ‘링크 복사’로 가져오세요.</p></div>
