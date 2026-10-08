@@ -5,12 +5,14 @@ import vm from 'node:vm';
 const html = fs.readFileSync(new URL('../../pokedex.html', import.meta.url), 'utf8');
 const script = [...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)].at(-1)[1];
 class Element {
-  constructor() {
+  constructor(tagName = '') {
+    this.tagName = tagName.toUpperCase();
     this.hidden = false; this.textContent = ''; this.style = {}; this.attributes = {}; this.children = []; this.dataset = {};
     this.events = {}; const set = new Set();
     this.classList = { add: (...names) => names.forEach(n => set.add(n)), remove: (...names) => names.forEach(n => set.delete(n)),
       contains: n => set.has(n), toggle: (n, force) => { const yes = force ?? !set.has(n); yes ? set.add(n) : set.delete(n); return yes; } };
   }
+  get options() { return this.children.flatMap(child => child.tagName === 'OPTGROUP' ? child.children : [child]); }
   setAttribute(k, v) { this.attributes[k] = v; }
   hasAttribute(k) { return Object.hasOwn(this.attributes, k); }
   removeAttribute(k) { delete this.attributes[k]; }
@@ -33,7 +35,7 @@ async function fixture(htmlSource = html, protocol = 'file:', hash = '', savedVa
   elements.get('dialogue-box').box = elements.get('dialogue-box');
   const values = new Map(Object.entries(savedValues));
   const documentEvents = {}, motionEvents = {};
-  const documentState = { hidden: false, getElementById: id => elements.get(id), createElement: () => new Element(),
+  const documentState = { hidden: false, getElementById: id => elements.get(id), createElement: tagName => new Element(tagName),
     addEventListener: (name, handler) => { documentEvents[name] = handler; }, fonts: { ready: Promise.resolve() } };
   const context = vm.createContext({
     console, crypto, URLSearchParams, TextEncoder, Date, Promise, Math: Object.assign(Object.create(Math), { random: () => 0 }), setTimeout: timerOverrides.setTimeout || setTimeout, clearTimeout: timerOverrides.clearTimeout || clearTimeout, setInterval: () => 1, clearInterval() {},
@@ -71,7 +73,7 @@ test('포획 시 배경 등록→설정에서 독립 선택→슬립 표시→�
   f.run(`localStorage.setItem('pokemon-collection-preview-v1', ${JSON.stringify(JSON.stringify(records))})`);
   await f.run('openDisplaySettings()');
   assert.equal(f.elements.get('display-pokemon').children.length, 4);
-  assert.equal(f.elements.get('display-background').children.length, 3);
+  assert.equal(f.elements.get('display-background').options.length, 3);
   f.elements.get('display-pokemon').value = 'eevee:false';
   f.elements.get('display-background').value = 'electric';
   await f.elements.get('display-save').events.click();
@@ -691,4 +693,42 @@ test('파트너 안내는 받침에 따라 과·와를 선택하고 모드 전�
   assert.equal(f.elements.get('sleep-touch').attributes['aria-label'], '파오젠과 놀기');
   await f.elements.get('mode-toggle').events.click();
   assert.equal(f.elements.get('mode-toggle').attributes['aria-label'], '파트너 모드로 전환');
+});
+
+test('배경 선택은 타입 순서·전설/환상 세대순을 유지하고 공유 배경과 즐겨찾기 검색에서도 선택을 보존', async () => {
+  const catalog = JSON.parse(fs.readFileSync(new URL('../../data/background-catalog.json', import.meta.url), 'utf8'));
+  const records = Object.keys(catalog.items).reverse().map((backgroundId, index) => ({
+    id: crypto.randomUUID(), slug: 'background-test-' + index, dexId: index + 1, name: backgroundId,
+    backgroundId, isShiny: false, capturedAt: '2026-09-01T00:00:00Z'
+  }));
+  const f = await fixture(html, 'file:', '', {
+    'pokemon-collection-preview-v1': JSON.stringify(records),
+    'pokemon-widget-preferences-v1': JSON.stringify({ mode: 'draw', pokemonKey: '', backgroundId: 'normal', favoriteBackgrounds: ['fairy', 'electric'] })
+  });
+  await f.run('openDisplaySettings()');
+  const select = f.elements.get('display-background');
+  const groups = () => select.children.filter(child => child.tagName === 'OPTGROUP');
+  const typeOrder = ['normal', 'fire', 'water', 'leaf-bug', 'electric', 'ice', 'fight', 'poison', 'ground', 'fly', 'psychic', 'ghost', 'dragon', 'dark', 'steel', 'fairy'];
+  assert.deepEqual(groups()[0].children.map(option => option.value), typeOrder);
+  assert.deepEqual(groups().map(group => group.label), ['타입',
+    ...['전설', '환상'].flatMap(category => Array.from({ length: 9 }, (_, index) => `${category} · ${index + 1}세대`)), '기타']);
+  assert.deepEqual(groups().find(group => group.label === '전설 · 1세대').children.map(option => option.value),
+    ['special/articuno', 'special/zapdos', 'special/moltres', 'special/mewtwo']);
+  assert.deepEqual(groups().find(group => group.label === '환상 · 4세대').children.map(option => option.value),
+    ['special/manaphy-phione', 'special/darkrai', 'special/shaymin', 'special/arceus']);
+  assert.deepEqual(groups().find(group => group.label === '환상 · 5세대').children.map(option => option.value),
+    ['special/victini', 'special/cobalion-terrakion-virizion-keldeo-keldeo-resolute', 'special/meloetta-aria', 'special/meloetta-pirouette', 'special/genesect']);
+  assert.ok(groups().find(group => group.label === '전설 · 8세대').children.some(option => option.value === 'special/articuno-galarian'));
+  assert.ok(groups().find(group => group.label === '환상 · 9세대').children.some(option => option.value === 'special/okidogi-munkidori-fezandipiti-pecharunt'));
+  select.value = 'special/cobalion-terrakion-virizion-keldeo-keldeo-resolute';
+  select.events.change();
+  const search = f.elements.get('display-background-search'); search.value = '환상 5세대'; search.events.input();
+  assert.deepEqual(groups().map(group => group.label), ['전설 · 5세대', '환상 · 5세대']);
+  assert.equal(select.value, 'special/cobalion-terrakion-virizion-keldeo-keldeo-resolute');
+  await f.elements.get('display-save').events.click();
+  assert.equal(f.run('widgetPreferences.backgroundId'), 'special/cobalion-terrakion-virizion-keldeo-keldeo-resolute');
+  await f.run('openDisplaySettings()');
+  f.elements.get('display-background-only-favorites').events.click();
+  assert.deepEqual(groups()[0].children.map(option => option.value), ['electric', 'fairy']);
+  assert.equal(select.value, 'special/cobalion-terrakion-virizion-keldeo-keldeo-resolute');
 });

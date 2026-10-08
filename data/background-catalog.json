@@ -224,500 +224,1023 @@
     "terapagos-terastal": "special/terapagos"
   },
   "items": {
-    "water": {
-      "id": "water",
-      "title": "물 타입 배경",
-      "path": "./assets/backgrounds/water.webp"
+    "normal": {
+      "id": "normal",
+      "title": "노말 타입 배경",
+      "path": "./assets/backgrounds/normal.webp",
+      "category": "type",
+      "order": 0
     },
     "fire": {
       "id": "fire",
       "title": "불꽃 타입 배경",
-      "path": "./assets/backgrounds/fire.webp"
+      "path": "./assets/backgrounds/fire.webp",
+      "category": "type",
+      "order": 1
     },
-    "ice": {
-      "id": "ice",
-      "title": "얼음 타입 배경",
-      "path": "./assets/backgrounds/ice.webp"
-    },
-    "fly": {
-      "id": "fly",
-      "title": "비행 타입 배경",
-      "path": "./assets/backgrounds/fly.webp"
+    "water": {
+      "id": "water",
+      "title": "물 타입 배경",
+      "path": "./assets/backgrounds/water.webp",
+      "category": "type",
+      "order": 2
     },
     "leaf-bug": {
       "id": "leaf-bug",
       "title": "풀 · 벌레 타입 배경",
-      "path": "./assets/backgrounds/leaf-bug.webp"
-    },
-    "fight": {
-      "id": "fight",
-      "title": "격투 타입 배경",
-      "path": "./assets/backgrounds/fight.webp"
-    },
-    "ground": {
-      "id": "ground",
-      "title": "땅 · 바위 타입 배경",
-      "path": "./assets/backgrounds/ground.webp"
-    },
-    "poison": {
-      "id": "poison",
-      "title": "독 타입 배경",
-      "path": "./assets/backgrounds/poison.webp"
-    },
-    "steel": {
-      "id": "steel",
-      "title": "강철 타입 배경",
-      "path": "./assets/backgrounds/steel.webp"
-    },
-    "ghost": {
-      "id": "ghost",
-      "title": "고스트 타입 배경",
-      "path": "./assets/backgrounds/ghost.webp"
-    },
-    "dark": {
-      "id": "dark",
-      "title": "악 타입 배경",
-      "path": "./assets/backgrounds/dark.webp"
-    },
-    "fairy": {
-      "id": "fairy",
-      "title": "페어리 타입 배경",
-      "path": "./assets/backgrounds/fairy.webp"
-    },
-    "normal": {
-      "id": "normal",
-      "title": "노말 타입 배경",
-      "path": "./assets/backgrounds/normal.webp"
-    },
-    "dragon": {
-      "id": "dragon",
-      "title": "드래곤 타입 배경",
-      "path": "./assets/backgrounds/dragon.webp"
-    },
-    "psychic": {
-      "id": "psychic",
-      "title": "에스퍼 타입 배경",
-      "path": "./assets/backgrounds/psychic.webp"
+      "path": "./assets/backgrounds/leaf-bug.webp",
+      "category": "type",
+      "order": 3
     },
     "electric": {
       "id": "electric",
       "title": "전기 타입 배경",
-      "path": "./assets/backgrounds/electric.webp"
+      "path": "./assets/backgrounds/electric.webp",
+      "category": "type",
+      "order": 4
     },
-    "special/zapdos": {
-      "id": "special/zapdos",
-      "title": "뇌명의 하늘 (썬더 전용)",
-      "path": "./assets/backgrounds/special/zapdos.webp"
+    "ice": {
+      "id": "ice",
+      "title": "얼음 타입 배경",
+      "path": "./assets/backgrounds/ice.webp",
+      "category": "type",
+      "order": 5
+    },
+    "fight": {
+      "id": "fight",
+      "title": "격투 타입 배경",
+      "path": "./assets/backgrounds/fight.webp",
+      "category": "type",
+      "order": 6
+    },
+    "poison": {
+      "id": "poison",
+      "title": "독 타입 배경",
+      "path": "./assets/backgrounds/poison.webp",
+      "category": "type",
+      "order": 7
+    },
+    "ground": {
+      "id": "ground",
+      "title": "땅 · 바위 타입 배경",
+      "path": "./assets/backgrounds/ground.webp",
+      "category": "type",
+      "order": 8
+    },
+    "fly": {
+      "id": "fly",
+      "title": "비행 타입 배경",
+      "path": "./assets/backgrounds/fly.webp",
+      "category": "type",
+      "order": 9
+    },
+    "psychic": {
+      "id": "psychic",
+      "title": "에스퍼 타입 배경",
+      "path": "./assets/backgrounds/psychic.webp",
+      "category": "type",
+      "order": 10
+    },
+    "ghost": {
+      "id": "ghost",
+      "title": "고스트 타입 배경",
+      "path": "./assets/backgrounds/ghost.webp",
+      "category": "type",
+      "order": 13
+    },
+    "dragon": {
+      "id": "dragon",
+      "title": "드래곤 타입 배경",
+      "path": "./assets/backgrounds/dragon.webp",
+      "category": "type",
+      "order": 14
+    },
+    "dark": {
+      "id": "dark",
+      "title": "악 타입 배경",
+      "path": "./assets/backgrounds/dark.webp",
+      "category": "type",
+      "order": 15
+    },
+    "steel": {
+      "id": "steel",
+      "title": "강철 타입 배경",
+      "path": "./assets/backgrounds/steel.webp",
+      "category": "type",
+      "order": 16
+    },
+    "fairy": {
+      "id": "fairy",
+      "title": "페어리 타입 배경",
+      "path": "./assets/backgrounds/fairy.webp",
+      "category": "type",
+      "order": 17
     },
     "special/articuno": {
       "id": "special/articuno",
       "title": "빙하의 호수 (프리져 전용)",
-      "path": "./assets/backgrounds/special/articuno.webp"
+      "path": "./assets/backgrounds/special/articuno.webp",
+      "category": "legendary",
+      "order": 144,
+      "generation": 1,
+      "sharedCategories": [
+        "legendary"
+      ]
+    },
+    "special/zapdos": {
+      "id": "special/zapdos",
+      "title": "뇌명의 하늘 (썬더 전용)",
+      "path": "./assets/backgrounds/special/zapdos.webp",
+      "category": "legendary",
+      "order": 145,
+      "generation": 1,
+      "sharedCategories": [
+        "legendary"
+      ]
     },
     "special/moltres": {
       "id": "special/moltres",
       "title": "불꽃의 지평선 (파이어 전용)",
-      "path": "./assets/backgrounds/special/moltres.webp"
-    },
-    "special/raikou": {
-      "id": "special/raikou",
-      "title": "번개가 달리는 들판 (라이코 전용)",
-      "path": "./assets/backgrounds/special/raikou.webp"
-    },
-    "special/entei": {
-      "id": "special/entei",
-      "title": "노을진 화산 대지 (앤테이 전용)",
-      "path": "./assets/backgrounds/special/entei.webp"
-    },
-    "special/suicune": {
-      "id": "special/suicune",
-      "title": "맑은 바람의 호수 (스이쿤 전용)",
-      "path": "./assets/backgrounds/special/suicune.webp"
-    },
-    "special/lugia": {
-      "id": "special/lugia",
-      "title": "심해의 소용돌이 (루기아 전용)",
-      "path": "./assets/backgrounds/special/lugia.webp"
-    },
-    "special/ho-oh": {
-      "id": "special/ho-oh",
-      "title": "무지개 너머의 하늘 (칠색조 전용)",
-      "path": "./assets/backgrounds/special/ho-oh.webp"
-    },
-    "special/latias-latios": {
-      "id": "special/latias-latios",
-      "title": "푸른 하늘의 쉼터 (라티아스·라티오스 전용)",
-      "path": "./assets/backgrounds/special/latias-latios.webp"
-    },
-    "special/kyogre": {
-      "id": "special/kyogre",
-      "title": "깊은 바다의 물결 (가이오가 전용)",
-      "path": "./assets/backgrounds/special/kyogre.webp"
-    },
-    "special/groudon": {
-      "id": "special/groudon",
-      "title": "깨어난 대지 (그란돈 전용)",
-      "path": "./assets/backgrounds/special/groudon.webp"
-    },
-    "special/rayquaza": {
-      "id": "special/rayquaza",
-      "title": "창공의 소용돌이 (레쿠쟈 전용)",
-      "path": "./assets/backgrounds/special/rayquaza.webp"
-    },
-    "special/jirachi": {
-      "id": "special/jirachi",
-      "title": "소원을 담은 별하늘 (지라치 전용)",
-      "path": "./assets/backgrounds/special/jirachi.webp"
-    },
-    "special/arceus": {
-      "id": "special/arceus",
-      "title": "시작의 성전 (아르세우스 전용)",
-      "path": "./assets/backgrounds/special/arceus.webp"
-    },
-    "special/celebi": {
-      "id": "special/celebi",
-      "title": "시간을 품은 숲 (세레비 전용)",
-      "path": "./assets/backgrounds/special/celebi.webp"
-    },
-    "special/cresselia": {
-      "id": "special/cresselia",
-      "title": "초승달의 호수 (크레세리아 전용)",
-      "path": "./assets/backgrounds/special/cresselia.webp"
-    },
-    "special/darkrai": {
-      "id": "special/darkrai",
-      "title": "달빛 속의 그림자 (다크라이 전용)",
-      "path": "./assets/backgrounds/special/darkrai.webp"
-    },
-    "special/deoxys": {
-      "id": "special/deoxys",
-      "title": "별들의 궤도 (테오키스 전용)",
-      "path": "./assets/backgrounds/special/deoxys.webp"
-    },
-    "special/dialga": {
-      "id": "special/dialga",
-      "title": "시간의 회랑 (디아루가 전용)",
-      "path": "./assets/backgrounds/special/dialga.webp"
-    },
-    "special/diancie": {
-      "id": "special/diancie",
-      "title": "보석의 동굴 (디안시 전용)",
-      "path": "./assets/backgrounds/special/diancie.webp"
-    },
-    "special/genesect": {
-      "id": "special/genesect",
-      "title": "붉은 연구실 (게노세크트 전용)",
-      "path": "./assets/backgrounds/special/genesect.webp"
-    },
-    "special/giratina": {
-      "id": "special/giratina",
-      "title": "뒤틀린 차원 (기라티나 전용)",
-      "path": "./assets/backgrounds/special/giratina.webp"
-    },
-    "special/hoopa-confined": {
-      "id": "special/hoopa-confined",
-      "title": "차원의 회랑 (후파 전용)",
-      "path": "./assets/backgrounds/special/hoopa-confined.webp"
-    },
-    "special/manaphy-phione": {
-      "id": "special/manaphy-phione",
-      "title": "바다의 요람 (마나피·피오네 전용)",
-      "path": "./assets/backgrounds/special/manaphy-phione.webp"
-    },
-    "special/meloetta-aria": {
-      "id": "special/meloetta-aria",
-      "title": "별빛의 무대 (메로엣타 보이스폼 전용)",
-      "path": "./assets/backgrounds/special/meloetta-aria.webp"
-    },
-    "special/meloetta-pirouette": {
-      "id": "special/meloetta-pirouette",
-      "title": "노을빛의 무대 (메로엣타 스텝폼 전용)",
-      "path": "./assets/backgrounds/special/meloetta-pirouette.webp"
+      "path": "./assets/backgrounds/special/moltres.webp",
+      "category": "legendary",
+      "order": 146,
+      "generation": 1,
+      "sharedCategories": [
+        "legendary"
+      ]
     },
     "special/mewtwo": {
       "id": "special/mewtwo",
       "title": "고요한 실험실 (뮤츠 전용)",
-      "path": "./assets/backgrounds/special/mewtwo.webp"
+      "path": "./assets/backgrounds/special/mewtwo.webp",
+      "category": "legendary",
+      "order": 150,
+      "generation": 1,
+      "sharedCategories": [
+        "legendary"
+      ]
     },
-    "special/palkia": {
-      "id": "special/palkia",
-      "title": "공간의 소용돌이 (펄기아 전용)",
-      "path": "./assets/backgrounds/special/palkia.webp"
+    "special/raikou": {
+      "id": "special/raikou",
+      "title": "번개가 달리는 들판 (라이코 전용)",
+      "path": "./assets/backgrounds/special/raikou.webp",
+      "category": "legendary",
+      "order": 243,
+      "generation": 2,
+      "sharedCategories": [
+        "legendary"
+      ]
     },
-    "special/regigigas": {
-      "id": "special/regigigas",
-      "title": "거인의 유적 (레지기가스 전용)",
-      "path": "./assets/backgrounds/special/regigigas.webp"
+    "special/entei": {
+      "id": "special/entei",
+      "title": "노을진 화산 대지 (앤테이 전용)",
+      "path": "./assets/backgrounds/special/entei.webp",
+      "category": "legendary",
+      "order": 244,
+      "generation": 2,
+      "sharedCategories": [
+        "legendary"
+      ]
     },
-    "special/victini": {
-      "id": "special/victini",
-      "title": "승리의 해돋이 (비크티니 전용)",
-      "path": "./assets/backgrounds/special/victini.webp"
+    "special/suicune": {
+      "id": "special/suicune",
+      "title": "맑은 바람의 호수 (스이쿤 전용)",
+      "path": "./assets/backgrounds/special/suicune.webp",
+      "category": "legendary",
+      "order": 245,
+      "generation": 2,
+      "sharedCategories": [
+        "legendary"
+      ]
     },
-    "special/zarude": {
-      "id": "special/zarude",
-      "title": "깊은 정글의 쉼터 (자루도 전용)",
-      "path": "./assets/backgrounds/special/zarude.webp"
+    "special/lugia": {
+      "id": "special/lugia",
+      "title": "심해의 소용돌이 (루기아 전용)",
+      "path": "./assets/backgrounds/special/lugia.webp",
+      "category": "legendary",
+      "order": 249,
+      "generation": 2,
+      "sharedCategories": [
+        "legendary"
+      ]
     },
-    "special/ultra-beast": {
-      "id": "special/ultra-beast",
-      "title": "울트라스페이스 (울트라비스트·코스모그·코스모움 전용)",
-      "path": "./assets/backgrounds/special/ultra-beast.webp"
-    },
-    "special/regice": {
-      "id": "special/regice",
-      "title": "얼어붙은 성전 (레지아이스 전용)",
-      "path": "./assets/backgrounds/special/regice.webp"
+    "special/ho-oh": {
+      "id": "special/ho-oh",
+      "title": "무지개 너머의 하늘 (칠색조 전용)",
+      "path": "./assets/backgrounds/special/ho-oh.webp",
+      "category": "legendary",
+      "order": 250,
+      "generation": 2,
+      "sharedCategories": [
+        "legendary"
+      ]
     },
     "special/regirock": {
       "id": "special/regirock",
       "title": "바위의 성전 (레지락 전용)",
-      "path": "./assets/backgrounds/special/regirock.webp"
+      "path": "./assets/backgrounds/special/regirock.webp",
+      "category": "legendary",
+      "order": 377,
+      "generation": 3,
+      "sharedCategories": [
+        "legendary"
+      ]
+    },
+    "special/regice": {
+      "id": "special/regice",
+      "title": "얼어붙은 성전 (레지아이스 전용)",
+      "path": "./assets/backgrounds/special/regice.webp",
+      "category": "legendary",
+      "order": 378,
+      "generation": 3,
+      "sharedCategories": [
+        "legendary"
+      ]
     },
     "special/registeel": {
       "id": "special/registeel",
       "title": "강철의 성전 (레지스틸 전용)",
-      "path": "./assets/backgrounds/special/registeel.webp"
+      "path": "./assets/backgrounds/special/registeel.webp",
+      "category": "legendary",
+      "order": 379,
+      "generation": 3,
+      "sharedCategories": [
+        "legendary"
+      ]
     },
-    "special/shaymin": {
-      "id": "special/shaymin",
-      "title": "꽃바람의 들판 (쉐이미 전용)",
-      "path": "./assets/backgrounds/special/shaymin.webp"
+    "special/latias-latios": {
+      "id": "special/latias-latios",
+      "title": "푸른 하늘의 쉼터 (라티아스·라티오스 전용)",
+      "path": "./assets/backgrounds/special/latias-latios.webp",
+      "category": "legendary",
+      "order": 380,
+      "generation": 3,
+      "sharedCategories": [
+        "legendary"
+      ]
     },
-    "special/ultranecrozma": {
-      "id": "special/ultranecrozma",
-      "title": "눈부신 빛의 성전 (울트라네크로즈마 전용)",
-      "path": "./assets/backgrounds/special/ultranecrozma.webp"
+    "special/kyogre": {
+      "id": "special/kyogre",
+      "title": "깊은 바다의 물결 (가이오가 전용)",
+      "path": "./assets/backgrounds/special/kyogre.webp",
+      "category": "legendary",
+      "order": 382,
+      "generation": 3,
+      "sharedCategories": [
+        "legendary"
+      ]
     },
-    "special/xerneas": {
-      "id": "special/xerneas",
-      "title": "생명의 숲 (제르네아스 전용)",
-      "path": "./assets/backgrounds/special/xerneas.webp"
+    "special/groudon": {
+      "id": "special/groudon",
+      "title": "깨어난 대지 (그란돈 전용)",
+      "path": "./assets/backgrounds/special/groudon.webp",
+      "category": "legendary",
+      "order": 383,
+      "generation": 3,
+      "sharedCategories": [
+        "legendary"
+      ]
     },
-    "special/yveltal": {
-      "id": "special/yveltal",
-      "title": "붉은 소용돌이의 대지 (이벨타르 전용)",
-      "path": "./assets/backgrounds/special/yveltal.webp"
+    "special/rayquaza": {
+      "id": "special/rayquaza",
+      "title": "창공의 소용돌이 (레쿠쟈 전용)",
+      "path": "./assets/backgrounds/special/rayquaza.webp",
+      "category": "legendary",
+      "order": 384,
+      "generation": 3,
+      "sharedCategories": [
+        "legendary"
+      ]
     },
     "special/uxie-mesprit-azelf": {
       "id": "special/uxie-mesprit-azelf",
       "title": "진실 호수 (유크시·엠라이트·아그놈 전용)",
-      "path": "./assets/backgrounds/special/uxie-mesprit-azelf.webp"
+      "path": "./assets/backgrounds/special/uxie-mesprit-azelf.webp",
+      "category": "legendary",
+      "order": 480,
+      "generation": 4,
+      "sharedCategories": [
+        "legendary"
+      ]
     },
-    "special/zeraora": {
-      "id": "special/zeraora",
-      "title": "번개가 스치는 도시 (제라오라 전용)",
-      "path": "./assets/backgrounds/special/zeraora.webp"
+    "special/dialga": {
+      "id": "special/dialga",
+      "title": "시간의 회랑 (디아루가 전용)",
+      "path": "./assets/backgrounds/special/dialga.webp",
+      "category": "legendary",
+      "order": 483,
+      "generation": 4,
+      "sharedCategories": [
+        "legendary"
+      ]
     },
-    "special/cobalion-terrakion-virizion-keldeo-keldeo-resolute": {
-      "id": "special/cobalion-terrakion-virizion-keldeo-keldeo-resolute",
-      "title": "성검사의 들판 (코바르온·테라키온·비리디온·케르디오 전용)",
-      "path": "./assets/backgrounds/special/cobalion-terrakion-virizion-keldeo-keldeo-resolute.webp"
-    },
-    "special/lunala": {
-      "id": "special/lunala",
-      "title": "달을 품은 밤하늘 (루나아라·네크로즈마 새벽의날개 전용)",
-      "path": "./assets/backgrounds/special/lunala.webp"
-    },
-    "special/marshadow": {
-      "id": "special/marshadow",
-      "title": "그림자에 잠긴 유적 (마샤도 전용)",
-      "path": "./assets/backgrounds/special/marshadow.webp"
-    },
-    "special/solgaleo": {
-      "id": "special/solgaleo",
-      "title": "태양의 제단 (솔가레오·네크로즈마 황혼의갈기 전용)",
-      "path": "./assets/backgrounds/special/solgaleo.webp"
-    },
-    "special/koraidon": {
-      "id": "special/koraidon",
-      "title": "태고의 협곡 (코라이돈 전용)",
-      "path": "./assets/backgrounds/special/koraidon.webp"
-    },
-    "special/kyurem": {
-      "id": "special/kyurem",
-      "title": "얼어붙은 왕국 (큐레무 전용)",
-      "path": "./assets/backgrounds/special/kyurem.webp"
-    },
-    "special/mew": {
-      "id": "special/mew",
-      "title": "꿈결의 하늘 (뮤 전용)",
-      "path": "./assets/backgrounds/special/mew.webp"
-    },
-    "special/miraidon": {
-      "id": "special/miraidon",
-      "title": "빛이 흐르는 도시 (미라이돈 전용)",
-      "path": "./assets/backgrounds/special/miraidon.webp"
-    },
-    "special/okidogi-munkidori-fezandipiti-pecharunt": {
-      "id": "special/okidogi-munkidori-fezandipiti-pecharunt",
-      "title": "복숭아 신사 (조타구·이야후·기로치·복숭악동 전용)",
-      "path": "./assets/backgrounds/special/okidogi-munkidori-fezandipiti-pecharunt.webp"
-    },
-    "special/zekrom": {
-      "id": "special/zekrom",
-      "title": "흑뢰의 대지 (제크로무 전용)",
-      "path": "./assets/backgrounds/special/zekrom.webp"
-    },
-    "special/tornadus-thundurus-landorus-enamorus": {
-      "id": "special/tornadus-thundurus-landorus-enamorus",
-      "title": "풍요의 사당 (토네로스·볼트로스·랜드로스·러브로스 전용)",
-      "path": "./assets/backgrounds/special/tornadus-thundurus-landorus-enamorus.webp"
-    },
-    "special/tapu": {
-      "id": "special/tapu",
-      "title": "수호신의 제단 (카푸꼬꼬꼭·카푸나비나·카푸브루루·카푸느지느 전용)",
-      "path": "./assets/backgrounds/special/tapu.webp"
-    },
-    "special/articuno-galarian": {
-      "id": "special/articuno-galarian",
-      "title": "보랏빛 설산 (가라르 프리져 전용)",
-      "path": "./assets/backgrounds/special/articuno-galarian.webp"
-    },
-    "special/zapdos-galarian": {
-      "id": "special/zapdos-galarian",
-      "title": "붉은 바위의 황야 (가라르 썬더 전용)",
-      "path": "./assets/backgrounds/special/zapdos-galarian.webp"
-    },
-    "special/moltres-galarian": {
-      "id": "special/moltres-galarian",
-      "title": "어둠이 타오르는 대지 (가라르 파이어 전용)",
-      "path": "./assets/backgrounds/special/moltres-galarian.webp"
-    },
-    "special/eternatus": {
-      "id": "special/eternatus",
-      "title": "무한의 소용돌이 (무한다이노 전용)",
-      "path": "./assets/backgrounds/special/eternatus.webp"
-    },
-    "special/kubfu": {
-      "id": "special/kubfu",
-      "title": "수련의 뜰 (치고마 전용)",
-      "path": "./assets/backgrounds/special/kubfu.webp"
-    },
-    "special/necrozma": {
-      "id": "special/necrozma",
-      "title": "빛을 잃은 결정 (네크로즈마 전용)",
-      "path": "./assets/backgrounds/special/necrozma.webp"
-    },
-    "special/reshiram": {
-      "id": "special/reshiram",
-      "title": "흰빛의 하늘 (레시라무 전용)",
-      "path": "./assets/backgrounds/special/reshiram.webp"
-    },
-    "special/urshifu-rapid-strike": {
-      "id": "special/urshifu-rapid-strike",
-      "title": "물결의 수련장 (우라오스 연격의태세 전용)",
-      "path": "./assets/backgrounds/special/urshifu-rapid-strike.webp"
-    },
-    "special/urshifu-single-strike": {
-      "id": "special/urshifu-single-strike",
-      "title": "어둠의 수련장 (우라오스 일격의태세 전용)",
-      "path": "./assets/backgrounds/special/urshifu-single-strike.webp"
-    },
-    "special/zacian": {
-      "id": "special/zacian",
-      "title": "검의 성역 (자시안 전용)",
-      "path": "./assets/backgrounds/special/zacian.webp"
-    },
-    "special/zamazenta": {
-      "id": "special/zamazenta",
-      "title": "방패의 성역 (자마젠타 전용)",
-      "path": "./assets/backgrounds/special/zamazenta.webp"
-    },
-    "special/zygarde": {
-      "id": "special/zygarde",
-      "title": "질서의 계곡 (지가르데 전용)",
-      "path": "./assets/backgrounds/special/zygarde.webp"
-    },
-    "special/typenullsilvally": {
-      "id": "special/typenullsilvally",
-      "title": "에테르파라다이스 (타입:널·실버디 전용)",
-      "path": "./assets/backgrounds/special/typenullsilvally.webp"
-    },
-    "special/chienpao": {
-      "id": "special/chienpao",
-      "title": "빙설의 제단 (파오젠 전용)",
-      "path": "./assets/backgrounds/special/chienpao.webp"
-    },
-    "special/chiyu": {
-      "id": "special/chiyu",
-      "title": "불꽃의 제단 (위유이 전용)",
-      "path": "./assets/backgrounds/special/chiyu.webp"
-    },
-    "special/tinglu": {
-      "id": "special/tinglu",
-      "title": "대지의 제단 (딩루 전용)",
-      "path": "./assets/backgrounds/special/tinglu.webp"
-    },
-    "special/wochien": {
-      "id": "special/wochien",
-      "title": "이끼 낀 제단 (총지엔 전용)",
-      "path": "./assets/backgrounds/special/wochien.webp"
-    },
-    "special/ogerpon": {
-      "id": "special/ogerpon",
-      "title": "가면의 숲 (오거폰 전용)",
-      "path": "./assets/backgrounds/special/ogerpon.webp"
-    },
-    "special/calyrex-glastrier-calyrex-ice-rider": {
-      "id": "special/calyrex-glastrier-calyrex-ice-rider",
-      "title": "설원의 왕좌 (버드렉스·블리자포스·버드렉스 백마탄모습 전용)",
-      "path": "./assets/backgrounds/special/calyrex-glastrier-calyrex-ice-rider.webp"
-    },
-    "special/spectrier-calyrex-shadow-rider": {
-      "id": "special/spectrier-calyrex-shadow-rider",
-      "title": "월영의 왕좌 (레이스포스·버드렉스 흑마탄모습 전용)",
-      "path": "./assets/backgrounds/special/spectrier-calyrex-shadow-rider.webp"
+    "special/palkia": {
+      "id": "special/palkia",
+      "title": "공간의 소용돌이 (펄기아 전용)",
+      "path": "./assets/backgrounds/special/palkia.webp",
+      "category": "legendary",
+      "order": 484,
+      "generation": 4,
+      "sharedCategories": [
+        "legendary"
+      ]
     },
     "special/heatran": {
       "id": "special/heatran",
       "title": "용암의 동굴 (히드런 전용)",
-      "path": "./assets/backgrounds/special/heatran.webp"
+      "path": "./assets/backgrounds/special/heatran.webp",
+      "category": "legendary",
+      "order": 485,
+      "generation": 4,
+      "sharedCategories": [
+        "legendary"
+      ]
     },
-    "special/magearna": {
-      "id": "special/magearna",
-      "title": "기계장치의 정원 (마기아나 전용)",
-      "path": "./assets/backgrounds/special/magearna.webp"
+    "special/regigigas": {
+      "id": "special/regigigas",
+      "title": "거인의 유적 (레지기가스 전용)",
+      "path": "./assets/backgrounds/special/regigigas.webp",
+      "category": "legendary",
+      "order": 486,
+      "generation": 4,
+      "sharedCategories": [
+        "legendary"
+      ]
     },
-    "special/meltan-melmetal": {
-      "id": "special/meltan-melmetal",
-      "title": "강철 제련소 (멜탄·멜메탈 전용)",
-      "path": "./assets/backgrounds/special/meltan-melmetal.webp"
+    "special/giratina": {
+      "id": "special/giratina",
+      "title": "뒤틀린 차원 (기라티나 전용)",
+      "path": "./assets/backgrounds/special/giratina.webp",
+      "category": "legendary",
+      "order": 487,
+      "generation": 4,
+      "sharedCategories": [
+        "legendary"
+      ]
     },
-    "special/regidrago": {
-      "id": "special/regidrago",
-      "title": "용의 봉인실 (레지드래고 전용)",
-      "path": "./assets/backgrounds/special/regidrago.webp"
+    "special/cresselia": {
+      "id": "special/cresselia",
+      "title": "초승달의 호수 (크레세리아 전용)",
+      "path": "./assets/backgrounds/special/cresselia.webp",
+      "category": "legendary",
+      "order": 488,
+      "generation": 4,
+      "sharedCategories": [
+        "legendary"
+      ]
+    },
+    "special/cobalion-terrakion-virizion-keldeo-keldeo-resolute": {
+      "id": "special/cobalion-terrakion-virizion-keldeo-keldeo-resolute",
+      "title": "성검사의 들판 (코바르온·테라키온·비리디온·케르디오 전용)",
+      "path": "./assets/backgrounds/special/cobalion-terrakion-virizion-keldeo-keldeo-resolute.webp",
+      "category": "legendary",
+      "order": 638,
+      "generation": 5,
+      "sharedCategories": [
+        "legendary",
+        "mythical"
+      ]
+    },
+    "special/tornadus-thundurus-landorus-enamorus": {
+      "id": "special/tornadus-thundurus-landorus-enamorus",
+      "title": "풍요의 사당 (토네로스·볼트로스·랜드로스·러브로스 전용)",
+      "path": "./assets/backgrounds/special/tornadus-thundurus-landorus-enamorus.webp",
+      "category": "legendary",
+      "order": 641,
+      "generation": 5,
+      "sharedCategories": [
+        "legendary"
+      ]
+    },
+    "special/reshiram": {
+      "id": "special/reshiram",
+      "title": "흰빛의 하늘 (레시라무 전용)",
+      "path": "./assets/backgrounds/special/reshiram.webp",
+      "category": "legendary",
+      "order": 643,
+      "generation": 5,
+      "sharedCategories": [
+        "legendary"
+      ]
+    },
+    "special/zekrom": {
+      "id": "special/zekrom",
+      "title": "흑뢰의 대지 (제크로무 전용)",
+      "path": "./assets/backgrounds/special/zekrom.webp",
+      "category": "legendary",
+      "order": 644,
+      "generation": 5,
+      "sharedCategories": [
+        "legendary"
+      ]
+    },
+    "special/kyurem": {
+      "id": "special/kyurem",
+      "title": "얼어붙은 왕국 (큐레무 전용)",
+      "path": "./assets/backgrounds/special/kyurem.webp",
+      "category": "legendary",
+      "order": 646,
+      "generation": 5,
+      "sharedCategories": [
+        "legendary"
+      ]
+    },
+    "special/xerneas": {
+      "id": "special/xerneas",
+      "title": "생명의 숲 (제르네아스 전용)",
+      "path": "./assets/backgrounds/special/xerneas.webp",
+      "category": "legendary",
+      "order": 716,
+      "generation": 6,
+      "sharedCategories": [
+        "legendary"
+      ]
+    },
+    "special/yveltal": {
+      "id": "special/yveltal",
+      "title": "붉은 소용돌이의 대지 (이벨타르 전용)",
+      "path": "./assets/backgrounds/special/yveltal.webp",
+      "category": "legendary",
+      "order": 717,
+      "generation": 6,
+      "sharedCategories": [
+        "legendary"
+      ]
+    },
+    "special/zygarde": {
+      "id": "special/zygarde",
+      "title": "질서의 계곡 (지가르데 전용)",
+      "path": "./assets/backgrounds/special/zygarde.webp",
+      "category": "legendary",
+      "order": 718,
+      "generation": 6,
+      "sharedCategories": [
+        "legendary"
+      ]
+    },
+    "special/typenullsilvally": {
+      "id": "special/typenullsilvally",
+      "title": "에테르파라다이스 (타입:널·실버디 전용)",
+      "path": "./assets/backgrounds/special/typenullsilvally.webp",
+      "category": "legendary",
+      "order": 772,
+      "generation": 7,
+      "sharedCategories": [
+        "legendary"
+      ]
+    },
+    "special/tapu": {
+      "id": "special/tapu",
+      "title": "수호신의 제단 (카푸꼬꼬꼭·카푸나비나·카푸브루루·카푸느지느 전용)",
+      "path": "./assets/backgrounds/special/tapu.webp",
+      "category": "legendary",
+      "order": 785,
+      "generation": 7,
+      "sharedCategories": [
+        "legendary"
+      ]
+    },
+    "special/ultra-beast": {
+      "id": "special/ultra-beast",
+      "title": "울트라스페이스 (울트라비스트·코스모그·코스모움 전용)",
+      "path": "./assets/backgrounds/special/ultra-beast.webp",
+      "category": "legendary",
+      "order": 789,
+      "generation": 7,
+      "sharedCategories": [
+        "legendary"
+      ]
+    },
+    "special/solgaleo": {
+      "id": "special/solgaleo",
+      "title": "태양의 제단 (솔가레오·네크로즈마 황혼의갈기 전용)",
+      "path": "./assets/backgrounds/special/solgaleo.webp",
+      "category": "legendary",
+      "order": 791,
+      "generation": 7,
+      "sharedCategories": [
+        "legendary"
+      ]
+    },
+    "special/lunala": {
+      "id": "special/lunala",
+      "title": "달을 품은 밤하늘 (루나아라·네크로즈마 새벽의날개 전용)",
+      "path": "./assets/backgrounds/special/lunala.webp",
+      "category": "legendary",
+      "order": 792,
+      "generation": 7,
+      "sharedCategories": [
+        "legendary"
+      ]
+    },
+    "special/necrozma": {
+      "id": "special/necrozma",
+      "title": "빛을 잃은 결정 (네크로즈마 전용)",
+      "path": "./assets/backgrounds/special/necrozma.webp",
+      "category": "legendary",
+      "order": 800,
+      "generation": 7,
+      "sharedCategories": [
+        "legendary"
+      ]
+    },
+    "special/ultranecrozma": {
+      "id": "special/ultranecrozma",
+      "title": "눈부신 빛의 성전 (울트라네크로즈마 전용)",
+      "path": "./assets/backgrounds/special/ultranecrozma.webp",
+      "category": "legendary",
+      "order": 800,
+      "generation": 7,
+      "sharedCategories": [
+        "legendary"
+      ]
+    },
+    "special/articuno-galarian": {
+      "id": "special/articuno-galarian",
+      "title": "보랏빛 설산 (가라르 프리져 전용)",
+      "path": "./assets/backgrounds/special/articuno-galarian.webp",
+      "category": "legendary",
+      "order": 144,
+      "generation": 8,
+      "sharedCategories": [
+        "legendary"
+      ]
+    },
+    "special/zapdos-galarian": {
+      "id": "special/zapdos-galarian",
+      "title": "붉은 바위의 황야 (가라르 썬더 전용)",
+      "path": "./assets/backgrounds/special/zapdos-galarian.webp",
+      "category": "legendary",
+      "order": 145,
+      "generation": 8,
+      "sharedCategories": [
+        "legendary"
+      ]
+    },
+    "special/moltres-galarian": {
+      "id": "special/moltres-galarian",
+      "title": "어둠이 타오르는 대지 (가라르 파이어 전용)",
+      "path": "./assets/backgrounds/special/moltres-galarian.webp",
+      "category": "legendary",
+      "order": 146,
+      "generation": 8,
+      "sharedCategories": [
+        "legendary"
+      ]
+    },
+    "special/zacian": {
+      "id": "special/zacian",
+      "title": "검의 성역 (자시안 전용)",
+      "path": "./assets/backgrounds/special/zacian.webp",
+      "category": "legendary",
+      "order": 888,
+      "generation": 8,
+      "sharedCategories": [
+        "legendary"
+      ]
+    },
+    "special/zamazenta": {
+      "id": "special/zamazenta",
+      "title": "방패의 성역 (자마젠타 전용)",
+      "path": "./assets/backgrounds/special/zamazenta.webp",
+      "category": "legendary",
+      "order": 889,
+      "generation": 8,
+      "sharedCategories": [
+        "legendary"
+      ]
+    },
+    "special/eternatus": {
+      "id": "special/eternatus",
+      "title": "무한의 소용돌이 (무한다이노 전용)",
+      "path": "./assets/backgrounds/special/eternatus.webp",
+      "category": "legendary",
+      "order": 890,
+      "generation": 8,
+      "sharedCategories": [
+        "legendary"
+      ]
+    },
+    "special/kubfu": {
+      "id": "special/kubfu",
+      "title": "수련의 뜰 (치고마 전용)",
+      "path": "./assets/backgrounds/special/kubfu.webp",
+      "category": "legendary",
+      "order": 891,
+      "generation": 8,
+      "sharedCategories": [
+        "legendary"
+      ]
+    },
+    "special/urshifu-rapid-strike": {
+      "id": "special/urshifu-rapid-strike",
+      "title": "물결의 수련장 (우라오스 연격의태세 전용)",
+      "path": "./assets/backgrounds/special/urshifu-rapid-strike.webp",
+      "category": "legendary",
+      "order": 892,
+      "generation": 8,
+      "sharedCategories": [
+        "legendary"
+      ]
+    },
+    "special/urshifu-single-strike": {
+      "id": "special/urshifu-single-strike",
+      "title": "어둠의 수련장 (우라오스 일격의태세 전용)",
+      "path": "./assets/backgrounds/special/urshifu-single-strike.webp",
+      "category": "legendary",
+      "order": 892,
+      "generation": 8,
+      "sharedCategories": [
+        "legendary"
+      ]
     },
     "special/regieleki": {
       "id": "special/regieleki",
       "title": "전류의 봉인실 (레지에레키 전용)",
-      "path": "./assets/backgrounds/special/regieleki.webp"
+      "path": "./assets/backgrounds/special/regieleki.webp",
+      "category": "legendary",
+      "order": 894,
+      "generation": 8,
+      "sharedCategories": [
+        "legendary"
+      ]
     },
-    "special/volcanion": {
-      "id": "special/volcanion",
-      "title": "증기의 공장 (볼케니온 전용)",
-      "path": "./assets/backgrounds/special/volcanion.webp"
+    "special/regidrago": {
+      "id": "special/regidrago",
+      "title": "용의 봉인실 (레지드래고 전용)",
+      "path": "./assets/backgrounds/special/regidrago.webp",
+      "category": "legendary",
+      "order": 895,
+      "generation": 8,
+      "sharedCategories": [
+        "legendary"
+      ]
     },
-    "special/gigantamax": {
-      "id": "special/gigantamax",
-      "title": "거다이맥스 폭풍 (거다이맥스 포켓몬 전용)",
-      "path": "./assets/backgrounds/special/gigantamax.webp"
+    "special/calyrex-glastrier-calyrex-ice-rider": {
+      "id": "special/calyrex-glastrier-calyrex-ice-rider",
+      "title": "설원의 왕좌 (버드렉스·블리자포스·버드렉스 백마탄모습 전용)",
+      "path": "./assets/backgrounds/special/calyrex-glastrier-calyrex-ice-rider.webp",
+      "category": "legendary",
+      "order": 896,
+      "generation": 8,
+      "sharedCategories": [
+        "legendary"
+      ]
     },
-    "special/paradox-ancient": {
-      "id": "special/paradox-ancient",
-      "title": "태고의 대지 (과거 패러독스 포켓몬 전용)",
-      "path": "./assets/backgrounds/special/paradox-ancient.webp"
+    "special/spectrier-calyrex-shadow-rider": {
+      "id": "special/spectrier-calyrex-shadow-rider",
+      "title": "월영의 왕좌 (레이스포스·버드렉스 흑마탄모습 전용)",
+      "path": "./assets/backgrounds/special/spectrier-calyrex-shadow-rider.webp",
+      "category": "legendary",
+      "order": 897,
+      "generation": 8,
+      "sharedCategories": [
+        "legendary"
+      ]
     },
-    "special/paradox-future": {
-      "id": "special/paradox-future",
-      "title": "미래의 도시 (미래 패러독스 포켓몬 전용)",
-      "path": "./assets/backgrounds/special/paradox-future.webp"
+    "special/wochien": {
+      "id": "special/wochien",
+      "title": "이끼 낀 제단 (총지엔 전용)",
+      "path": "./assets/backgrounds/special/wochien.webp",
+      "category": "legendary",
+      "order": 1001,
+      "generation": 9,
+      "sharedCategories": [
+        "legendary"
+      ]
+    },
+    "special/chienpao": {
+      "id": "special/chienpao",
+      "title": "빙설의 제단 (파오젠 전용)",
+      "path": "./assets/backgrounds/special/chienpao.webp",
+      "category": "legendary",
+      "order": 1002,
+      "generation": 9,
+      "sharedCategories": [
+        "legendary"
+      ]
+    },
+    "special/tinglu": {
+      "id": "special/tinglu",
+      "title": "대지의 제단 (딩루 전용)",
+      "path": "./assets/backgrounds/special/tinglu.webp",
+      "category": "legendary",
+      "order": 1003,
+      "generation": 9,
+      "sharedCategories": [
+        "legendary"
+      ]
+    },
+    "special/chiyu": {
+      "id": "special/chiyu",
+      "title": "불꽃의 제단 (위유이 전용)",
+      "path": "./assets/backgrounds/special/chiyu.webp",
+      "category": "legendary",
+      "order": 1004,
+      "generation": 9,
+      "sharedCategories": [
+        "legendary"
+      ]
+    },
+    "special/koraidon": {
+      "id": "special/koraidon",
+      "title": "태고의 협곡 (코라이돈 전용)",
+      "path": "./assets/backgrounds/special/koraidon.webp",
+      "category": "legendary",
+      "order": 1007,
+      "generation": 9,
+      "sharedCategories": [
+        "legendary"
+      ]
+    },
+    "special/miraidon": {
+      "id": "special/miraidon",
+      "title": "빛이 흐르는 도시 (미라이돈 전용)",
+      "path": "./assets/backgrounds/special/miraidon.webp",
+      "category": "legendary",
+      "order": 1008,
+      "generation": 9,
+      "sharedCategories": [
+        "legendary"
+      ]
+    },
+    "special/okidogi-munkidori-fezandipiti-pecharunt": {
+      "id": "special/okidogi-munkidori-fezandipiti-pecharunt",
+      "title": "복숭아 신사 (조타구·이야후·기로치·복숭악동 전용)",
+      "path": "./assets/backgrounds/special/okidogi-munkidori-fezandipiti-pecharunt.webp",
+      "category": "legendary",
+      "order": 1014,
+      "generation": 9,
+      "sharedCategories": [
+        "legendary",
+        "mythical"
+      ]
+    },
+    "special/ogerpon": {
+      "id": "special/ogerpon",
+      "title": "가면의 숲 (오거폰 전용)",
+      "path": "./assets/backgrounds/special/ogerpon.webp",
+      "category": "legendary",
+      "order": 1017,
+      "generation": 9,
+      "sharedCategories": [
+        "legendary"
+      ]
     },
     "special/terapagos": {
       "id": "special/terapagos",
       "title": "결정의 성전 (테라파고스 전용)",
-      "path": "./assets/backgrounds/special/terapagos.webp"
+      "path": "./assets/backgrounds/special/terapagos.webp",
+      "category": "legendary",
+      "order": 1024,
+      "generation": 9,
+      "sharedCategories": [
+        "legendary"
+      ]
+    },
+    "special/mew": {
+      "id": "special/mew",
+      "title": "꿈결의 하늘 (뮤 전용)",
+      "path": "./assets/backgrounds/special/mew.webp",
+      "category": "mythical",
+      "order": 151,
+      "generation": 1,
+      "sharedCategories": [
+        "mythical"
+      ]
+    },
+    "special/celebi": {
+      "id": "special/celebi",
+      "title": "시간을 품은 숲 (세레비 전용)",
+      "path": "./assets/backgrounds/special/celebi.webp",
+      "category": "mythical",
+      "order": 251,
+      "generation": 2,
+      "sharedCategories": [
+        "mythical"
+      ]
+    },
+    "special/jirachi": {
+      "id": "special/jirachi",
+      "title": "소원을 담은 별하늘 (지라치 전용)",
+      "path": "./assets/backgrounds/special/jirachi.webp",
+      "category": "mythical",
+      "order": 385,
+      "generation": 3,
+      "sharedCategories": [
+        "mythical"
+      ]
+    },
+    "special/deoxys": {
+      "id": "special/deoxys",
+      "title": "별들의 궤도 (테오키스 전용)",
+      "path": "./assets/backgrounds/special/deoxys.webp",
+      "category": "mythical",
+      "order": 386,
+      "generation": 3,
+      "sharedCategories": [
+        "mythical"
+      ]
+    },
+    "special/manaphy-phione": {
+      "id": "special/manaphy-phione",
+      "title": "바다의 요람 (마나피·피오네 전용)",
+      "path": "./assets/backgrounds/special/manaphy-phione.webp",
+      "category": "mythical",
+      "order": 489,
+      "generation": 4,
+      "sharedCategories": [
+        "mythical"
+      ]
+    },
+    "special/darkrai": {
+      "id": "special/darkrai",
+      "title": "달빛 속의 그림자 (다크라이 전용)",
+      "path": "./assets/backgrounds/special/darkrai.webp",
+      "category": "mythical",
+      "order": 491,
+      "generation": 4,
+      "sharedCategories": [
+        "mythical"
+      ]
+    },
+    "special/shaymin": {
+      "id": "special/shaymin",
+      "title": "꽃바람의 들판 (쉐이미 전용)",
+      "path": "./assets/backgrounds/special/shaymin.webp",
+      "category": "mythical",
+      "order": 492,
+      "generation": 4,
+      "sharedCategories": [
+        "mythical"
+      ]
+    },
+    "special/arceus": {
+      "id": "special/arceus",
+      "title": "시작의 성전 (아르세우스 전용)",
+      "path": "./assets/backgrounds/special/arceus.webp",
+      "category": "mythical",
+      "order": 493,
+      "generation": 4,
+      "sharedCategories": [
+        "mythical"
+      ]
+    },
+    "special/victini": {
+      "id": "special/victini",
+      "title": "승리의 해돋이 (비크티니 전용)",
+      "path": "./assets/backgrounds/special/victini.webp",
+      "category": "mythical",
+      "order": 494,
+      "generation": 5,
+      "sharedCategories": [
+        "mythical"
+      ]
+    },
+    "special/meloetta-aria": {
+      "id": "special/meloetta-aria",
+      "title": "별빛의 무대 (메로엣타 보이스폼 전용)",
+      "path": "./assets/backgrounds/special/meloetta-aria.webp",
+      "category": "mythical",
+      "order": 648,
+      "generation": 5,
+      "sharedCategories": [
+        "mythical"
+      ]
+    },
+    "special/meloetta-pirouette": {
+      "id": "special/meloetta-pirouette",
+      "title": "노을빛의 무대 (메로엣타 스텝폼 전용)",
+      "path": "./assets/backgrounds/special/meloetta-pirouette.webp",
+      "category": "mythical",
+      "order": 648,
+      "generation": 5,
+      "sharedCategories": [
+        "mythical"
+      ]
+    },
+    "special/genesect": {
+      "id": "special/genesect",
+      "title": "붉은 연구실 (게노세크트 전용)",
+      "path": "./assets/backgrounds/special/genesect.webp",
+      "category": "mythical",
+      "order": 649,
+      "generation": 5,
+      "sharedCategories": [
+        "mythical"
+      ]
+    },
+    "special/diancie": {
+      "id": "special/diancie",
+      "title": "보석의 동굴 (디안시 전용)",
+      "path": "./assets/backgrounds/special/diancie.webp",
+      "category": "mythical",
+      "order": 719,
+      "generation": 6,
+      "sharedCategories": [
+        "mythical"
+      ]
+    },
+    "special/hoopa-confined": {
+      "id": "special/hoopa-confined",
+      "title": "차원의 회랑 (후파 전용)",
+      "path": "./assets/backgrounds/special/hoopa-confined.webp",
+      "category": "mythical",
+      "order": 720,
+      "generation": 6,
+      "sharedCategories": [
+        "mythical"
+      ]
+    },
+    "special/volcanion": {
+      "id": "special/volcanion",
+      "title": "증기의 공장 (볼케니온 전용)",
+      "path": "./assets/backgrounds/special/volcanion.webp",
+      "category": "mythical",
+      "order": 721,
+      "generation": 6,
+      "sharedCategories": [
+        "mythical"
+      ]
+    },
+    "special/magearna": {
+      "id": "special/magearna",
+      "title": "기계장치의 정원 (마기아나 전용)",
+      "path": "./assets/backgrounds/special/magearna.webp",
+      "category": "mythical",
+      "order": 801,
+      "generation": 7,
+      "sharedCategories": [
+        "mythical"
+      ]
+    },
+    "special/marshadow": {
+      "id": "special/marshadow",
+      "title": "그림자에 잠긴 유적 (마샤도 전용)",
+      "path": "./assets/backgrounds/special/marshadow.webp",
+      "category": "mythical",
+      "order": 802,
+      "generation": 7,
+      "sharedCategories": [
+        "mythical"
+      ]
+    },
+    "special/zeraora": {
+      "id": "special/zeraora",
+      "title": "번개가 스치는 도시 (제라오라 전용)",
+      "path": "./assets/backgrounds/special/zeraora.webp",
+      "category": "mythical",
+      "order": 807,
+      "generation": 7,
+      "sharedCategories": [
+        "mythical"
+      ]
+    },
+    "special/meltan-melmetal": {
+      "id": "special/meltan-melmetal",
+      "title": "강철 제련소 (멜탄·멜메탈 전용)",
+      "path": "./assets/backgrounds/special/meltan-melmetal.webp",
+      "category": "mythical",
+      "order": 808,
+      "generation": 7,
+      "sharedCategories": [
+        "mythical"
+      ]
+    },
+    "special/zarude": {
+      "id": "special/zarude",
+      "title": "깊은 정글의 쉼터 (자루도 전용)",
+      "path": "./assets/backgrounds/special/zarude.webp",
+      "category": "mythical",
+      "order": 893,
+      "generation": 8,
+      "sharedCategories": [
+        "mythical"
+      ]
+    },
+    "special/gigantamax": {
+      "id": "special/gigantamax",
+      "title": "거다이맥스 폭풍 (거다이맥스 포켓몬 전용)",
+      "path": "./assets/backgrounds/special/gigantamax.webp",
+      "category": "other",
+      "generation": 8,
+      "order": 3
+    },
+    "special/paradox-ancient": {
+      "id": "special/paradox-ancient",
+      "title": "태고의 대지 (과거 패러독스 포켓몬 전용)",
+      "path": "./assets/backgrounds/special/paradox-ancient.webp",
+      "category": "other",
+      "generation": 9,
+      "order": 984
+    },
+    "special/paradox-future": {
+      "id": "special/paradox-future",
+      "title": "미래의 도시 (미래 패러독스 포켓몬 전용)",
+      "path": "./assets/backgrounds/special/paradox-future.webp",
+      "category": "other",
+      "generation": 9,
+      "order": 990
     }
   }
 }
