@@ -136,6 +136,11 @@
     button:disabled { opacity:.6; cursor:wait; }
     #status { margin:14px 0 0; color:#765444; font-size:14px; overflow-wrap:anywhere; }
     #status:empty { display:none; }
+    .connection-error { margin-top:18px; padding:20px; border:1px solid #e6b6bd; border-radius:14px; background:#fff3f4; color:#773442; overflow-wrap:anywhere; }
+    .connection-error strong { display:block; font-size:16px; }
+    .connection-error p { margin:8px 0 14px; font-size:15px; line-height:1.7; }
+    .connection-error a { color:var(--red); font-size:14px; font-weight:700; }
+    .error-item { scroll-margin-top:24px; }
     #result { margin-top:30px; padding-top:28px; border-top:1px solid var(--line); }
     #result h2 { font-size:23px; color:#41634c; }
     #result p { font-size:14px; }
@@ -195,7 +200,7 @@
       <a class="guide guide-link" href="https://pokemon-list.notion.site/Worker-3f0d03673aaf80e091cbdf7acb35b13e?source=copy_link" target="_blank" rel="noopener noreferrer"><span class="step-number">02</span>나만의 Worker 연결하기</a>
     </div>
     <section class="connect-card" aria-labelledby="connect-title">
-      <span class="step-number">03 · CONNECT</span><h2 id="connect-title">이제, 도감을 연결해볼까요?</h2><p class="intro">준비한 두 주소를 입력하면 노션에 넣을 위젯 링크가 만들어져요.</p>
+      <span class="step-number">03 · CONNECT</span><h2 id="connect-title">이제, 도감을 연결해볼까요?</h2><p class="intro">준비한 두 주소를 입력해주세요. DB와 수집 기록을 확인한 뒤 노션에 넣을 위젯 링크가 만들어져요.</p>
       <form id="connect-form">
         <div class="field"><label for="worker">내 Cloudflare Worker 주소</label><input id="worker" type="url" autocomplete="url" required placeholder="https://나의주소.workers.dev" aria-describedby="worker-help"><p id="worker-help">배포한 개인 Worker의 HTTPS 주소를 붙여넣으세요.</p></div>
         <div class="field"><label for="database">내 노션 수집 DB 주소</label><input id="database" type="url" required placeholder="https://app.notion.com/…" autocomplete="off" aria-describedby="database-help"><p id="database-help">복제한 원본 데이터베이스에서 ‘링크 복사’로 가져오세요.</p></div>
@@ -203,6 +208,7 @@
         <button id="connect" type="submit">연결하고 위젯 주소 만들기</button>
       </form>
       <p id="status" role="status" aria-live="polite"></p>
+      <div id="connection-error" class="connection-error" hidden role="alert"><strong id="error-stage"></strong><p id="error-detail"></p><a id="error-help" href="#troubleshooting">해결 방법 확인하기 ↓</a></div>
       <p class="help-shortcut">연결이나 저장이 잘 안 되나요? <a href="#troubleshooting">오류 확인·해결 방법 보기 ↓</a></p>
       <section id="result" hidden aria-labelledby="result-title">
         <h2 id="result-title">나만의 도감이 준비됐어요</h2><p>아래 주소를 노션 페이지에 붙여넣고 <strong>임베드</strong>를 선택하세요.<br>자동 복사가 되지 않았다면 복사 버튼을 눌러주세요.</p>
@@ -253,15 +259,15 @@
       </div>
       <h3>표시된 오류에 따라 확인해주세요</h3>
       <div class="error-list">
-        <details class="error-item"><summary>복제한 원본 DB 주소와 노션의 연결 추가 권한을 확인해주세요.</summary><div class="error-item-body"><ol><li>본인이 복제한 <strong>‘포켓몬 수집 기록’ 원본 DB</strong>를 열어 링크를 다시 복사해주세요. 템플릿 배포 페이지·상위 일반 페이지·연결된 보기의 주소는 사용하지 않아요.</li><li>원본 DB 오른쪽 위의 <strong>··· → 연결 → 연결 추가</strong>에서 본인이 만든 노션 연결을 추가해주세요.</li><li>연결이 검색되지 않으면 DB와 노션 연결이 <strong>같은 워크스페이스</strong>에 있는지 확인해주세요.</li><li>연결 설정에서 <strong>콘텐츠 읽기·삽입·업데이트</strong>를 허용해주세요. Worker의 <code>NOTION_TOKEN</code>도 이 DB에 추가한 연결의 토큰이어야 해요.</li><li>이 페이지에서 Worker 주소와 원본 DB 주소를 입력해 다시 연결해주세요.</li></ol></div></details>
-        <details class="error-item"><summary>개인 Worker에 연결하지 못했어요. / 허용되지 않은 위젯 주소입니다.</summary><div class="error-item-body"><p>개인 Worker의 HTTPS 주소가 정확한지, 코드 교체 후 <strong>Deploy</strong>를 눌렀는지 확인해주세요.</p><p>이 사이트에서 사용하는 Worker의 일반 변수 <code>WIDGET_ORIGIN</code>은 <code>https://pokemon.loraticon.com</code>으로 설정해주세요. 경로·물음표·해시를 붙이지 않아요. “Worker의 WIDGET_ORIGIN 설정을 확인해주세요.”라는 문구도 같은 설정을 확인하면 돼요.</p><p>주소나 설정을 변경했다면 다시 배포하고, 이 페이지에서 새 위젯 링크를 만들어주세요.</p></div></details>
-        <details class="error-item"><summary>노션 연결 토큰을 확인해주세요. / NOTION_TOKEN을 등록하고 배포해주세요.</summary><div class="error-item-body"><p>Cloudflare Worker의 <strong>Settings → Variables and Secrets</strong>에서 종류 <strong>Secret</strong>, 이름 <code>NOTION_TOKEN</code>으로 노션 연결 토큰을 등록해주세요.</p><p>DB에 추가한 연결의 토큰인지 확인하고, 값을 변경했다면 다시 배포해주세요. 토큰은 이 사이트나 문의 메시지에 입력하지 않아요.</p></div></details>
-        <details class="error-item"><summary>위젯 설정 페이지·설정 블록·설정 내용을 확인해주세요.</summary><div class="error-item-body"><p><strong>‘위젯 설정 페이지를 준비해주세요’</strong>라고 나오면 이 페이지에서 같은 Worker·DB 주소로 다시 연결해주세요. DB 안에 ‘위젯 설정’ 페이지가 자동으로 준비돼요.</p><p><strong>‘설정 블록을 찾지 못했어요’ 또는 ‘설정 내용·형식을 확인해주세요’</strong>라고 나오면 ‘위젯 설정’ 페이지 안의 코드 블록을 변경하거나 삭제했는지 확인해주세요. 변경 전 내용을 복원하고 다시 시도해주세요. 복원이 어렵다면 상세 오류 문구와 설정 창 상단 화면을 알려주세요.</p></div></details>
-        <details class="error-item"><summary>노션의 폼 식별자 '…'를 확인해주세요.</summary><div class="error-item-body"><p>수집 DB에 수동으로 만든 빈 행·예시 행이나, 폼 식별자를 직접 변경한 기록이 있는지 확인해주세요.</p><p><strong>폼 식별자 ''</strong>처럼 따옴표 안이 비어 있다면 식별자가 없는 행이 있어요. <strong>실제 포켓몬 수집 기록이 아닌 빈 행·예시 행만</strong> 제거하고 다시 시도해주세요. 이미 수집한 기록의 식별자를 바꿨다면 원래 값으로 복원해주세요.</p><p>연결 페이지에서 링크가 만들어졌더라도, 기록을 읽는 단계에서 이런 오류가 발생할 수 있어요.</p></div></details>
-        <details class="error-item"><summary>노션의 배경 식별자 '…'를 확인해주세요.</summary><div class="error-item-body"><p>수집 기록의 ‘배경 식별자’를 직접 변경했는지 확인해주세요. 배경 이름이나 이미지 주소를 입력하는 칸이 아니에요. 위젯이 자동으로 저장했던 원래 식별자로 복원해주세요.</p></div></details>
-        <details class="error-item"><summary>노션의 '…' 속성 유형을 확인해주세요. / DB 속성과 연결 설정을 확인해주세요.</summary><div class="error-item-body"><p>원본 수집 DB의 속성 이름과 유형을 아래와 같이 맞춰주세요.</p><table><thead><tr><th scope="col">속성 이름</th><th scope="col">속성 유형</th></tr></thead><tbody><tr><td>이름</td><td>제목</td></tr><tr><td>폼 식별자</td><td>텍스트</td></tr><tr><td>배경 식별자</td><td>텍스트</td></tr><tr><td>즐겨찾기</td><td>체크박스</td></tr></tbody></table><p>노션 연결의 콘텐츠 읽기·삽입·업데이트 권한도 확인해주세요. 오류가 계속되면 최신 Worker 코드로 전체 교체하고 다시 배포해주세요.</p></div></details>
-        <details class="error-item"><summary>노션 응답이 지연되고 있어요. / 노션 요청이 잠시 많아졌어요.</summary><div class="error-item-body"><p>네트워크나 노션 응답이 늦어진 상태일 수 있어요. 잠시 기다린 뒤 위젯을 새로고침하고 다시 확인해주세요.</p><p>저장 중 오류가 났다면 노션 DB에 해당 포켓몬이 이미 추가됐는지 먼저 확인해주세요. 위젯에 ‘저장 상태 확인’ 버튼이 보이면 그 버튼을 눌러 확인해주세요.</p></div></details>
-        <details class="error-item"><summary>ë…¸, ì…처럼 오류 문구의 한글이 깨져요.</summary><div class="error-item-body"><p>Worker 코드를 복사하는 과정에서 한글이 깨졌을 가능성이 있어요. <a href="./downloads/worker.js" download="worker.js">최신 worker.js 받기 ↗</a>로 파일을 다시 받아주세요.</p><p>Cloudflare의 <strong>Edit code</strong>에서 코드를 전체 교체하고 <strong>Deploy</strong>한 뒤 다시 연결해주세요. 기존 <code>NOTION_TOKEN</code>은 유지해요. 새 코드에 한글 대신 <code>\uXXXX</code>가 보이는 것은 정상이에요.</p></div></details>
+        <details class="error-item" id="help-permissions"><summary>복제한 원본 DB 주소와 노션의 연결 추가 권한을 확인해주세요.</summary><div class="error-item-body"><ol><li>본인이 복제한 <strong>‘포켓몬 수집 기록’ 원본 DB</strong>를 열어 링크를 다시 복사해주세요. 템플릿 배포 페이지·상위 일반 페이지·연결된 보기의 주소는 사용하지 않아요.</li><li>원본 DB 오른쪽 위의 <strong>··· → 연결 → 연결 추가</strong>에서 본인이 만든 노션 연결을 추가해주세요.</li><li>연결이 검색되지 않으면 DB와 노션 연결이 <strong>같은 워크스페이스</strong>에 있는지 확인해주세요.</li><li>연결 설정에서 <strong>콘텐츠 읽기·삽입·업데이트</strong>를 허용해주세요. Worker의 <code>NOTION_TOKEN</code>도 이 DB에 추가한 연결의 토큰이어야 해요.</li><li>이 페이지에서 Worker 주소와 원본 DB 주소를 입력해 다시 연결해주세요.</li></ol></div></details>
+        <details class="error-item" id="help-worker"><summary>개인 Worker에 연결하지 못했어요. / 허용되지 않은 위젯 주소입니다.</summary><div class="error-item-body"><p>개인 Worker의 HTTPS 주소가 정확한지, 코드 교체 후 <strong>Deploy</strong>를 눌렀는지 확인해주세요. 수집 기록 응답을 확인하지 못했다면 최신 <a href="./downloads/worker.js" download="worker.js">worker.js 받기 ↗</a>로 코드를 전체 교체하고 배포해주세요.</p><p>이 사이트에서 사용하는 Worker의 일반 변수 <code>WIDGET_ORIGIN</code>은 <code>https://pokemon.loraticon.com</code>으로 설정해주세요. 경로·물음표·해시를 붙이지 않아요. “Worker의 WIDGET_ORIGIN 설정을 확인해주세요.”라는 문구도 같은 설정을 확인하면 돼요.</p><p>주소나 설정을 변경했다면 다시 배포하고, 이 페이지에서 새 위젯 링크를 만들어주세요.</p></div></details>
+        <details class="error-item" id="help-token"><summary>노션 연결 토큰을 확인해주세요. / NOTION_TOKEN을 등록하고 배포해주세요.</summary><div class="error-item-body"><p>Cloudflare Worker의 <strong>Settings → Variables and Secrets</strong>에서 종류 <strong>Secret</strong>, 이름 <code>NOTION_TOKEN</code>으로 노션 연결 토큰을 등록해주세요.</p><p>DB에 추가한 연결의 토큰인지 확인하고, 값을 변경했다면 다시 배포해주세요. 토큰은 이 사이트나 문의 메시지에 입력하지 않아요.</p></div></details>
+        <details class="error-item" id="help-settings"><summary>위젯 설정 페이지·설정 블록·설정 내용을 확인해주세요.</summary><div class="error-item-body"><p><strong>‘위젯 설정 페이지를 준비해주세요’</strong>라고 나오면 이 페이지에서 같은 Worker·DB 주소로 다시 연결해주세요. DB 안에 ‘위젯 설정’ 페이지가 자동으로 준비돼요.</p><p><strong>‘설정 블록을 찾지 못했어요’ 또는 ‘설정 내용·형식을 확인해주세요’</strong>라고 나오면 ‘위젯 설정’ 페이지 안의 코드 블록을 변경하거나 삭제했는지 확인해주세요. 변경 전 내용을 복원하고 다시 시도해주세요. 복원이 어렵다면 상세 오류 문구와 설정 창 상단 화면을 알려주세요.</p></div></details>
+        <details class="error-item" id="help-form"><summary>노션의 폼 식별자 '…'를 확인해주세요.</summary><div class="error-item-body"><p>수집 DB에 수동으로 만든 빈 행·예시 행이나, 폼 식별자를 직접 변경한 기록이 있는지 확인해주세요.</p><p><strong>폼 식별자 ''</strong>처럼 따옴표 안이 비어 있다면 식별자가 없는 행이 있어요. <strong>실제 포켓몬 수집 기록이 아닌 빈 행·예시 행만</strong> 제거하고 다시 시도해주세요. 이미 수집한 기록의 식별자를 바꿨다면 원래 값으로 복원해주세요.</p><p>이 페이지에서 다시 연결하면 수집 기록을 확인한 뒤 새 위젯 링크가 만들어져요.</p></div></details>
+        <details class="error-item" id="help-background"><summary>노션의 배경 식별자 '…'를 확인해주세요.</summary><div class="error-item-body"><p>수집 기록의 ‘배경 식별자’를 직접 변경했는지 확인해주세요. 배경 이름이나 이미지 주소를 입력하는 칸이 아니에요. 위젯이 자동으로 저장했던 원래 식별자로 복원해주세요.</p></div></details>
+        <details class="error-item" id="help-schema"><summary>노션의 '…' 속성 유형을 확인해주세요. / DB 속성과 연결 설정을 확인해주세요.</summary><div class="error-item-body"><p>원본 수집 DB의 속성 이름과 유형을 아래와 같이 맞춰주세요.</p><table><thead><tr><th scope="col">속성 이름</th><th scope="col">속성 유형</th></tr></thead><tbody><tr><td>이름</td><td>제목</td></tr><tr><td>폼 식별자</td><td>텍스트</td></tr><tr><td>배경 식별자</td><td>텍스트</td></tr><tr><td>즐겨찾기</td><td>체크박스</td></tr></tbody></table><p>노션 연결의 콘텐츠 읽기·삽입·업데이트 권한도 확인해주세요. 오류가 계속되면 최신 Worker 코드로 전체 교체하고 다시 배포해주세요.</p></div></details>
+        <details class="error-item" id="help-retry"><summary>노션 응답이 지연되고 있어요. / 노션 요청이 잠시 많아졌어요.</summary><div class="error-item-body"><p>네트워크나 노션 응답이 늦어진 상태일 수 있어요. 잠시 기다린 뒤 위젯을 새로고침하고 다시 확인해주세요.</p><p>저장 중 오류가 났다면 노션 DB에 해당 포켓몬이 이미 추가됐는지 먼저 확인해주세요. 위젯에 ‘저장 상태 확인’ 버튼이 보이면 그 버튼을 눌러 확인해주세요.</p></div></details>
+        <details class="error-item" id="help-encoding"><summary>ë…¸, ì…처럼 오류 문구의 한글이 깨져요.</summary><div class="error-item-body"><p>Worker 코드를 복사하는 과정에서 한글이 깨졌을 가능성이 있어요. <a href="./downloads/worker.js" download="worker.js">최신 worker.js 받기 ↗</a>로 파일을 다시 받아주세요.</p><p>Cloudflare의 <strong>Edit code</strong>에서 코드를 전체 교체하고 <strong>Deploy</strong>한 뒤 다시 연결해주세요. 기존 <code>NOTION_TOKEN</code>은 유지해요. 새 코드에 한글 대신 <code>\uXXXX</code>가 보이는 것은 정상이에요.</p></div></details>
       </div>
       <div class="error-missing"><h3>상세 오류 문구가 보이지 않나요?</h3><ol><li>노션에 임베드한 <strong>동일한 위젯 주소</strong>를 개인 기기의 브라우저에서 직접 열어주세요.</li><li>새로고침한 뒤 톱니바퀴 설정 버튼을 누르고, 설정 창 맨 위의 안내 상자를 확인해주세요.</li><li>브라우저에서는 정상인데 노션에서만 오류가 나면, 새로 만든 위젯 링크로 노션 임베드를 다시 넣어 확인해주세요.</li><li>브라우저에서도 문구가 보이지 않거나 오류가 계속되면, 설정 창 상단이 보이도록 화면을 캡처해주세요.</li></ol></div>
       <p class="error-support">문의할 때는 <strong>상세 오류 문구와 설정 창 상단 화면</strong>을 함께 알려주세요. 캡처에 노션 API 토큰이나 개인 Worker·위젯 주소가 보이면 가려주세요.</p>
@@ -276,6 +282,17 @@
 </div>
 <script src="./assets/collection.js"></script><script>
   const $ = id => document.getElementById(id);
+  function errorHelp(message) {
+    const topics = [
+      [/폼 식별자/, 'form'], [/배경 식별자/, 'background'],
+      [/NOTION_TOKEN|연결 토큰/, 'token'], [/설정 페이지|설정 블록|설정 내용|설정 형식/, 'settings'],
+      [/원본.*DB|수집 DB.*주소|연결 추가 권한|DB 권한/, 'permissions'],
+      [/Worker|WIDGET_ORIGIN|허용되지 않은 위젯 주소/, 'worker'],
+      [/속성 유형|DB 속성/, 'schema'], [/지연|잠시 많아|Timeout/, 'retry'],
+      [/[ëì]/, 'encoding']
+    ];
+    return topics.find(([pattern]) => pattern.test(message))?.[1];
+  }
   // 설치 링크는 주소만 미리 채웁니다. 버튼을 누르기 전에는 API를 호출하지 않습니다.
   let hasInstallParameters = false;
   try {
@@ -286,24 +303,53 @@
   } catch { $('status').textContent = '설치 링크를 확인하고 Worker 주소를 직접 입력해주세요.'; }
   finally { if (hasInstallParameters && typeof history !== 'undefined') history.replaceState(null, '', location.pathname + location.search); }
   $('connect-form').addEventListener('submit', async event => {
-    event.preventDefault(); $('connect').disabled = true; $('result').hidden = true;
-    $('status').textContent = '노션 연결을 확인하고 수집 도감을 준비하는 중…';
+    event.preventDefault();
+    if ($('connect').disabled) return;
+    $('connect').disabled = true; $('result').hidden = true; $('widget-url').value = '';
+    $('connection-error').hidden = true;
+    let stage = '주소 확인';
+    $('status').textContent = '입력한 주소를 확인하는 중…';
     try {
       if (location.protocol !== 'https:') throw new Error('제작자가 제공한 HTTPS 연결 페이지에서 연결해주세요.');
       const worker = PokemonCollection.normalizeWorkerUrl($('worker').value);
       const databaseId = PokemonCollection.normalizeDatabaseId($('database').value);
       const store = new PokemonCollection.RemoteStore(worker, databaseId);
+      stage = '노션 DB 준비';
+      $('status').textContent = '1 / 2 · 노션 연결을 확인하고 수집 도감을 준비하는 중…';
       const data = await store.request('/api/setup', {});
-      const address = new URL('./pokedex.html', location.href).href.split('#')[0] + '#' + new URLSearchParams({ worker, db: data.databaseId || databaseId });
+      const connectedDb = PokemonCollection.normalizeDatabaseId(data.databaseId || databaseId);
+      stage = '수집 기록 확인';
+      $('status').textContent = '2 / 2 · 노션의 수집 기록과 위젯 설정을 불러오는 중…';
+      // 포획 요청 없이 실제 도감 조회 API를 확인합니다. 미확인 포획의 로컬 상태는 변경하지 않습니다.
+      const reader = connectedDb === databaseId ? store : new PokemonCollection.RemoteStore(worker, connectedDb);
+      const records = await reader.request('/api/collection?records=1');
+      if (!records || !Array.isArray(records.records) || !Array.isArray(records.owned) || !Array.isArray(records.pending) ||
+          !Number.isFinite(records.used) || !records.preferences || typeof records.preferences !== 'object' || Array.isArray(records.preferences)) {
+        throw new Error('개인 Worker의 수집 기록 응답을 확인하지 못했어요. 최신 worker.js로 코드를 전체 교체하고 배포해주세요.');
+      }
+      const address = new URL('./pokedex.html', location.href).href.split('#')[0] + '#' + new URLSearchParams({ worker, db: connectedDb });
       $('widget-url').value = address;
       $('result').hidden = false; $('status').textContent = '연결 완료! 위젯 주소가 생성되었습니다.';
       try { await navigator.clipboard.writeText(address); $('status').textContent = '연결 완료! 위젯 주소를 자동으로 복사했습니다. 노션에 임베드해주세요.'; }
       catch { $('status').textContent = '연결 완료! 아래 복사 버튼으로 위젯 주소를 복사해주세요.'; }
-    } catch (error) { $('status').textContent = error.name === 'TimeoutError' ? '응답이 지연되고 있어요. 잠시 후 다시 연결해주세요.' : error.message; }
+    } catch (error) {
+      const message = error.name === 'TimeoutError' ? '응답이 지연되고 있어요. 잠시 후 다시 연결해주세요.' : error.message || '연결을 확인하지 못했어요. 잠시 후 다시 시도해주세요.';
+      $('status').textContent = '';
+      $('error-stage').textContent = stage + ' 단계에서 연결을 완료하지 못했어요';
+      $('error-detail').textContent = message;
+      const topic = errorHelp(message);
+      $('error-help').href = topic ? '#help-' + topic : '#troubleshooting';
+      $('connection-error').hidden = false;
+    }
     finally { $('connect').disabled = false; }
   });
   $('copy').addEventListener('click', async () => {
+    if ($('result').hidden || !$('widget-url').value) return;
     try { await navigator.clipboard.writeText($('widget-url').value); $('status').textContent = '위젯 주소를 복사했어요!'; }
     catch { $('widget-url').select(); $('status').textContent = '주소를 선택했어요. 복사해서 사용해주세요.'; }
+  });
+  $('error-help').addEventListener('click', () => {
+    const target = $($('error-help').href.split('#')[1]);
+    if (target) target.open = true;
   });
 </script></body></html>

@@ -73,9 +73,14 @@ test('한도·중복 거절은 미확인 포획을 해제, 통신 오류는 재�
     assert.equal(await store.pending(), null);
   }
 });
-function setupFixture({ protocol = 'https:', hash = '', clipboardFails = false, responseError = false } = {}) {
+function setupFixture({ protocol = 'https:', hash = '', clipboardFails = false, responseError = false, collectionResponse } = {}) {
   const calls = [], copied = [], elements = new Map([...setupSource.matchAll(/id="([^"]+)"/g)].map(m => [m[1], { value: '', hidden: m[1] === 'result', events: {}, addEventListener(k, fn) { this.events[k] = fn; }, select() { this.selected = true; } }]));
-  const f = client(async (url, init) => { calls.push([url, init]); return responseError ? Response.json({ error: 'DB 권한을 확인해주세요.' }, { status: 503 }) : Response.json({ databaseId: db, databaseUrl: 'https://www.notion.so/' + db }); });
+  const f = client(async (url, init) => {
+    calls.push([url, init]);
+    if (responseError) return Response.json({ error: 'DB 권한을 확인해주세요.' }, { status: 503 });
+    if (new URL(url).pathname === '/api/collection') return collectionResponse ? collectionResponse(url, init) : Response.json(snapshot());
+    return Response.json({ databaseId: db, databaseUrl: 'https://www.notion.so/' + db });
+  });
   Object.assign(f.context, { document: { getElementById: id => elements.get(id) },
     location: { protocol, hash, href: protocol + '//pokemon.loraticon.com/setup' + hash, pathname: '/setup', search: '' },
     history: { calls: [], replaceState(...args) { this.calls.push(args); } },
@@ -84,9 +89,13 @@ function setupFixture({ protocol = 'https:', hash = '', clipboardFails = false, 
   const submit = async () => { elements.get('worker').value ||= 'https://personal.workers.dev'; elements.get('database').value ||= 'https://www.notion.so/' + db; await elements.get('connect-form').events.submit({ preventDefault() {} }); };
   return { ...f, elements, calls, copied, submit };
 }
-test('HTTPS 연결 화면은 두 주소로 DB 준비→링크 생성→자동 복사 및 다시 복사', async () => {
+test('HTTPS 연결 화면은 DB 준비→실제 기록 조회→링크 생성→자동 복사 및 다시 복사', async () => {
   const f = setupFixture(); await f.submit();
-  assert.equal(f.calls.length, 1); assert.equal(JSON.parse(f.calls[0][1].body).databaseId, db);
+  assert.equal(f.calls.length, 2); assert.equal(JSON.parse(f.calls[0][1].body).databaseId, db);
+  assert.equal(new URL(f.calls[1][0]).pathname, '/api/collection');
+  assert.equal(new URL(f.calls[1][0]).searchParams.get('records'), '1');
+  assert.equal(new URL(f.calls[1][0]).searchParams.get('db'), db);
+  assert.deepEqual(f.calls.map(([, init]) => init.method), ['POST', 'GET']);
   const url = new URL(f.elements.get('widget-url').value), params = new URLSearchParams(url.hash.slice(1));
   assert.equal(url.pathname, '/pokedex.html'); assert.equal(params.get('db'), db); assert.equal(params.get('worker'), 'https://personal.workers.dev'); assert.equal(params.has('key'), false);
   assert.equal(f.elements.get('result').hidden, false); assert.equal(f.copied.length, 1);
@@ -96,20 +105,22 @@ test('app.notion.com의 워크스페이스·DB 링크로 연결하고 위장 도
   const f = setupFixture();
   f.elements.get('database').value = 'https://app.notion.com/p/pokemon/Collection-' + db + '?v=view';
   await f.submit();
-  assert.equal(f.calls.length, 1); assert.equal(JSON.parse(f.calls[0][1].body).databaseId, db);
+  assert.equal(f.calls.length, 2); assert.equal(JSON.parse(f.calls[0][1].body).databaseId, db);
   assert.equal(f.elements.get('result').hidden, false); assert.equal(f.copied.length, 1);
   assert.throws(() => f.api.normalizeDatabaseId('https://app.notion.com.evil.example/p/pokemon/' + db));
 });
 test('클립보드 차단 시 수동 복사·선택 안내, API 실패 시 링크를 표시하지 않음', async () => {
   const f = setupFixture({ clipboardFails: true }); await f.submit();
   assert.match(f.elements.get('status').textContent, /복사 버튼/); await f.elements.get('copy').events.click(); assert.equal(f.elements.get('widget-url').selected, true);
-  const bad = setupFixture({ responseError: true }); await bad.submit(); assert.equal(bad.elements.get('result').hidden, true); assert.match(bad.elements.get('status').textContent, /권한/);
+  const bad = setupFixture({ responseError: true }); await bad.submit(); assert.equal(bad.elements.get('result').hidden, true); assert.match(bad.elements.get('error-detail').textContent, /권한/);
+  assert.equal(bad.calls.length, 1); assert.equal(bad.copied.length, 0);
+  assert.match(bad.elements.get('error-stage').textContent, /DB 준비/);
 });
 test('설치 링크는 두 주소만 미리 입력, 버튼 전 API 호출 없음; file 연결은 HTTPS 안내', async () => {
   const f = setupFixture({ hash: '#' + new URLSearchParams({ worker: 'https://personal.workers.dev', db }) });
   assert.equal(f.elements.get('database').value, 'https://www.notion.so/' + db); assert.equal(f.calls.length, 0);
   assert.equal(f.context.history.calls.length, 1); assert.equal(f.context.history.calls[0][2], '/setup');
-  const local = setupFixture({ protocol: 'file:' }); await local.submit(); assert.equal(local.calls.length, 0); assert.match(local.elements.get('status').textContent, /HTTPS/);
+  const local = setupFixture({ protocol: 'file:' }); await local.submit(); assert.equal(local.calls.length, 0); assert.match(local.elements.get('error-detail').textContent, /HTTPS/);
 });
 
 test('오류 안내 바로가기 해시는 유지하고 Worker 설치 매개변수만 주소에서 제거', () => {
@@ -121,4 +132,77 @@ test('오류 안내 바로가기 해시는 유지하고 Worker 설치 매개변�
   assert.equal(invalidInstall.context.history.calls.length, 1);
   assert.match(invalidInstall.elements.get('status').textContent, /설치 링크/);
   assert.equal(invalidInstall.calls.length, 0);
+});
+
+test('DB 준비 후 기록 조회 실패는 정확한 오류와 해당 해결 안내를 표시하고 링크·복사를 차단', async () => {
+  for (const [message, topic] of [
+    ["노션의 폼 식별자 ''를 확인해주세요.", 'form'],
+    ["노션의 배경 식별자 'bad'를 확인해주세요.", 'background'],
+    ['복제한 원본 DB 주소와 노션의 연결 추가 권한을 확인해주세요.', 'permissions'],
+    ['노션 연결 토큰을 확인해주세요.', 'token'],
+    ['개인 Worker에 연결하지 못했어요. 주소와 Worker의 WIDGET_ORIGIN 설정을 확인해주세요.', 'worker'],
+    ['위젯 설정 페이지를 준비해주세요.', 'settings'],
+    ["노션의 '이름' 속성 유형을 확인해주세요.", 'schema'],
+    ['노션 요청이 잠시 많아졌어요.', 'retry'],
+    ['ë…¸, ì…', 'encoding'],
+    ['알 수 없는 오류', null]
+  ]) {
+    const f = setupFixture({ collectionResponse: () => Response.json({ error: message }, { status: 503 }) });
+    await f.submit();
+    assert.equal(f.calls.length, 2);
+    assert.equal(f.elements.get('result').hidden, true);
+    assert.equal(f.elements.get('widget-url').value, '');
+    assert.equal(f.copied.length, 0);
+    assert.equal(f.elements.get('connection-error').hidden, false);
+    assert.match(f.elements.get('error-stage').textContent, /수집 기록 확인/);
+    assert.equal(f.elements.get('error-detail').textContent, message);
+    assert.equal(f.elements.get('error-help').href, topic ? '#help-' + topic : '#troubleshooting');
+    await f.elements.get('error-help').events.click();
+    if (topic) assert.equal(f.elements.get('help-' + topic).open, true);
+    assert.equal(f.elements.get('connect').disabled, false);
+  }
+});
+
+test('실제 조회를 기다리는 동안 결과를 숨기고 중복 연결·복사를 하지 않음', async () => {
+  let release, started;
+  const waiting = new Promise(resolve => { started = resolve; });
+  const f = setupFixture({ collectionResponse: () => { started(); return new Promise(resolve => { release = resolve; }); } });
+  const connecting = f.submit();
+  await waiting;
+  assert.match(f.elements.get('status').textContent, /2 \/ 2.*수집 기록/);
+  assert.equal(f.elements.get('result').hidden, true);
+  assert.equal(f.elements.get('widget-url').value, '');
+  assert.equal(f.elements.get('connect').disabled, true);
+  await f.submit(); await f.elements.get('copy').events.click();
+  assert.equal(f.calls.length, 2); assert.equal(f.copied.length, 0);
+  release(Response.json(snapshot())); await connecting;
+  assert.equal(f.elements.get('result').hidden, false); assert.equal(f.copied.length, 1);
+});
+
+test('조회 실패 재시도에서 이전 링크를 지우며 수정 후 다시 연결 가능', async () => {
+  let fail = false;
+  const f = setupFixture({ collectionResponse: () => fail ? Response.json({ error: '노션 연결 토큰을 확인해주세요.' }, { status: 503 }) : Response.json(snapshot()) });
+  await f.submit(); assert.equal(f.copied.length, 1);
+  fail = true; await f.submit();
+  assert.equal(f.elements.get('widget-url').value, '');
+  await f.elements.get('copy').events.click();
+  assert.equal(f.copied.length, 1); assert.equal(f.elements.get('result').hidden, true);
+  fail = false; await f.submit();
+  assert.equal(f.elements.get('connection-error').hidden, true);
+  assert.equal(f.elements.get('result').hidden, false); assert.equal(f.copied.length, 2);
+});
+
+test('잘못된 Worker의 HTTP 200 응답도 링크 생성 성공으로 처리하지 않음', async () => {
+  for (const response of [
+    () => new Response('<html>Worker 설치 안내</html>', { headers: { 'Content-Type': 'text/html' } }),
+    () => Response.json({ databaseId: db }),
+    () => Response.json(null),
+    () => Response.json({ ...snapshot(), records: null }),
+    () => Response.json({ ...snapshot(), preferences: [] })
+  ]) {
+    const f = setupFixture({ collectionResponse: response }); await f.submit();
+    assert.equal(f.elements.get('result').hidden, true); assert.equal(f.copied.length, 0);
+    assert.match(f.elements.get('error-detail').textContent, /최신 worker.js/);
+    assert.equal(f.elements.get('error-help').href, '#help-worker');
+  }
 });
