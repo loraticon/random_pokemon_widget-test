@@ -111,3 +111,14 @@ test('설치 링크는 두 주소만 미리 입력, 버튼 전 API 호출 없음
   assert.equal(f.context.history.calls.length, 1); assert.equal(f.context.history.calls[0][2], '/setup');
   const local = setupFixture({ protocol: 'file:' }); await local.submit(); assert.equal(local.calls.length, 0); assert.match(local.elements.get('status').textContent, /HTTPS/);
 });
+
+test('오류 안내 바로가기 해시는 유지하고 Worker 설치 매개변수만 주소에서 제거', () => {
+  const help = setupFixture({ hash: '#troubleshooting' });
+  assert.equal(help.context.history.calls.length, 0);
+  assert.equal(help.context.location.hash, '#troubleshooting');
+  assert.equal(help.calls.length, 0);
+  const invalidInstall = setupFixture({ hash: '#worker=invalid' });
+  assert.equal(invalidInstall.context.history.calls.length, 1);
+  assert.match(invalidInstall.elements.get('status').textContent, /설치 링크/);
+  assert.equal(invalidInstall.calls.length, 0);
+});

@@ -46,11 +46,46 @@
     code { overflow-wrap:anywhere; font-size:.9em; background:#ffffff80; padding:2px 4px; border-radius:4px; }
     .hint { font-size:12px; color:var(--muted); margin:18px 0 0; }
     .download { display:inline-flex; align-items:center; justify-content:center; padding:9px 16px; margin-top:19px; border-radius:8px; background:var(--paper); text-decoration:none; font-weight:700; color:var(--red); }
-    .connect-card, .usage-guide { margin-top:38px; padding:38px 42px; border:1px solid var(--line); border-radius:24px; background:var(--paper); box-shadow:0 12px 35px #4c392706; }
+    .connect-card, .usage-guide, .troubleshooting { margin-top:38px; padding:38px 42px; border:1px solid var(--line); border-radius:24px; background:var(--paper); box-shadow:0 12px 35px #4c392706; }
     .connect-card h2 { margin:6px 0 8px; font-size:28px; letter-spacing:-1px; line-height:1.4; }
     .intro { margin:0 0 30px; color:var(--muted); font-size:14px; }
     .usage-guide h2 { margin:0 0 8px; font-size:28px; letter-spacing:-1px; line-height:1.4; }
     .usage-intro { margin:0 0 20px; color:var(--muted); font-size:14px; }
+    .help-shortcut { margin:16px 0 0; font-size:13px; color:var(--muted); }
+    .help-shortcut a { color:var(--red); font-weight:700; }
+    .troubleshooting { scroll-margin-top:24px; }
+    .troubleshooting h2 { margin:0 0 8px; font-size:28px; letter-spacing:-1px; line-height:1.4; }
+    .trouble-intro { margin:0 0 24px; color:var(--muted); font-size:14px; }
+    .error-howto { display:grid; grid-template-columns:1fr 1fr; align-items:start; gap:24px; margin-bottom:26px; }
+    .troubleshooting h3 { margin:0 0 12px; font-size:17px; letter-spacing:-.4px; }
+    .error-steps { margin:0; font-size:14px; color:#57524b; }
+    .error-steps li::marker { color:var(--red); font-weight:700; }
+    .error-location { margin:0; padding:18px; border:1px solid var(--line); border-radius:12px; background:var(--cream); font-size:13px; }
+    .error-location-header { display:flex; align-items:center; justify-content:space-between; gap:10px; font-weight:700; }
+    .error-location-header span { font-size:11px; font-weight:400; color:var(--muted); }
+    .error-location-box { margin:12px 0; padding:12px; border:2px solid var(--red); border-radius:8px; background:#ede9dc; color:#4c6054; }
+    .error-location-box strong { display:block; margin-bottom:4px; color:var(--red); }
+    .error-location-intro { margin:0; color:var(--muted); }
+    .error-location figcaption { margin-top:14px; color:var(--muted); font-size:12px; }
+    .error-list { display:grid; gap:10px; }
+    .error-item { border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+    .error-item summary { position:relative; padding:16px 42px 16px 18px; cursor:pointer; font-size:14px; font-weight:700; line-height:1.6; list-style:none; }
+    .error-item summary::after { content:'+'; position:absolute; top:16px; right:18px; color:var(--red); font-size:18px; line-height:1.3; }
+    .error-item[open] summary { background:#f5f3ee; }
+    .error-item[open] summary::after { content:'−'; }
+    .error-item-body { padding:16px 18px; color:#57524b; font-size:14px; }
+    .error-item-body p { margin:0 0 10px; }
+    .error-item-body p:last-child { margin-bottom:0; }
+    .error-item-body ol { padding-left:20px; }
+    .error-item-body li { margin-bottom:8px; }
+    .error-item-body a { color:var(--red); font-weight:600; }
+    .error-item-body table { width:100%; border-collapse:collapse; margin:10px 0; font-size:13px; }
+    .error-item-body th,.error-item-body td { padding:7px 10px; text-align:left; border-bottom:1px solid var(--line); }
+    .error-item-body th { color:var(--muted); font-weight:600; }
+    .error-missing { margin-top:22px; padding:20px; border-radius:12px; background:var(--cream); color:#57524b; font-size:14px; }
+    .error-missing p { margin:0 0 12px; }
+    .error-missing li { margin-bottom:8px; }
+    .error-support { margin:18px 0 0; color:var(--muted); font-size:13px; }
     .usage-cards { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; padding:0; list-style:none; }
     .usage-card { min-width:0; margin:0; padding:0; border:1px solid var(--line); border-radius:14px; overflow:hidden; }
     .usage-art { display:flex; align-items:center; justify-content:center; gap:18px; min-height:158px; padding:14px; background:var(--cream); }
@@ -131,8 +166,10 @@
       .guides { grid-template-columns:1fr; gap:12px; }
       .guide summary,.guide-link { padding:20px; }
       .guide-content { padding:0 20px 22px; }
-      .connect-card, .usage-guide { padding:27px 20px; margin-top:26px; border-radius:18px; }
-      .connect-card h2, .usage-guide h2 { font-size:25px; }
+      .connect-card, .usage-guide, .troubleshooting { padding:27px 20px; margin-top:26px; border-radius:18px; }
+      .connect-card h2, .usage-guide h2, .troubleshooting h2 { font-size:25px; }
+      .error-howto { grid-template-columns:1fr; gap:18px; }
+      .error-missing { padding:16px; }
       .usage-cards { grid-template-columns:1fr; gap:12px; }
       .usage-art { gap:14px; padding:12px; }
       .usage-detail { max-width:calc(100% - 108px); }
@@ -166,6 +203,7 @@
         <button id="connect" type="submit">연결하고 위젯 주소 만들기</button>
       </form>
       <p id="status" role="status" aria-live="polite"></p>
+      <p class="help-shortcut">연결이나 저장이 잘 안 되나요? <a href="#troubleshooting">오류 확인·해결 방법 보기 ↓</a></p>
       <section id="result" hidden aria-labelledby="result-title">
         <h2 id="result-title">나만의 도감이 준비됐어요</h2><p>아래 주소를 노션 페이지에 붙여넣고 <strong>임베드</strong>를 선택하세요.<br>자동 복사가 되지 않았다면 복사 버튼을 눌러주세요.</p>
         <div class="copy-row"><input id="widget-url" readonly aria-label="노션에 삽입할 개인 위젯 주소"><button id="copy" type="button">위젯 주소 복사</button></div>
@@ -205,6 +243,29 @@
         </li>
       </ol>
     </section>
+    <section class="troubleshooting" id="troubleshooting" aria-labelledby="trouble-title">
+      <span class="step-number">HELP · 연결과 저장</span>
+      <h2 id="trouble-title">연결이 잘 안 되나요?</h2>
+      <p class="trouble-intro">“수집 기록을 확인하지 못했어요.”, “기록을 불러오지 못했어요. 설정을 닫고 다시 열어주세요.”는 여러 원인에 공통으로 표시되는 안내예요. 먼저 설정 창 상단의 <strong>상세 오류</strong>를 확인해주세요.</p>
+      <div class="error-howto">
+        <div><h3>상세 오류는 여기에서 확인해요</h3><ol class="error-steps"><li>위젯 오른쪽 위의 <strong>톱니바퀴 설정 버튼</strong>을 눌러주세요.</li><li>설정 창을 <strong>맨 위까지 스크롤</strong>해주세요.</li><li><strong>‘메인화면 설정’ 제목 바로 아래의 회색 안내 상자</strong>를 확인해주세요. “함께할 포켓몬과 배경을 골라주세요.”보다 위쪽이에요.</li><li>상자에 표시된 문구와 같은 항목을 아래에서 펼쳐 확인해주세요. 연결 페이지에서 오류가 났다면 버튼 아래의 문구를 확인하면 돼요.</li></ol></div>
+        <figure class="error-location"><div aria-hidden="true"><div class="error-location-header">메인화면 설정 <span>저장 · 닫기</span></div><div class="error-location-box"><strong>← 상세 오류가 표시되는 곳</strong>복제한 원본 DB 주소와 노션의 연결 추가 권한을 확인해주세요.</div><p class="error-location-intro">함께할 포켓몬과 배경을 골라주세요.</p></div><figcaption>위치 안내용 예시예요. 실제 오류 문구는 연결 상태에 따라 달라져요.</figcaption></figure>
+      </div>
+      <h3>표시된 오류에 따라 확인해주세요</h3>
+      <div class="error-list">
+        <details class="error-item"><summary>복제한 원본 DB 주소와 노션의 연결 추가 권한을 확인해주세요.</summary><div class="error-item-body"><ol><li>본인이 복제한 <strong>‘포켓몬 수집 기록’ 원본 DB</strong>를 열어 링크를 다시 복사해주세요. 템플릿 배포 페이지·상위 일반 페이지·연결된 보기의 주소는 사용하지 않아요.</li><li>원본 DB 오른쪽 위의 <strong>··· → 연결 → 연결 추가</strong>에서 본인이 만든 노션 연결을 추가해주세요.</li><li>연결이 검색되지 않으면 DB와 노션 연결이 <strong>같은 워크스페이스</strong>에 있는지 확인해주세요.</li><li>연결 설정에서 <strong>콘텐츠 읽기·삽입·업데이트</strong>를 허용해주세요. Worker의 <code>NOTION_TOKEN</code>도 이 DB에 추가한 연결의 토큰이어야 해요.</li><li>이 페이지에서 Worker 주소와 원본 DB 주소를 입력해 다시 연결해주세요.</li></ol></div></details>
+        <details class="error-item"><summary>개인 Worker에 연결하지 못했어요. / 허용되지 않은 위젯 주소입니다.</summary><div class="error-item-body"><p>개인 Worker의 HTTPS 주소가 정확한지, 코드 교체 후 <strong>Deploy</strong>를 눌렀는지 확인해주세요.</p><p>이 사이트에서 사용하는 Worker의 일반 변수 <code>WIDGET_ORIGIN</code>은 <code>https://pokemon.loraticon.com</code>으로 설정해주세요. 경로·물음표·해시를 붙이지 않아요. “Worker의 WIDGET_ORIGIN 설정을 확인해주세요.”라는 문구도 같은 설정을 확인하면 돼요.</p><p>주소나 설정을 변경했다면 다시 배포하고, 이 페이지에서 새 위젯 링크를 만들어주세요.</p></div></details>
+        <details class="error-item"><summary>노션 연결 토큰을 확인해주세요. / NOTION_TOKEN을 등록하고 배포해주세요.</summary><div class="error-item-body"><p>Cloudflare Worker의 <strong>Settings → Variables and Secrets</strong>에서 종류 <strong>Secret</strong>, 이름 <code>NOTION_TOKEN</code>으로 노션 연결 토큰을 등록해주세요.</p><p>DB에 추가한 연결의 토큰인지 확인하고, 값을 변경했다면 다시 배포해주세요. 토큰은 이 사이트나 문의 메시지에 입력하지 않아요.</p></div></details>
+        <details class="error-item"><summary>위젯 설정 페이지·설정 블록·설정 내용을 확인해주세요.</summary><div class="error-item-body"><p><strong>‘위젯 설정 페이지를 준비해주세요’</strong>라고 나오면 이 페이지에서 같은 Worker·DB 주소로 다시 연결해주세요. DB 안에 ‘위젯 설정’ 페이지가 자동으로 준비돼요.</p><p><strong>‘설정 블록을 찾지 못했어요’ 또는 ‘설정 내용·형식을 확인해주세요’</strong>라고 나오면 ‘위젯 설정’ 페이지 안의 코드 블록을 변경하거나 삭제했는지 확인해주세요. 변경 전 내용을 복원하고 다시 시도해주세요. 복원이 어렵다면 상세 오류 문구와 설정 창 상단 화면을 알려주세요.</p></div></details>
+        <details class="error-item"><summary>노션의 폼 식별자 '…'를 확인해주세요.</summary><div class="error-item-body"><p>수집 DB에 수동으로 만든 빈 행·예시 행이나, 폼 식별자를 직접 변경한 기록이 있는지 확인해주세요.</p><p><strong>폼 식별자 ''</strong>처럼 따옴표 안이 비어 있다면 식별자가 없는 행이 있어요. <strong>실제 포켓몬 수집 기록이 아닌 빈 행·예시 행만</strong> 제거하고 다시 시도해주세요. 이미 수집한 기록의 식별자를 바꿨다면 원래 값으로 복원해주세요.</p><p>연결 페이지에서 링크가 만들어졌더라도, 기록을 읽는 단계에서 이런 오류가 발생할 수 있어요.</p></div></details>
+        <details class="error-item"><summary>노션의 배경 식별자 '…'를 확인해주세요.</summary><div class="error-item-body"><p>수집 기록의 ‘배경 식별자’를 직접 변경했는지 확인해주세요. 배경 이름이나 이미지 주소를 입력하는 칸이 아니에요. 위젯이 자동으로 저장했던 원래 식별자로 복원해주세요.</p></div></details>
+        <details class="error-item"><summary>노션의 '…' 속성 유형을 확인해주세요. / DB 속성과 연결 설정을 확인해주세요.</summary><div class="error-item-body"><p>원본 수집 DB의 속성 이름과 유형을 아래와 같이 맞춰주세요.</p><table><thead><tr><th scope="col">속성 이름</th><th scope="col">속성 유형</th></tr></thead><tbody><tr><td>이름</td><td>제목</td></tr><tr><td>폼 식별자</td><td>텍스트</td></tr><tr><td>배경 식별자</td><td>텍스트</td></tr><tr><td>즐겨찾기</td><td>체크박스</td></tr></tbody></table><p>노션 연결의 콘텐츠 읽기·삽입·업데이트 권한도 확인해주세요. 오류가 계속되면 최신 Worker 코드로 전체 교체하고 다시 배포해주세요.</p></div></details>
+        <details class="error-item"><summary>노션 응답이 지연되고 있어요. / 노션 요청이 잠시 많아졌어요.</summary><div class="error-item-body"><p>네트워크나 노션 응답이 늦어진 상태일 수 있어요. 잠시 기다린 뒤 위젯을 새로고침하고 다시 확인해주세요.</p><p>저장 중 오류가 났다면 노션 DB에 해당 포켓몬이 이미 추가됐는지 먼저 확인해주세요. 위젯에 ‘저장 상태 확인’ 버튼이 보이면 그 버튼을 눌러 확인해주세요.</p></div></details>
+        <details class="error-item"><summary>ë…¸, ì…처럼 오류 문구의 한글이 깨져요.</summary><div class="error-item-body"><p>Worker 코드를 복사하는 과정에서 한글이 깨졌을 가능성이 있어요. <a href="./downloads/worker.js" download="worker.js">최신 worker.js 받기 ↗</a>로 파일을 다시 받아주세요.</p><p>Cloudflare의 <strong>Edit code</strong>에서 코드를 전체 교체하고 <strong>Deploy</strong>한 뒤 다시 연결해주세요. 기존 <code>NOTION_TOKEN</code>은 유지해요. 새 코드에 한글 대신 <code>\uXXXX</code>가 보이는 것은 정상이에요.</p></div></details>
+      </div>
+      <div class="error-missing"><h3>상세 오류 문구가 보이지 않나요?</h3><ol><li>노션에 임베드한 <strong>동일한 위젯 주소</strong>를 개인 기기의 브라우저에서 직접 열어주세요.</li><li>새로고침한 뒤 톱니바퀴 설정 버튼을 누르고, 설정 창 맨 위의 안내 상자를 확인해주세요.</li><li>브라우저에서는 정상인데 노션에서만 오류가 나면, 새로 만든 위젯 링크로 노션 임베드를 다시 넣어 확인해주세요.</li><li>브라우저에서도 문구가 보이지 않거나 오류가 계속되면, 설정 창 상단이 보이도록 화면을 캡처해주세요.</li></ol></div>
+      <p class="error-support">문의할 때는 <strong>상세 오류 문구와 설정 창 상단 화면</strong>을 함께 알려주세요. 캡처에 노션 API 토큰이나 개인 Worker·위젯 주소가 보이면 가려주세요.</p>
+    </section>
     <div class="notices">
       <aside class="callout" aria-labelledby="privacy-title"><span class="callout-icon" aria-hidden="true">!</span><div><h2 id="privacy-title">나만의 공간에서 안전하게 사용해주세요</h2><p><strong>개인 기기와 비공개 노션 페이지에서만 사용</strong>하고, 주소를 커뮤니티·SNS·공개 문서에 공유하지 마세요.</p></div></aside>
       <aside class="callout service-notice" aria-label="서비스 안내"><span class="callout-icon" aria-hidden="true">i</span><p>이 프로젝트는 비상업적 팬 프로젝트지만 공식에서 요청할 경우 언제든지 서비스가 중단될 수 있습니다.</p></aside>
@@ -216,12 +277,14 @@
 <script src="./assets/collection.js"></script><script>
   const $ = id => document.getElementById(id);
   // 설치 링크는 주소만 미리 채웁니다. 버튼을 누르기 전에는 API를 호출하지 않습니다.
+  let hasInstallParameters = false;
   try {
     const params = new URLSearchParams(location.hash.slice(1));
+    hasInstallParameters = params.has('worker') || params.has('db');
     if (params.has('worker')) $('worker').value = PokemonCollection.normalizeWorkerUrl(params.get('worker'));
     if (params.has('db')) $('database').value = 'https://www.notion.so/' + PokemonCollection.normalizeDatabaseId(params.get('db'));
   } catch { $('status').textContent = '설치 링크를 확인하고 Worker 주소를 직접 입력해주세요.'; }
-  finally { if (location.hash && typeof history !== 'undefined') history.replaceState(null, '', location.pathname + location.search); }
+  finally { if (hasInstallParameters && typeof history !== 'undefined') history.replaceState(null, '', location.pathname + location.search); }
   $('connect-form').addEventListener('submit', async event => {
     event.preventDefault(); $('connect').disabled = true; $('result').hidden = true;
     $('status').textContent = '노션 연결을 확인하고 수집 도감을 준비하는 중…';
