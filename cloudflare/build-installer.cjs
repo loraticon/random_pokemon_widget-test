@@ -8,7 +8,11 @@ const downloads = path.join(root, 'dist', 'downloads');
 fs.mkdirSync(output, { recursive: true });
 fs.mkdirSync(downloads, { recursive: true });
 esbuild.buildSync({ entryPoints: [path.join(__dirname, 'worker.mjs')], outfile: path.join(output, 'worker.js'),
-  bundle: true, format: 'esm', platform: 'neutral', target: 'es2022', charset: 'utf8', sourcemap: false });
+  bundle: true, format: 'esm', platform: 'neutral', target: 'es2022', charset: 'ascii', sourcemap: false });
+// esbuild가 그대로 두는 정규식·주석도 ASCII로 바꿔 편집기의 문자셋 자동 감지에 영향을 받지 않게 합니다.
+const workerFile = path.join(output, 'worker.js');
+const workerSource = fs.readFileSync(workerFile, 'utf8');
+fs.writeFileSync(workerFile, workerSource.replace(/[^\x00-\x7f]/g, character => '\\u' + character.charCodeAt(0).toString(16).padStart(4, '0')), 'utf8');
 fs.copyFileSync(path.join(__dirname, 'installer', '먼저-읽어주세요.md'), path.join(output, '먼저-읽어주세요.md'));
 // 이전 설치 방식의 생성 파일만 제거합니다. 사용자의 연결 파일이나 secrets는 건드리지 않습니다.
 for (const file of ['wrangler.jsonc', 'package.json', 'package-lock.json', 'install.cjs', '설치.cmd', '.gitignore']) {

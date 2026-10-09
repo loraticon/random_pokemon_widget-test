@@ -48,3 +48,37 @@ test('공용 Pages ZIP은 새 연결 화면·Worker 다운로드 포함, Secret�
   const config = JSON.parse(read('cloudflare/worker.wrangler.jsonc').toString());
   assert.equal(config.durable_objects, undefined); assert.equal(config.migrations, undefined); assert.equal(config.vars.NOTION_TOKEN, undefined);
 });
+
+test('설치 코드를 Windows 문자셋으로 열어도 한국어 DB 속성과 설정 페이지를 정확하게 사용', async () => {
+  const bytes = read('release/personal-worker/worker.js');
+  assert.equal(bytes.some(byte => byte > 127), false, '설치 파일은 ASCII만 사용해야 합니다.');
+  const source = new TextDecoder('windows-1252').decode(bytes);
+  const module = await import('data:text/javascript;base64,' + Buffer.from(source).toString('base64'));
+  const collection = new module.NotionCollection({ NOTION_TOKEN: 'test-only' }, '0123456789abcdef0123456789abcdef');
+  const schema = { '이름': { title: {} }, '폼 식별자': { rich_text: {} }, '배경 식별자': { rich_text: {} }, '즐겨찾기': { checkbox: {} } };
+  let children, writes = 0;
+  collection.notion = async (path, body, method) => {
+    assert.notEqual(method, 'PATCH', '정상 DB 속성을 잘못 읽어 다른 속성을 추가하면 안 됩니다.');
+    if (path.startsWith('databases/')) return { data_sources: [{ id: 'source' }] };
+    if (path === 'data_sources/source') return { properties: schema };
+    if (path === 'data_sources/source/query') {
+      assert.equal(body.filter.property, '폼 식별자');
+      return { results: [], has_more: false };
+    }
+    if (path === 'pages') {
+      writes++;
+      assert.equal(body.properties['이름'].title[0].text.content, '위젯 설정');
+      assert.equal(body.properties['폼 식별자'].rich_text[0].text.content, '__widget_settings_v1__');
+      children = body.children.map(block => ({ ...block, id: 'settings-block' }));
+      return { id: 'settings-page' };
+    }
+    if (path.startsWith('blocks/')) return { results: children, has_more: false };
+    throw Error('Unexpected Notion request: ' + path);
+  };
+  await collection.database(true);
+  const settings = await collection.settings(true);
+  assert.equal(writes, 1);
+  assert.equal(settings.preferences.mode, 'draw');
+  assert.equal(module.normalizeSlug('nidoran♀'), 'nidoran-f');
+  assert.equal(module.normalizeSlug('farfetch’d'), 'farfetchd');
+});
